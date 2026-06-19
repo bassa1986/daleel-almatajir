@@ -1,27 +1,6 @@
-// =============================================================
-// ONE-TIME SEED ENDPOINT — /api/admin/seed
-//
-// Populates: feature categories, 6 platforms (with pricing tiers,
-// hidden costs, pros/cons, features), and 5 starter articles.
-//
-// USAGE:
-//   1. Deploy this file to app/api/admin/seed/route.ts
-//   2. Push to GitHub, let Vercel deploy
-//   3. Call it ONCE: POST https://your-site.vercel.app/api/admin/seed
-//      with header  x-seed-key: <SEED_SECRET>
-//   4. DELETE this file and push again (don't leave a write
-//      endpoint live in production)
-//
-// SEED_SECRET must be set as a Vercel environment variable —
-// pick any long random string, it's just to stop randoms from
-// hitting this URL and wiping/reseeding your DB.
-// =============================================================
-
-import { NextResponse } from 'next/server';
+﻿import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/db';
 import { featureCategories, platforms, articles } from './seed-data';
-// ⚠️ Move seed-data.ts into the same app/api/admin/seed/ folder
-// alongside this route.ts so the relative import above resolves.
 
 export async function POST(request: Request) {
   const key = request.headers.get('x-seed-key');
@@ -32,9 +11,6 @@ export async function POST(request: Request) {
   const log: string[] = [];
 
   try {
-    // ---------------------------------------------------------
-    // 1. Feature categories (idempotent — upsert by slug)
-    // ---------------------------------------------------------
     const categoryIdBySlug = new Map<string, string>();
     for (const cat of featureCategories) {
       const created = await prisma.featureCategory.upsert({
@@ -46,10 +22,6 @@ export async function POST(request: Request) {
     }
     log.push(`✓ ${featureCategories.length} feature categories`);
 
-    // ---------------------------------------------------------
-    // 2. Platforms (idempotent — upsert by slug, then replace
-    //    child rows so re-running this is always safe)
-    // ---------------------------------------------------------
     for (const p of platforms) {
       const platform = await prisma.platform.upsert({
         where: { slug: p.slug },
@@ -94,7 +66,6 @@ export async function POST(request: Request) {
         },
       });
 
-      // Replace tiers
       await prisma.pricingTier.deleteMany({ where: { platformId: platform.id } });
       await prisma.pricingTier.createMany({
         data: p.pricingTiers.map((t, i) => ({
@@ -112,7 +83,6 @@ export async function POST(request: Request) {
         })),
       });
 
-      // Replace hidden costs
       await prisma.hiddenCost.deleteMany({ where: { platformId: platform.id } });
       await prisma.hiddenCost.createMany({
         data: p.hiddenCosts.map((c, i) => ({
@@ -125,7 +95,6 @@ export async function POST(request: Request) {
         })),
       });
 
-      // Replace pros/cons
       await prisma.platformPro.deleteMany({ where: { platformId: platform.id } });
       await prisma.platformCon.deleteMany({ where: { platformId: platform.id } });
       await prisma.platformPro.createMany({
@@ -135,7 +104,6 @@ export async function POST(request: Request) {
         data: p.cons.map((textAr, i) => ({ platformId: platform.id, textAr, sortOrder: i + 1 })),
       });
 
-      // Replace features
       await prisma.platformFeature.deleteMany({ where: { platformId: platform.id } });
       await prisma.platformFeature.createMany({
         data: p.features.map((f) => {
@@ -154,9 +122,6 @@ export async function POST(request: Request) {
       log.push(`✓ ${p.slug} (${p.pricingTiers.length} tiers, ${p.hiddenCosts.length} hidden costs, ${p.features.length} features)`);
     }
 
-    // ---------------------------------------------------------
-    // 3. Articles (idempotent — upsert by slug)
-    // ---------------------------------------------------------
     for (const a of articles) {
       await prisma.article.upsert({
         where: { slug: a.slug },
