@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import Link from 'next/link';
 import { AlertTriangle } from 'lucide-react';
 import { prisma } from '@/lib/db';

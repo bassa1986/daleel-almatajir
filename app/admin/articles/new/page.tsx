@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { ArticleForm } from '@/components/admin/article-form';
 
 export default function NewArticlePage() {

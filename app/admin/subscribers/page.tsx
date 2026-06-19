@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { prisma } from '@/lib/db';
 import { SubscribersView } from '@/components/admin/subscribers-view';
 
