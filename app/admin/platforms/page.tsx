@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+export const dynamic = 'force-dynamic';
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 import Link from 'next/link';
 import { prisma } from '@/lib/db';
 

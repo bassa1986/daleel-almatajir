@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+<<<<<<< HEAD
 import { prisma } from '@/lib/db';
 
 const BASE_URL = 'https://daleel-almatajir.com';
@@ -48,4 +49,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   return [...staticRoutes, ...vsRoutes, ...platformRoutes, ...articleRoutes];
+=======
+
+export const dynamic = 'force-dynamic';
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+    { url: 'https://daleel-almatajir.com', lastModified: new Date(), changeFrequency: 'daily', priority: 1.0 },
+  ];
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 }

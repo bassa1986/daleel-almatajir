@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿'use client';
+=======
+'use client';
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -47,7 +51,11 @@ export function PlatformGrid({ platforms }: PlatformGridProps) {
               transition={{ delay: i * 0.07, duration: 0.5 }}
             >
               <Link
+<<<<<<< HEAD
                 href={`/muqaranat/${platform.slug}`}
+=======
+                href={`/مقارنات/${platform.slug}`}
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
                 className="group block glass glass-hover h-full"
               >
                 <div className="p-6 flex flex-col h-full">
@@ -111,4 +119,7 @@ export function PlatformGrid({ platforms }: PlatformGridProps) {
     </section>
   );
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f

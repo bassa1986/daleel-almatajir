@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿'use client';
+=======
+'use client';
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -153,7 +157,11 @@ export function CalculatorTeaser({ platforms }: CalculatorTeaserProps) {
           {/* CTA */}
           <div className="text-center">
             <Link
+<<<<<<< HEAD
               href={`/calculator?r=${inputs.monthlyRevenue}&o=${inputs.monthlyOrders}&c=SAR&s=0`}
+=======
+              href={`/حاسبة-التكاليف?r=${inputs.monthlyRevenue}&o=${inputs.monthlyOrders}&c=SAR&s=0`}
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
               className="btn-primary text-sm px-8 py-3"
             >
               عرض المقارنة الكاملة لجميع المنصات الست
@@ -165,4 +173,7 @@ export function CalculatorTeaser({ platforms }: CalculatorTeaserProps) {
     </section>
   );
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f

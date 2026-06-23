@@ -20,9 +20,12 @@ dist/
 prisma/dev.db
 prisma/dev.db-journal
 
+<<<<<<< HEAD
 # Scraper output (reports are uploaded as workflow artifacts instead)
 scripts/scrape/output/
 
+=======
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 # Logs
 npm-debug.log*
 yarn-debug.log*

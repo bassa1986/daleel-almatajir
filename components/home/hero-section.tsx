@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿'use client';
+=======
+'use client';
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -75,13 +79,21 @@ export function HeroSection({ platforms }: HeroSectionProps) {
         {/* CTAs */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
           <Link
+<<<<<<< HEAD
             href="/calculator"
+=======
+            href="/حاسبة-التكاليف"
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
             className="btn-primary text-base px-8 py-4 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-shadow"
           >
             احسب تكلفتك الآن
             <ArrowLeft size={18} />
           </Link>
+<<<<<<< HEAD
           <Link href="/muqaranat" className="btn-glass text-base px-8 py-4">
+=======
+          <Link href="/مقارنات" className="btn-glass text-base px-8 py-4">
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
             قارن المنصات
             <ArrowLeft size={18} />
           </Link>
@@ -109,7 +121,11 @@ export function HeroSection({ platforms }: HeroSectionProps) {
               transition={{ delay: 0.4 + i * 0.08, duration: 0.5, ease: 'easeOut' }}
             >
               <Link
+<<<<<<< HEAD
                 href={`/muqaranat/${platform.slug}`}
+=======
+                href={`/مقارنات/${platform.slug}`}
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
                 className="group flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm hover:border-white/20 hover:bg-white/10 transition-all duration-200"
               >
                 <span
@@ -141,4 +157,7 @@ export function HeroSection({ platforms }: HeroSectionProps) {
     </section>
   );
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f

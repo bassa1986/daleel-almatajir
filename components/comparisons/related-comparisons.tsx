@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿import Link from 'next/link';
+=======
+import Link from 'next/link';
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 import { ArrowLeft } from 'lucide-react';
 
 const PLATFORM_NAMES_AR: Record<string, string> = {
@@ -46,7 +50,11 @@ export function RelatedComparisons({ currentSlugA, currentSlugB }: RelatedCompar
         {related.map(([a, b]) => (
           <Link
             key={`${a}-${b}`}
+<<<<<<< HEAD
             href={`/muqaranat/${a}-vs-${b}`}
+=======
+            href={`/مقارنات/${a}-vs-${b}`}
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
             className="glass glass-hover flex items-center gap-3 p-4"
           >
             <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: PLATFORM_COLORS[a] }} />
@@ -61,4 +69,7 @@ export function RelatedComparisons({ currentSlugA, currentSlugB }: RelatedCompar
     </section>
   );
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f

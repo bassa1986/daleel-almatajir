@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿'use client';
+=======
+'use client';
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -45,7 +49,11 @@ export function LatestArticles({ articles }: LatestArticlesProps) {
             <h2 className="text-4xl font-extrabold text-white mb-2">أحدث المقالات</h2>
             <p className="text-slate-400">مقالات ودراسات محدّثة من فريق دليل المتاجر</p>
           </div>
+<<<<<<< HEAD
           <Link href="/adilla" className="btn-glass text-sm px-5 py-2.5">
+=======
+          <Link href="/أدلة" className="btn-glass text-sm px-5 py-2.5">
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
             جميع المقالات <ArrowLeft size={14} />
           </Link>
         </motion.div>
@@ -60,7 +68,11 @@ export function LatestArticles({ articles }: LatestArticlesProps) {
               transition={{ delay: i * 0.1, duration: 0.5 }}
             >
               <Link
+<<<<<<< HEAD
                 href={`/adilla/${article.slug}`}
+=======
+                href={`/أدلة/${article.slug}`}
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
                 className="group glass glass-hover flex flex-col h-full"
               >
                 {/* Featured image */}
@@ -112,4 +124,7 @@ export function LatestArticles({ articles }: LatestArticlesProps) {
     </section>
   );
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿'use client';
+=======
+'use client';
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -7,10 +11,17 @@ import { Menu, X, ArrowLeft } from 'lucide-react';
 import { cn } from '@/lib/cn';
 
 const NAV_ITEMS = [
+<<<<<<< HEAD
   { href: '/muqaranat', labelAr: 'المقارنات' },
   { href: '/calculator', labelAr: 'الحاسبة' },
   { href: '/adilla', labelAr: 'الأدلة' },
   { href: '/case-studies', labelAr: 'دراسات الحالة' },
+=======
+  { href: '/مقارنات', labelAr: 'المقارنات' },
+  { href: '/حاسبة-التكاليف', labelAr: 'الحاسبة' },
+  { href: '/أدلة', labelAr: 'الأدلة' },
+  { href: '/دراسات-الحالة', labelAr: 'دراسات الحالة' },
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 ];
 
 export function SiteHeader() {
@@ -54,7 +65,11 @@ export function SiteHeader() {
 
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
+<<<<<<< HEAD
             <Link href="/calculator" className="btn-primary text-sm px-5 py-2.5">
+=======
+            <Link href="/حاسبة-التكاليف" className="btn-primary text-sm px-5 py-2.5">
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
               احسب تكلفتك
               <ArrowLeft size={15} />
             </Link>
@@ -111,7 +126,11 @@ export function SiteHeader() {
                 ))}
               </div>
               <Link
+<<<<<<< HEAD
                 href="/calculator"
+=======
+                href="/حاسبة-التكاليف"
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
                 onClick={() => setMenuOpen(false)}
                 className="btn-primary w-full text-sm py-3 justify-center"
               >
@@ -124,5 +143,8 @@ export function SiteHeader() {
     </>
   );
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f

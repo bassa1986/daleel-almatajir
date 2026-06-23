@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿'use client';
+=======
+'use client';
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
@@ -81,7 +85,11 @@ export function MiniCalculatorEmbedded({ configA, configB }: MiniCalculatorEmbed
         )}
 
         <div className="text-center">
+<<<<<<< HEAD
           <Link href="/calculator" className="btn-primary text-sm px-6 py-3">
+=======
+          <Link href="/حاسبة-التكاليف" className="btn-primary text-sm px-6 py-3">
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
             قارن مع جميع المنصات الست
             <ArrowLeft size={15} />
           </Link>
@@ -90,4 +98,7 @@ export function MiniCalculatorEmbedded({ configA, configB }: MiniCalculatorEmbed
     </section>
   );
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f

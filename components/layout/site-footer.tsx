@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿'use client';
+=======
+'use client';
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 
 import Link from 'next/link';
 import { useState } from 'react';
@@ -7,6 +11,7 @@ import { Mail, Twitter, Linkedin, Youtube, ArrowLeft, CheckCircle2 } from 'lucid
 import { subscribeEmail } from '@/lib/actions/subscribe';
 
 const NAV_LINKS = [
+<<<<<<< HEAD
   { href: '/muqaranat', labelAr: 'المقارنات' },
   { href: '/calculator', labelAr: 'الحاسبة' },
   { href: '/adilla', labelAr: 'الأدلة' },
@@ -16,6 +21,17 @@ const NAV_LINKS = [
 const LEGAL_LINKS = [
   { href: '/privacy', labelAr: 'سياسة الخصوصية' },
   { href: '/affiliate-disclosure', labelAr: 'إفصاح الروابط التابعة' },
+=======
+  { href: '/مقارنات', labelAr: 'المقارنات' },
+  { href: '/حاسبة-التكاليف', labelAr: 'الحاسبة' },
+  { href: '/أدلة', labelAr: 'الأدلة' },
+  { href: '/دراسات-الحالة', labelAr: 'دراسات الحالة' },
+];
+
+const LEGAL_LINKS = [
+  { href: '/سياسة-الخصوصية', labelAr: 'سياسة الخصوصية' },
+  { href: '/إفصاح-التابع', labelAr: 'إفصاح الروابط التابعة' },
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 ];
 
 export function SiteFooter() {
@@ -166,5 +182,8 @@ export function SiteFooter() {
     </footer>
   );
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f

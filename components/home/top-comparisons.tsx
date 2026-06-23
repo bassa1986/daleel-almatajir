@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿'use client';
+=======
+'use client';
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -62,7 +66,11 @@ export function TopComparisons() {
               transition={{ delay: i * 0.06, duration: 0.5 }}
             >
               <Link
+<<<<<<< HEAD
                 href={`/muqaranat/${vsSlug(slugA, slugB)}`}
+=======
+                href={`/مقارنات/${vsSlug(slugA, slugB)}`}
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
                 className="group glass glass-hover flex items-center gap-4 p-5"
               >
                 {/* Platform A */}
@@ -108,7 +116,11 @@ export function TopComparisons() {
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
         >
+<<<<<<< HEAD
           <Link href="/muqaranat" className="btn-glass text-sm px-6 py-3">
+=======
+          <Link href="/مقارنات" className="btn-glass text-sm px-6 py-3">
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
             عرض جميع المقارنات
             <ArrowLeft size={15} />
           </Link>
@@ -117,4 +129,7 @@ export function TopComparisons() {
     </section>
   );
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
