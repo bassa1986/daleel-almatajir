@@ -1,0 +1,224 @@
+// =============================================================
+// دليل المتاجر (Daleel Al-Matajir) — Prisma Schema
+// Arabic E-Commerce Platform Intelligence Hub
+// =============================================================
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// -------------------------------------------------------------
+// PLATFORM
+// -------------------------------------------------------------
+model Platform {
+  id                  String   @id @default(cuid())
+  slug                String   @unique
+  nameAr              String
+  nameEn              String
+  origin              String // 'GCC' | 'Global'
+  logo                String
+  brandColor          String
+  websiteUrl          String
+  affiliateUrl        String
+  cookieDurationDays  Int      @default(30)
+  commissionInfo      String?
+  descriptionAr       String   @db.Text
+  rating              Float    @default(0)
+  setupFeeSAR         Float    @default(0)
+  warningThresholdSAR Float?
+  warningTextAr       String?
+  isEnterprise        Boolean  @default(false)
+  quickVerdictAr      String?  @db.Text
+  bestForTypes        String[]
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  pricingTiers   PricingTier[]
+  features       PlatformFeature[]
+  hiddenCosts    HiddenCost[]
+  pros           PlatformPro[]
+  cons           PlatformCon[]
+  affiliateLinks ArticleAffiliateLink[]
+
+  @@map("platforms")
+}
+
+// -------------------------------------------------------------
+// PRICING TIER
+// -------------------------------------------------------------
+model PricingTier {
+  id                String   @id @default(cuid())
+  platformId        String
+  platform          Platform @relation(fields: [platformId], references: [id], onDelete: Cascade)
+  name              String
+  nameAr            String
+  minRevenueSAR     Float
+  maxRevenueSAR     Float?
+  monthlyFeeSAR     Float
+  transactionFeePct Float    @default(0)
+  perOrderFee       Float    @default(0)
+  maxOrders         Int?
+  annualRevLimitSAR Float?
+  sortOrder         Int      @default(0)
+
+  @@index([platformId])
+  @@map("pricing_tiers")
+}
+
+// -------------------------------------------------------------
+// HIDDEN COST
+// NOTE: `scenarios` was added (beyond the original spec) to support
+// the WooCommerce minimal / typical / managed cost scenarios described
+// in SECTION 3 of the build prompt. For platforms without scenario-based
+// costs (e.g. Magento), leave this array empty — the cost simply applies
+// whenever `isRequired` is true (or is shown as an optional add-on).
+// -------------------------------------------------------------
+model HiddenCost {
+  id         String   @id @default(cuid())
+  platformId String
+  platform   Platform @relation(fields: [platformId], references: [id], onDelete: Cascade)
+  labelAr    String
+  monthlySAR Float
+  isRequired Boolean  @default(true)
+  scenarios  String[] @default([]) // e.g. ['minimal','typical','managed']
+  sortOrder  Int      @default(0)
+
+  @@index([platformId])
+  @@map("hidden_costs")
+}
+
+// -------------------------------------------------------------
+// FEATURE CATEGORY
+// -------------------------------------------------------------
+model FeatureCategory {
+  id        String            @id @default(cuid())
+  nameAr    String
+  slug      String            @unique
+  sortOrder Int               @default(0)
+  features  PlatformFeature[]
+
+  @@map("feature_categories")
+}
+
+// -------------------------------------------------------------
+// PLATFORM FEATURE
+// -------------------------------------------------------------
+model PlatformFeature {
+  id            String          @id @default(cuid())
+  platformId    String
+  platform      Platform        @relation(fields: [platformId], references: [id], onDelete: Cascade)
+  categoryId    String
+  category      FeatureCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  featureNameAr String
+  supported     String // 'yes' | 'no' | 'partial'
+  noteAr        String?
+
+  @@index([platformId])
+  @@index([categoryId])
+  @@map("platform_features")
+}
+
+// -------------------------------------------------------------
+// PLATFORM PROS / CONS
+// -------------------------------------------------------------
+model PlatformPro {
+  id         String   @id @default(cuid())
+  platformId String
+  platform   Platform @relation(fields: [platformId], references: [id], onDelete: Cascade)
+  textAr     String
+  sortOrder  Int      @default(0)
+
+  @@index([platformId])
+  @@map("platform_pros")
+}
+
+model PlatformCon {
+  id         String   @id @default(cuid())
+  platformId String
+  platform   Platform @relation(fields: [platformId], references: [id], onDelete: Cascade)
+  textAr     String
+  sortOrder  Int      @default(0)
+
+  @@index([platformId])
+  @@map("platform_cons")
+}
+
+// -------------------------------------------------------------
+// ARTICLE
+// -------------------------------------------------------------
+model Article {
+  id               String    @id @default(cuid())
+  slug             String    @unique
+  titleAr          String
+  bodyHtml         String    @db.Text
+  category         String // 'مقارنات' | 'مراجعات' | 'أدلة' | 'دراسات الحالة' | 'أخبار'
+  status           String    @default("draft") // 'draft' | 'published'
+  featuredImage    String?
+  featuredImageAlt String?
+  tags             String[]
+  metaTitleAr      String?
+  metaDescAr       String?
+  readingTimeMin   Int       @default(5)
+  authorName       String    @default("دليل المتاجر")
+  publishedAt      DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+
+  affiliateLinks ArticleAffiliateLink[]
+
+  @@index([status, publishedAt])
+  @@map("articles")
+}
+
+// -------------------------------------------------------------
+// ARTICLE AFFILIATE LINK
+// -------------------------------------------------------------
+model ArticleAffiliateLink {
+  id          String   @id @default(cuid())
+  articleId   String
+  article     Article  @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  platformId  String
+  platform    Platform @relation(fields: [platformId], references: [id], onDelete: Cascade)
+  url         String
+  displayText String
+
+  @@index([articleId])
+  @@index([platformId])
+  @@map("article_affiliate_links")
+}
+
+// -------------------------------------------------------------
+// SUBSCRIBER
+// -------------------------------------------------------------
+model Subscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  source    String // 'footer' | 'calculator' | 'article' | 'comparison'
+  createdAt DateTime @default(now())
+
+  @@map("subscribers")
+}
+
+// -------------------------------------------------------------
+// SITE SETTINGS
+// -------------------------------------------------------------
+model SiteSettings {
+  id               String  @id @default(cuid())
+  siteNameAr       String  @default("دليل المتاجر")
+  taglineAr        String?
+  contactEmail     String?
+  twitterUrl       String?
+  linkedinUrl      String?
+  youtubeUrl       String?
+  disclosureTextAr String? @db.Text
+  defaultMetaTitle String?
+  defaultMetaDesc  String? @db.Text
+
+  @@map("site_settings")
+}

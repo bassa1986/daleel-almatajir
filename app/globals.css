@@ -1,0 +1,214 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* =============================================================
+   دليل المتاجر — Design tokens (Tailwind CSS 4, CSS-first config)
+   Dark-only · RTL-first · Cairo typography
+   ============================================================= */
+
+@theme {
+  /* ---- Surfaces -------------------------------------------------- */
+  --color-background: #0a0f1e; /* deep navy */
+  --color-surface: #0f1629; /* slightly raised navy (also admin sidebar) */
+  --color-surface-raised: #141b2e;
+
+  /* ---- Accents ---------------------------------------------------- */
+  --color-primary: #3b82f6; /* electric blue */
+  --color-secondary: #06b6d4; /* cyan */
+
+  /* ---- Semantic state colors -------------------------------------- */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+
+  /* ---- Admin CMS (LTR layout) -------------------------------------- */
+  --color-admin-sidebar: #0f1629;
+  --color-admin-background: #0b1120;
+
+  /* ---- Typography --------------------------------------------------
+     Cairo is the only typeface across the site (headings + body), loaded
+     via next/font/google as the --font-cairo CSS variable in app/layout.tsx.
+     We deliberately avoid letter-spacing tweaks on display sizes: Arabic
+     script relies on letter joining, and Latin-style tracking distorts it.
+  ------------------------------------------------------------------- */
+  --font-sans: var(--font-cairo), ui-sans-serif, system-ui, sans-serif;
+
+  --text-hero: 4.5rem; /* 72px — homepage H1 */
+  --text-hero--line-height: 1.05;
+  --text-hero--font-weight: 800;
+
+  --text-display: 3rem; /* 48px — section/page H1s */
+  --text-display--line-height: 1.15;
+  --text-display--font-weight: 800;
+
+  /* ---- Radii --------------------------------------------------------- */
+  --radius-panel: 1.25rem;
+  --radius-pill: 999px;
+
+  /* ---- Shadows / glow ------------------------------------------------- */
+  --shadow-glass: 0 8px 32px -8px rgb(0 0 0 / 0.45);
+  --shadow-glow-primary: 0 0 40px -8px color-mix(in srgb, var(--color-primary) 55%, transparent);
+  --shadow-glow-secondary: 0 0 40px -8px color-mix(in srgb, var(--color-secondary) 55%, transparent);
+}
+
+/* Enables `dark:` variants driven by next-themes' class strategy.
+   The product is dark-only — this exists mainly so any future
+   light-mode work (or third-party components expecting `.dark`)
+   has a hook, per the brief's "dark is default and only mode". */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* =============================================================
+   Base layer
+   ============================================================= */
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-slate-200 font-sans antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-extrabold text-white;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+    color: #fff;
+  }
+
+  /* Dark scrollbars for both RTL public pages and LTR admin pages */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(255 255 255 / 0.12);
+    border-radius: var(--radius-pill);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(255 255 255 / 0.2);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* =============================================================
+   Component layer — shared primitives used across all sections
+   ============================================================= */
+
+@layer components {
+  /* Glass panel: bg-white/5 + backdrop-blur + border-white/10, per spec.
+     This is the core surface treatment for cards, banners, modals. */
+  .glass {
+    @apply rounded-[var(--radius-panel)] border border-white/10 bg-white/5 backdrop-blur-md;
+    box-shadow: var(--shadow-glass);
+  }
+
+  /* Add to .glass for interactive cards (platform grid, comparison cards). */
+  .glass-hover {
+    @apply transition-all duration-300;
+  }
+  .glass-hover:hover {
+    @apply -translate-y-0.5 border-white/20;
+    box-shadow: var(--shadow-glass), var(--shadow-glow-primary);
+  }
+
+  /* ---- Buttons ------------------------------------------------------
+     NOTE: variants below intentionally do NOT `@apply btn` (or any other
+     custom class) — Tailwind CSS 4's @apply only accepts genuine utility
+     classes, not other custom/component classes defined via @apply. Each
+     variant repeats the shared base styles directly to avoid an
+     "unknown utility class" build error. */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-primary text-white hover:bg-blue-400 focus-visible:ring-primary;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background bg-secondary text-slate-950 hover:bg-cyan-300 focus-visible:ring-secondary;
+  }
+  .btn-glass {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background border border-white/10 bg-white/5 text-slate-100 backdrop-blur-md hover:border-white/20 hover:bg-white/10 focus-visible:ring-white/30;
+  }
+
+  /* ---- Badges --------------------------------------------------------
+     Used for origin tags (خليجي/عالمي), article categories, status pills,
+     and feature-matrix support indicators. Same @apply-chaining caveat
+     as buttons above — each variant is fully self-contained. */
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium;
+  }
+  .badge-primary {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium border border-primary/30 bg-primary/15 text-blue-300;
+  }
+  .badge-secondary {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium border border-secondary/30 bg-secondary/15 text-cyan-300;
+  }
+  .badge-success {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium border border-success/30 bg-success/15 text-emerald-300;
+  }
+  .badge-warning {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium border border-warning/30 bg-warning/15 text-amber-300;
+  }
+  .badge-danger {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium border border-danger/30 bg-danger/15 text-red-300;
+  }
+  .badge-neutral {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium border border-white/10 bg-white/5 text-slate-300;
+  }
+
+  /* ---- Numeric "figure" treatment -------------------------------------
+     Applied to prices, percentages, and counts throughout comparison
+     tables and the calculator so columns of numbers align like a
+     dashboard/ticker rather than flowing like prose. */
+  .figure {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings:
+      'tnum' 1,
+      'lnum' 1;
+  }
+
+  /* ---- Hero mesh gradient (Section 5 homepage hero) -------------------- */
+  .mesh-gradient {
+    background-color: var(--color-background);
+    background-image: radial-gradient(
+        ellipse 80% 50% at 20% -10%,
+        color-mix(in srgb, var(--color-primary) 35%, transparent),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 60% 50% at 100% 0%,
+        color-mix(in srgb, var(--color-secondary) 25%, transparent),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 50% 100%,
+        color-mix(in srgb, var(--color-primary) 15%, transparent),
+        transparent
+      );
+  }
+
+  /* ---- Section divider -------------------------------------------------- */
+  .section-divider {
+    @apply h-px w-full bg-gradient-to-l from-transparent via-white/10 to-transparent;
+  }
+}

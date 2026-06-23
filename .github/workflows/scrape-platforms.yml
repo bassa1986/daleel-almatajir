@@ -1,0 +1,60 @@
+name: Scrape Platform Pricing
+
+# Two ways to trigger this:
+#   1. Automatically, on the schedule below (cron, UTC time)
+#   2. Manually, via the "Run workflow" button on the Actions tab in GitHub
+on:
+  schedule:
+    # Runs every Monday at 03:00 UTC (~06:00 Saudi Arabia time).
+    # Adjust the cron expression to change frequency — https://crontab.guru
+    - cron: '0 3 * * 1'
+
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Write results to the database? (false = dry run / report only)'
+        required: true
+        type: boolean
+        default: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma Client
+        run: npx prisma generate
+
+      - name: Run scraper (dry run)
+        if: github.event_name == 'schedule' || inputs.apply != true
+        run: npm run scrape:dry
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DIRECT_URL: ${{ secrets.DIRECT_URL }}
+
+      - name: Run scraper (apply to database)
+        if: github.event_name == 'workflow_dispatch' && inputs.apply == true
+        run: npm run scrape:apply
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DIRECT_URL: ${{ secrets.DIRECT_URL }}
+
+      - name: Upload scrape report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: scrape-report-${{ github.run_id }}
+          path: scripts/scrape/output/*.json
+          retention-days: 90

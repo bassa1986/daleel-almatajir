@@ -1,0 +1,23 @@
+{
+  // Separate config for running prisma/seed.ts via ts-node.
+  //
+  // Why this file exists: the main tsconfig.json uses
+  // module: "esnext" / moduleResolution: "bundler" (required by Next.js 15),
+  // which ts-node cannot execute directly. The common workaround —
+  // `ts-node --compiler-options {"module":"CommonJS"}` — embeds raw JSON on
+  // the command line, which breaks on Windows (cmd.exe/PowerShell mangle the
+  // quotes, causing "prisma db seed" to fail with a JSON parse error).
+  //
+  // Pointing ts-node at this file via `--project` avoids that entirely.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "noEmit": false,
+    "esModuleInterop": true,
+    "isolatedModules": false
+  },
+  "ts-node": {
+    "transpileOnly": true
+  }
+}
