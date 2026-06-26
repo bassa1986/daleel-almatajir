@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿'use client';
-=======
 'use client';
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -11,17 +7,10 @@ import { Menu, X, ArrowLeft } from 'lucide-react';
 import { cn } from '@/lib/cn';
 
 const NAV_ITEMS = [
-<<<<<<< HEAD
-  { href: '/muqaranat', labelAr: 'المقارنات' },
-  { href: '/calculator', labelAr: 'الحاسبة' },
-  { href: '/adilla', labelAr: 'الأدلة' },
-  { href: '/case-studies', labelAr: 'دراسات الحالة' },
-=======
-  { href: '/مقارنات', labelAr: 'المقارنات' },
-  { href: '/حاسبة-التكاليف', labelAr: 'الحاسبة' },
-  { href: '/أدلة', labelAr: 'الأدلة' },
-  { href: '/دراسات-الحالة', labelAr: 'دراسات الحالة' },
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
+  { href: '/Ù…Ù‚Ø§Ø±Ù†Ø§Øª', labelAr: 'Ø§Ù„Ù…Ù‚Ø§Ø±Ù†Ø§Øª' },
+  { href: '/Ø­Ø§Ø³Ø¨Ø©-Ø§Ù„ØªÙƒØ§Ù„ÙŠÙ', labelAr: 'Ø§Ù„Ø­Ø§Ø³Ø¨Ø©' },
+  { href: '/Ø£Ø¯Ù„Ø©', labelAr: 'Ø§Ù„Ø£Ø¯Ù„Ø©' },
+  { href: '/Ø¯Ø±Ø§Ø³Ø§Øª-Ø§Ù„Ø­Ø§Ù„Ø©', labelAr: 'Ø¯Ø±Ø§Ø³Ø§Øª Ø§Ù„Ø­Ø§Ù„Ø©' },
 ];
 
 export function SiteHeader() {
@@ -47,7 +36,7 @@ export function SiteHeader() {
         <nav className="max-w-7xl mx-auto flex items-center justify-between h-16 px-4">
           {/* Logo */}
           <Link href="/" className="text-xl font-extrabold text-white hover:text-primary transition-colors">
-            دليل المتاجر
+            Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù…ØªØ§Ø¬Ø±
           </Link>
 
           {/* Desktop nav */}
@@ -65,12 +54,8 @@ export function SiteHeader() {
 
           {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
-<<<<<<< HEAD
-            <Link href="/calculator" className="btn-primary text-sm px-5 py-2.5">
-=======
-            <Link href="/حاسبة-التكاليف" className="btn-primary text-sm px-5 py-2.5">
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
-              احسب تكلفتك
+            <Link href="/Ø­Ø§Ø³Ø¨Ø©-Ø§Ù„ØªÙƒØ§Ù„ÙŠÙ" className="btn-primary text-sm px-5 py-2.5">
+              Ø§Ø­Ø³Ø¨ ØªÙƒÙ„ÙØªÙƒ
               <ArrowLeft size={15} />
             </Link>
           </div>
@@ -79,7 +64,7 @@ export function SiteHeader() {
           <button
             className="md:hidden w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center text-slate-300 hover:text-white transition-colors"
             onClick={() => setMenuOpen((v) => !v)}
-            aria-label={menuOpen ? 'إغلاق القائمة' : 'فتح القائمة'}
+            aria-label={menuOpen ? 'Ø¥ØºÙ„Ø§Ù‚ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø©' : 'ÙØªØ­ Ø§Ù„Ù‚Ø§Ø¦Ù…Ø©'}
           >
             {menuOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
@@ -105,7 +90,7 @@ export function SiteHeader() {
               transition={{ type: 'spring', damping: 28, stiffness: 280 }}
             >
               <div className="flex items-center justify-between mb-8">
-                <span className="text-lg font-extrabold text-white">دليل المتاجر</span>
+                <span className="text-lg font-extrabold text-white">Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù…ØªØ§Ø¬Ø±</span>
                 <button
                   onClick={() => setMenuOpen(false)}
                   className="w-8 h-8 rounded-lg border border-white/10 flex items-center justify-center text-slate-400"
@@ -126,15 +111,11 @@ export function SiteHeader() {
                 ))}
               </div>
               <Link
-<<<<<<< HEAD
-                href="/calculator"
-=======
-                href="/حاسبة-التكاليف"
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
+                href="/Ø­Ø§Ø³Ø¨Ø©-Ø§Ù„ØªÙƒØ§Ù„ÙŠÙ"
                 onClick={() => setMenuOpen(false)}
                 className="btn-primary w-full text-sm py-3 justify-center"
               >
-                احسب تكلفتك الآن <ArrowLeft size={15} />
+                Ø§Ø­Ø³Ø¨ ØªÙƒÙ„ÙØªÙƒ Ø§Ù„Ø¢Ù† <ArrowLeft size={15} />
               </Link>
             </motion.div>
           </>
@@ -143,8 +124,3 @@ export function SiteHeader() {
     </>
   );
 }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f

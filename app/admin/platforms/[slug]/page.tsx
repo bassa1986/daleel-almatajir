@@ -1,89 +1,66 @@
-<<<<<<< HEAD
-=======
 export const dynamic = 'force-dynamic';
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
-import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import { prisma } from '@/lib/db';
-import { PlatformEditor } from '@/components/admin/platform-editor';
+import { getPlatformsForCalculator } from '@/lib/data/platforms';
+import { CalculatorConfigPreview } from '@/components/admin/calculator-config-preview';
 
-interface Props {
-  params: Promise<{ slug: string }>;
-}
-
-export default async function AdminPlatformEditPage({ params }: Props) {
-  const { slug } = await params;
-
-  const [platform, categories] = await Promise.all([
-    prisma.platform.findUnique({
-      where: { slug },
+export default async function AdminCalculatorPage() {
+  const [platforms, configs] = await Promise.all([
+    prisma.platform.findMany({
       include: {
         pricingTiers: { orderBy: { sortOrder: 'asc' } },
         hiddenCosts: { orderBy: { sortOrder: 'asc' } },
-        pros: { orderBy: { sortOrder: 'asc' } },
-        cons: { orderBy: { sortOrder: 'asc' } },
-        features: { include: { category: { select: { nameAr: true } } } },
       },
+      orderBy: { nameAr: 'asc' },
     }),
-    prisma.featureCategory.findMany({ orderBy: { sortOrder: 'asc' }, select: { id: true, nameAr: true } }),
+    getPlatformsForCalculator(),
   ]);
 
-  if (!platform) notFound();
+  const staleThresholdDays = 30;
+  const now = Date.now();
 
   return (
     <div>
-      <h1 className="text-2xl font-extrabold text-white mb-1">{platform.nameAr}</h1>
-      <p className="text-sm text-slate-500 mb-6">{platform.nameEn} · /{platform.slug}</p>
+      <h1 className="text-2xl font-extrabold text-white mb-1">Calculator Config</h1>
+      <p className="text-sm text-slate-500 mb-6">
+        Tier/cost editing lives in each platform's "Ø§Ù„Ø£Ø³Ø¹Ø§Ø± ÙˆØ§Ù„ØªÙƒØ§Ù„ÙŠÙ" tab â€”{' '}
+        <Link href="/admin/platforms" className="text-primary">go to Platforms</Link>. This page summarizes
+        current config and shows a live preview.
+      </p>
 
-      <PlatformEditor
-        platform={{
-          id: platform.id,
-          slug: platform.slug,
-          nameAr: platform.nameAr,
-          nameEn: platform.nameEn,
-          logo: platform.logo,
-          brandColor: platform.brandColor,
-          websiteUrl: platform.websiteUrl,
-          affiliateUrl: platform.affiliateUrl,
-          cookieDurationDays: platform.cookieDurationDays,
-          commissionInfo: platform.commissionInfo,
-          descriptionAr: platform.descriptionAr,
-          rating: platform.rating,
-          setupFeeSAR: platform.setupFeeSAR,
-          isEnterprise: platform.isEnterprise,
-          warningThresholdSAR: platform.warningThresholdSAR,
-          warningTextAr: platform.warningTextAr,
-          quickVerdictAr: platform.quickVerdictAr,
-          bestForTypes: platform.bestForTypes,
-          pricingTiers: platform.pricingTiers.map((t) => ({
-            id: t.id,
-            name: t.name,
-            nameAr: t.nameAr,
-            minRevenueSAR: t.minRevenueSAR,
-            maxRevenueSAR: t.maxRevenueSAR,
-            monthlyFeeSAR: t.monthlyFeeSAR,
-            transactionFeePct: t.transactionFeePct,
-            perOrderFee: t.perOrderFee,
-            maxOrders: t.maxOrders,
-            annualRevLimitSAR: t.annualRevLimitSAR,
-          })),
-          hiddenCosts: platform.hiddenCosts.map((c) => ({
-            labelAr: c.labelAr,
-            monthlySAR: c.monthlySAR,
-            isRequired: c.isRequired,
-            scenarios: c.scenarios,
-          })),
-          pros: platform.pros.map((p) => ({ textAr: p.textAr })),
-          cons: platform.cons.map((c) => ({ textAr: c.textAr })),
-          features: platform.features.map((f) => ({
-            categoryId: f.categoryId,
-            categoryNameAr: f.category.nameAr,
-            featureNameAr: f.featureNameAr,
-            supported: f.supported as 'yes' | 'no' | 'partial',
-            noteAr: f.noteAr ?? undefined,
-          })),
-        }}
-        categories={categories}
-      />
+      <div className="grid lg:grid-cols-2 gap-6">
+        {/* Left: accordion summary per platform */}
+        <div className="space-y-3">
+          {platforms.map((p) => {
+            const daysSinceUpdate = Math.floor((now - p.updatedAt.getTime()) / (1000 * 60 * 60 * 24));
+            const isStale = daysSinceUpdate > staleThresholdDays;
+            return (
+              <div key={p.id} className="glass p-4">
+                <div className="flex items-center justify-between mb-3">
+                  <Link href={`/admin/platforms/${p.slug}`} className="font-bold text-white hover:text-primary">
+                    {p.nameAr}
+                  </Link>
+                  <span className={`badge text-xs ${isStale ? 'badge-warning' : 'badge-neutral'}`}>
+                    {isStale ? `Stale (${daysSinceUpdate}d)` : 'Up to date'}
+                  </span>
+                </div>
+                <div className="text-xs text-slate-500 space-y-1">
+                  <div>{p.pricingTiers.length} pricing tier(s)</div>
+                  <div>{p.hiddenCosts.length} hidden cost item(s)</div>
+                  {p.warningThresholdSAR && (
+                    <div className="text-amber-400">Warning threshold: {p.warningThresholdSAR.toLocaleString('en-US')} SAR</div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Right: live preview */}
+        <div>
+          <CalculatorConfigPreview platforms={configs} />
+        </div>
+      </div>
     </div>
   );
 }

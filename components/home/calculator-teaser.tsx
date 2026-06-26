@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿'use client';
-=======
 'use client';
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -40,15 +36,15 @@ export function CalculatorTeaser({ platforms }: CalculatorTeaserProps) {
         >
           {/* Header */}
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-extrabold text-white mb-2">احسب تكلفتك الفعلية</h2>
-            <p className="text-slate-400">أدخل بيانات متجرك واحصل على مقارنة فورية</p>
+            <h2 className="text-3xl font-extrabold text-white mb-2">Ø§Ø­Ø³Ø¨ ØªÙƒÙ„ÙØªÙƒ Ø§Ù„ÙØ¹Ù„ÙŠØ©</h2>
+            <p className="text-slate-400">Ø£Ø¯Ø®Ù„ Ø¨ÙŠØ§Ù†Ø§Øª Ù…ØªØ¬Ø±Ùƒ ÙˆØ§Ø­ØµÙ„ Ø¹Ù„Ù‰ Ù…Ù‚Ø§Ø±Ù†Ø© ÙÙˆØ±ÙŠØ©</p>
           </div>
 
           {/* Sliders */}
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <div>
               <div className="flex justify-between items-center mb-3">
-                <label className="text-sm font-semibold text-slate-300">الإيرادات الشهرية</label>
+                <label className="text-sm font-semibold text-slate-300">Ø§Ù„Ø¥ÙŠØ±Ø§Ø¯Ø§Øª Ø§Ù„Ø´Ù‡Ø±ÙŠØ©</label>
                 <span className="figure text-primary font-bold text-sm">
                   {formatCurrency(inputs.monthlyRevenue, 'SAR')}
                 </span>
@@ -68,15 +64,15 @@ export function CalculatorTeaser({ platforms }: CalculatorTeaserProps) {
                   [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:active:cursor-grabbing"
               />
               <div className="flex justify-between text-xs text-slate-500 mt-1">
-                <span>٥,٠٠٠</span><span>٢,٠٠٠,٠٠٠ ر.س</span>
+                <span>Ù¥,Ù Ù Ù </span><span>Ù¢,Ù Ù Ù ,Ù Ù Ù  Ø±.Ø³</span>
               </div>
             </div>
 
             <div>
               <div className="flex justify-between items-center mb-3">
-                <label className="text-sm font-semibold text-slate-300">عدد الطلبات الشهرية</label>
+                <label className="text-sm font-semibold text-slate-300">Ø¹Ø¯Ø¯ Ø§Ù„Ø·Ù„Ø¨Ø§Øª Ø§Ù„Ø´Ù‡Ø±ÙŠØ©</label>
                 <span className="figure text-secondary font-bold text-sm">
-                  {inputs.monthlyOrders.toLocaleString('en-US')} طلب
+                  {inputs.monthlyOrders.toLocaleString('en-US')} Ø·Ù„Ø¨
                 </span>
               </div>
               <input
@@ -94,7 +90,7 @@ export function CalculatorTeaser({ platforms }: CalculatorTeaserProps) {
                   [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:active:cursor-grabbing"
               />
               <div className="flex justify-between text-xs text-slate-500 mt-1">
-                <span>١٠</span><span>٥,٠٠٠ طلب</span>
+                <span>Ù¡Ù </span><span>Ù¥,Ù Ù Ù  Ø·Ù„Ø¨</span>
               </div>
             </div>
           </div>
@@ -130,7 +126,7 @@ export function CalculatorTeaser({ platforms }: CalculatorTeaserProps) {
                     />
                     <span className="font-bold text-white text-sm truncate">{result.nameAr}</span>
                     {isWinner && (
-                      <span className="badge badge-success text-xs py-0.5 px-2 flex-shrink-0">الأوفر</span>
+                      <span className="badge badge-success text-xs py-0.5 px-2 flex-shrink-0">Ø§Ù„Ø£ÙˆÙØ±</span>
                     )}
                   </div>
 
@@ -139,14 +135,14 @@ export function CalculatorTeaser({ platforms }: CalculatorTeaserProps) {
                     <div className="figure font-bold text-white text-base">
                       {formatCurrency(result.totalMonthlyCost, 'SAR')}
                     </div>
-                    <div className="text-xs text-slate-500">/شهر</div>
+                    <div className="text-xs text-slate-500">/Ø´Ù‡Ø±</div>
                   </div>
 
                   {/* Savings vs most expensive */}
                   {result.savingsVsMostExpensive > 0 && (
                     <div className="hidden md:flex items-center gap-1 text-xs text-emerald-400 flex-shrink-0">
                       <TrendingDown size={13} />
-                      <span className="figure">وفّر {formatCurrency(result.savingsVsMostExpensive, 'SAR')}</span>
+                      <span className="figure">ÙˆÙÙ‘Ø± {formatCurrency(result.savingsVsMostExpensive, 'SAR')}</span>
                     </div>
                   )}
                 </motion.div>
@@ -157,14 +153,10 @@ export function CalculatorTeaser({ platforms }: CalculatorTeaserProps) {
           {/* CTA */}
           <div className="text-center">
             <Link
-<<<<<<< HEAD
-              href={`/calculator?r=${inputs.monthlyRevenue}&o=${inputs.monthlyOrders}&c=SAR&s=0`}
-=======
-              href={`/حاسبة-التكاليف?r=${inputs.monthlyRevenue}&o=${inputs.monthlyOrders}&c=SAR&s=0`}
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
+              href={`/Ø­Ø§Ø³Ø¨Ø©-Ø§Ù„ØªÙƒØ§Ù„ÙŠÙ?r=${inputs.monthlyRevenue}&o=${inputs.monthlyOrders}&c=SAR&s=0`}
               className="btn-primary text-sm px-8 py-3"
             >
-              عرض المقارنة الكاملة لجميع المنصات الست
+              Ø¹Ø±Ø¶ Ø§Ù„Ù…Ù‚Ø§Ø±Ù†Ø© Ø§Ù„ÙƒØ§Ù…Ù„Ø© Ù„Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ù†ØµØ§Øª Ø§Ù„Ø³Øª
               <ArrowLeft size={16} />
             </Link>
           </div>
@@ -173,7 +165,3 @@ export function CalculatorTeaser({ platforms }: CalculatorTeaserProps) {
     </section>
   );
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f

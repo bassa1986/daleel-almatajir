@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿'use client';
-=======
 'use client';
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -16,12 +12,12 @@ interface PlatformGridProps {
 }
 
 const PLATFORM_EMOJI: Record<string, string> = {
-  salla: '🛒',
-  zid: '⚡',
-  shopify: '🌍',
-  woocommerce: '🔧',
-  bigcommerce: '📦',
-  magento: '🏢',
+  salla: 'ðŸ›’',
+  zid: 'âš¡',
+  shopify: 'ðŸŒ',
+  woocommerce: 'ðŸ”§',
+  bigcommerce: 'ðŸ“¦',
+  magento: 'ðŸ¢',
 };
 
 export function PlatformGrid({ platforms }: PlatformGridProps) {
@@ -36,8 +32,8 @@ export function PlatformGrid({ platforms }: PlatformGridProps) {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-extrabold text-white mb-3">المنصات المقارنة</h2>
-          <p className="text-slate-400 text-lg">٦ منصات، بيانات حقيقية، بالريال السعودي</p>
+          <h2 className="text-4xl font-extrabold text-white mb-3">Ø§Ù„Ù…Ù†ØµØ§Øª Ø§Ù„Ù…Ù‚Ø§Ø±Ù†Ø©</h2>
+          <p className="text-slate-400 text-lg">Ù¦ Ù…Ù†ØµØ§ØªØŒ Ø¨ÙŠØ§Ù†Ø§Øª Ø­Ù‚ÙŠÙ‚ÙŠØ©ØŒ Ø¨Ø§Ù„Ø±ÙŠØ§Ù„ Ø§Ù„Ø³Ø¹ÙˆØ¯ÙŠ</p>
         </motion.div>
 
         {/* Grid */}
@@ -51,11 +47,7 @@ export function PlatformGrid({ platforms }: PlatformGridProps) {
               transition={{ delay: i * 0.07, duration: 0.5 }}
             >
               <Link
-<<<<<<< HEAD
-                href={`/muqaranat/${platform.slug}`}
-=======
-                href={`/مقارنات/${platform.slug}`}
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
+                href={`/Ù…Ù‚Ø§Ø±Ù†Ø§Øª/${platform.slug}`}
                 className="group block glass glass-hover h-full"
               >
                 <div className="p-6 flex flex-col h-full">
@@ -65,17 +57,17 @@ export function PlatformGrid({ platforms }: PlatformGridProps) {
                       className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl border border-white/10"
                       style={{ backgroundColor: `${platform.brandColor}22` }}
                     >
-                      {PLATFORM_EMOJI[platform.slug] ?? '🛍️'}
+                      {PLATFORM_EMOJI[platform.slug] ?? 'ðŸ›ï¸'}
                     </div>
                     <div className="flex flex-col items-end gap-1.5">
                       <span className={cn(
                         'badge text-xs',
                         platform.origin === 'GCC' ? 'badge-secondary' : 'badge-primary'
                       )}>
-                        {platform.origin === 'GCC' ? 'خليجي' : 'عالمي'}
+                        {platform.origin === 'GCC' ? 'Ø®Ù„ÙŠØ¬ÙŠ' : 'Ø¹Ø§Ù„Ù…ÙŠ'}
                       </span>
                       {platform.hasAdditionalCosts && (
-                        <span className="badge badge-warning text-xs">تكاليف إضافية</span>
+                        <span className="badge badge-warning text-xs">ØªÙƒØ§Ù„ÙŠÙ Ø¥Ø¶Ø§ÙÙŠØ©</span>
                       )}
                     </div>
                   </div>
@@ -93,20 +85,20 @@ export function PlatformGrid({ platforms }: PlatformGridProps) {
                   <div className="mt-auto pt-4 border-t border-white/6">
                     <div className="flex items-end justify-between">
                       <div>
-                        <div className="text-xs text-slate-500 mb-0.5">يبدأ من</div>
+                        <div className="text-xs text-slate-500 mb-0.5">ÙŠØ¨Ø¯Ø£ Ù…Ù†</div>
                         <div className="figure text-2xl font-extrabold text-white">
                           {platform.startingPriceSAR === 0 ? (
-                            <span className="text-emerald-400">مجاني</span>
+                            <span className="text-emerald-400">Ù…Ø¬Ø§Ù†ÙŠ</span>
                           ) : (
                             <>
                               {platform.startingPriceSAR.toLocaleString('en-US')}
-                              <span className="text-base font-semibold text-slate-400 mr-1">ر.س/شهر</span>
+                              <span className="text-base font-semibold text-slate-400 mr-1">Ø±.Ø³/Ø´Ù‡Ø±</span>
                             </>
                           )}
                         </div>
                       </div>
                       <span className="flex items-center gap-1 text-sm text-primary font-semibold group-hover:gap-2 transition-all">
-                        عرض المراجعة <ArrowLeft size={15} />
+                        Ø¹Ø±Ø¶ Ø§Ù„Ù…Ø±Ø§Ø¬Ø¹Ø© <ArrowLeft size={15} />
                       </span>
                     </div>
                   </div>
@@ -119,7 +111,3 @@ export function PlatformGrid({ platforms }: PlatformGridProps) {
     </section>
   );
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f

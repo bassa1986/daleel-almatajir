@@ -1,17 +1,13 @@
-<<<<<<< HEAD
-﻿import Link from 'next/link';
-=======
 import Link from 'next/link';
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 import { ArrowLeft } from 'lucide-react';
 
 const PLATFORM_NAMES_AR: Record<string, string> = {
-  salla: 'سلة',
-  zid: 'زد',
-  shopify: 'شوبيفاي',
-  woocommerce: 'ووكومرس',
-  bigcommerce: 'بيغ كومرس',
-  magento: 'ماجنتو',
+  salla: 'Ø³Ù„Ø©',
+  zid: 'Ø²Ø¯',
+  shopify: 'Ø´ÙˆØ¨ÙŠÙØ§ÙŠ',
+  woocommerce: 'ÙˆÙˆÙƒÙˆÙ…Ø±Ø³',
+  bigcommerce: 'Ø¨ÙŠØº ÙƒÙˆÙ…Ø±Ø³',
+  magento: 'Ù…Ø§Ø¬Ù†ØªÙˆ',
 };
 
 const PLATFORM_COLORS: Record<string, string> = {
@@ -45,16 +41,12 @@ export function RelatedComparisons({ currentSlugA, currentSlugB }: RelatedCompar
 
   return (
     <section id="related" className="mb-4">
-      <h2 className="text-2xl font-extrabold text-white mb-6">مقارنات ذات صلة</h2>
+      <h2 className="text-2xl font-extrabold text-white mb-6">Ù…Ù‚Ø§Ø±Ù†Ø§Øª Ø°Ø§Øª ØµÙ„Ø©</h2>
       <div className="grid sm:grid-cols-2 gap-4">
         {related.map(([a, b]) => (
           <Link
             key={`${a}-${b}`}
-<<<<<<< HEAD
-            href={`/muqaranat/${a}-vs-${b}`}
-=======
-            href={`/مقارنات/${a}-vs-${b}`}
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
+            href={`/Ù…Ù‚Ø§Ø±Ù†Ø§Øª/${a}-vs-${b}`}
             className="glass glass-hover flex items-center gap-3 p-4"
           >
             <span className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: PLATFORM_COLORS[a] }} />
@@ -69,7 +61,3 @@ export function RelatedComparisons({ currentSlugA, currentSlugB }: RelatedCompar
     </section>
   );
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f

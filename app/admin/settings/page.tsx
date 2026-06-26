@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 export const dynamic = 'force-dynamic';
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 import { prisma } from '@/lib/db';
 import { SettingsForm } from '@/components/admin/settings-form';
 
@@ -14,7 +11,7 @@ export default async function AdminSettingsPage() {
       <SettingsForm
         id={settings?.id ?? null}
         initial={{
-          siteNameAr: settings?.siteNameAr ?? 'دليل المتاجر',
+          siteNameAr: settings?.siteNameAr ?? 'Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù…ØªØ§Ø¬Ø±',
           taglineAr: settings?.taglineAr ?? '',
           contactEmail: settings?.contactEmail ?? '',
           twitterUrl: settings?.twitterUrl ?? '',

@@ -46,21 +46,13 @@ export function TiptapEditor({ content, onChange }: TiptapEditorProps) {
   if (!editor) return null;
 
   function addLink() {
-    const url = window.prompt('أدخل الرابط:');
-<<<<<<< HEAD
-    if (url) editor.chain().focus().setLink({ href: url }).run();
-=======
+    const url = window.prompt('Ø£Ø¯Ø®Ù„ Ø§Ù„Ø±Ø§Ø¨Ø·:');
     if (url) editor?.chain().focus().setLink({ href: url }).run();
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
   }
 
   function addImage() {
-    const url = window.prompt('أدخل رابط الصورة:');
-<<<<<<< HEAD
-    if (url) editor.chain().focus().setImage({ src: url }).run();
-=======
+    const url = window.prompt('Ø£Ø¯Ø®Ù„ Ø±Ø§Ø¨Ø· Ø§Ù„ØµÙˆØ±Ø©:');
     if (url) editor?.chain().focus().setImage({ src: url }).run();
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
   }
 
   return (

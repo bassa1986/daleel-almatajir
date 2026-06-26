@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 export const dynamic = 'force-dynamic';
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 import Link from 'next/link';
 import { prisma } from '@/lib/db';
 import { getPlatformsForCalculator } from '@/lib/data/platforms';
@@ -26,7 +23,7 @@ export default async function AdminCalculatorPage() {
     <div>
       <h1 className="text-2xl font-extrabold text-white mb-1">Calculator Config</h1>
       <p className="text-sm text-slate-500 mb-6">
-        Tier/cost editing lives in each platform's "الأسعار والتكاليف" tab —{' '}
+        Tier/cost editing lives in each platform's "Ø§Ù„Ø£Ø³Ø¹Ø§Ø± ÙˆØ§Ù„ØªÙƒØ§Ù„ÙŠÙ" tab â€”{' '}
         <Link href="/admin/platforms" className="text-primary">go to Platforms</Link>. This page summarizes
         current config and shows a live preview.
       </p>

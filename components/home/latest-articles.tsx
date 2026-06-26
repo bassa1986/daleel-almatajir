@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿'use client';
-=======
 'use client';
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -19,11 +15,11 @@ function formatDateAr(date: Date | null): string {
 }
 
 const CATEGORY_COLORS: Record<string, string> = {
-  مقارنات: 'badge-primary',
-  مراجعات: 'badge-secondary',
-  أدلة: 'badge-success',
-  'دراسات الحالة': 'badge-warning',
-  أخبار: 'badge-neutral',
+  Ù…Ù‚Ø§Ø±Ù†Ø§Øª: 'badge-primary',
+  Ù…Ø±Ø§Ø¬Ø¹Ø§Øª: 'badge-secondary',
+  Ø£Ø¯Ù„Ø©: 'badge-success',
+  'Ø¯Ø±Ø§Ø³Ø§Øª Ø§Ù„Ø­Ø§Ù„Ø©': 'badge-warning',
+  Ø£Ø®Ø¨Ø§Ø±: 'badge-neutral',
 };
 
 interface LatestArticlesProps {
@@ -46,15 +42,11 @@ export function LatestArticles({ articles }: LatestArticlesProps) {
           transition={{ duration: 0.5 }}
         >
           <div>
-            <h2 className="text-4xl font-extrabold text-white mb-2">أحدث المقالات</h2>
-            <p className="text-slate-400">مقالات ودراسات محدّثة من فريق دليل المتاجر</p>
+            <h2 className="text-4xl font-extrabold text-white mb-2">Ø£Ø­Ø¯Ø« Ø§Ù„Ù…Ù‚Ø§Ù„Ø§Øª</h2>
+            <p className="text-slate-400">Ù…Ù‚Ø§Ù„Ø§Øª ÙˆØ¯Ø±Ø§Ø³Ø§Øª Ù…Ø­Ø¯Ù‘Ø«Ø© Ù…Ù† ÙØ±ÙŠÙ‚ Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù…ØªØ§Ø¬Ø±</p>
           </div>
-<<<<<<< HEAD
-          <Link href="/adilla" className="btn-glass text-sm px-5 py-2.5">
-=======
-          <Link href="/أدلة" className="btn-glass text-sm px-5 py-2.5">
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
-            جميع المقالات <ArrowLeft size={14} />
+          <Link href="/Ø£Ø¯Ù„Ø©" className="btn-glass text-sm px-5 py-2.5">
+            Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ù‚Ø§Ù„Ø§Øª <ArrowLeft size={14} />
           </Link>
         </motion.div>
 
@@ -68,11 +60,7 @@ export function LatestArticles({ articles }: LatestArticlesProps) {
               transition={{ delay: i * 0.1, duration: 0.5 }}
             >
               <Link
-<<<<<<< HEAD
-                href={`/adilla/${article.slug}`}
-=======
-                href={`/أدلة/${article.slug}`}
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
+                href={`/Ø£Ø¯Ù„Ø©/${article.slug}`}
                 className="group glass glass-hover flex flex-col h-full"
               >
                 {/* Featured image */}
@@ -105,7 +93,7 @@ export function LatestArticles({ articles }: LatestArticlesProps) {
                   <div className="mt-auto flex items-center justify-between text-xs text-slate-500">
                     <span className="flex items-center gap-1">
                       <Clock size={12} />
-                      {article.readingTimeMin} دقائق للقراءة
+                      {article.readingTimeMin} Ø¯Ù‚Ø§Ø¦Ù‚ Ù„Ù„Ù‚Ø±Ø§Ø¡Ø©
                     </span>
                     {article.publishedAt && (
                       <span>{formatDateAr(article.publishedAt)}</span>
@@ -113,7 +101,7 @@ export function LatestArticles({ articles }: LatestArticlesProps) {
                   </div>
 
                   <div className="flex items-center gap-1 mt-3 text-sm text-primary font-semibold">
-                    اقرأ المقال <ArrowLeft size={14} />
+                    Ø§Ù‚Ø±Ø£ Ø§Ù„Ù…Ù‚Ø§Ù„ <ArrowLeft size={14} />
                   </div>
                 </div>
               </Link>
@@ -124,7 +112,3 @@ export function LatestArticles({ articles }: LatestArticlesProps) {
     </section>
   );
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f

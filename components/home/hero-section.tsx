@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿'use client';
-=======
 'use client';
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -10,9 +6,9 @@ import { ArrowLeft, Shield, RefreshCw, BarChart2 } from 'lucide-react';
 import type { PlatformDisplay } from '@/lib/data/platforms';
 
 const TRUST_ITEMS = [
-  { icon: BarChart2, text: '٦ منصات' },
-  { icon: RefreshCw, text: 'بيانات محدّثة يونيو ٢٠٢٦' },
-  { icon: Shield, text: 'مستقل وموضوعي' },
+  { icon: BarChart2, text: 'Ù¦ Ù…Ù†ØµØ§Øª' },
+  { icon: RefreshCw, text: 'Ø¨ÙŠØ§Ù†Ø§Øª Ù…Ø­Ø¯Ù‘Ø«Ø© ÙŠÙˆÙ†ÙŠÙˆ Ù¢Ù Ù¢Ù¦' },
+  { icon: Shield, text: 'Ù…Ø³ØªÙ‚Ù„ ÙˆÙ…ÙˆØ¶ÙˆØ¹ÙŠ' },
 ];
 
 const PLATFORM_COLORS: Record<string, string> = {
@@ -55,7 +51,7 @@ export function HeroSection({ platforms }: HeroSectionProps) {
           transition={{ delay: 0.15, duration: 0.5 }}
         >
           <span className="inline-block w-2 h-2 rounded-full bg-primary animate-pulse" />
-          المرجع التقني الأول للتجارة الإلكترونية بالسعودية
+          Ø§Ù„Ù…Ø±Ø¬Ø¹ Ø§Ù„ØªÙ‚Ù†ÙŠ Ø§Ù„Ø£ÙˆÙ„ Ù„Ù„ØªØ¬Ø§Ø±Ø© Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ© Ø¨Ø§Ù„Ø³Ø¹ÙˆØ¯ÙŠØ©
         </motion.div>
 
         {/* H1 */}
@@ -63,38 +59,30 @@ export function HeroSection({ platforms }: HeroSectionProps) {
           className="text-6xl md:text-7xl font-extrabold text-white leading-tight mb-6"
           style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)' }}
         >
-          اختر منصة متجرك
+          Ø§Ø®ØªØ± Ù…Ù†ØµØ© Ù…ØªØ¬Ø±Ùƒ
           <br />
           <span className="bg-gradient-to-l from-primary to-secondary bg-clip-text text-transparent">
-            بثقة
+            Ø¨Ø«Ù‚Ø©
           </span>
         </h1>
 
         {/* Sub-headline */}
         <p className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-          المرجع الأول عربياً لمقارنة سلة، زد، شوبيفاي، ووكومرس، BigCommerce وماجنتو —
-          بأسعار حقيقية بالريال السعودي
+          Ø§Ù„Ù…Ø±Ø¬Ø¹ Ø§Ù„Ø£ÙˆÙ„ Ø¹Ø±Ø¨ÙŠØ§Ù‹ Ù„Ù…Ù‚Ø§Ø±Ù†Ø© Ø³Ù„Ø©ØŒ Ø²Ø¯ØŒ Ø´ÙˆØ¨ÙŠÙØ§ÙŠØŒ ÙˆÙˆÙƒÙˆÙ…Ø±Ø³ØŒ BigCommerce ÙˆÙ…Ø§Ø¬Ù†ØªÙˆ â€”
+          Ø¨Ø£Ø³Ø¹Ø§Ø± Ø­Ù‚ÙŠÙ‚ÙŠØ© Ø¨Ø§Ù„Ø±ÙŠØ§Ù„ Ø§Ù„Ø³Ø¹ÙˆØ¯ÙŠ
         </p>
 
         {/* CTAs */}
         <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
           <Link
-<<<<<<< HEAD
-            href="/calculator"
-=======
-            href="/حاسبة-التكاليف"
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
+            href="/Ø­Ø§Ø³Ø¨Ø©-Ø§Ù„ØªÙƒØ§Ù„ÙŠÙ"
             className="btn-primary text-base px-8 py-4 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-shadow"
           >
-            احسب تكلفتك الآن
+            Ø§Ø­Ø³Ø¨ ØªÙƒÙ„ÙØªÙƒ Ø§Ù„Ø¢Ù†
             <ArrowLeft size={18} />
           </Link>
-<<<<<<< HEAD
-          <Link href="/muqaranat" className="btn-glass text-base px-8 py-4">
-=======
-          <Link href="/مقارنات" className="btn-glass text-base px-8 py-4">
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
-            قارن المنصات
+          <Link href="/Ù…Ù‚Ø§Ø±Ù†Ø§Øª" className="btn-glass text-base px-8 py-4">
+            Ù‚Ø§Ø±Ù† Ø§Ù„Ù…Ù†ØµØ§Øª
             <ArrowLeft size={18} />
           </Link>
         </div>
@@ -121,11 +109,7 @@ export function HeroSection({ platforms }: HeroSectionProps) {
               transition={{ delay: 0.4 + i * 0.08, duration: 0.5, ease: 'easeOut' }}
             >
               <Link
-<<<<<<< HEAD
-                href={`/muqaranat/${platform.slug}`}
-=======
-                href={`/مقارنات/${platform.slug}`}
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
+                href={`/Ù…Ù‚Ø§Ø±Ù†Ø§Øª/${platform.slug}`}
                 className="group flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-2 backdrop-blur-sm hover:border-white/20 hover:bg-white/10 transition-all duration-200"
               >
                 <span
@@ -136,7 +120,7 @@ export function HeroSection({ platforms }: HeroSectionProps) {
                   {platform.nameAr}
                 </span>
                 <span className="text-xs text-slate-500">
-                  {platform.origin === 'GCC' ? 'خليجي' : 'عالمي'}
+                  {platform.origin === 'GCC' ? 'Ø®Ù„ÙŠØ¬ÙŠ' : 'Ø¹Ø§Ù„Ù…ÙŠ'}
                 </span>
               </Link>
             </motion.div>
@@ -157,7 +141,3 @@ export function HeroSection({ platforms }: HeroSectionProps) {
     </section>
   );
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f

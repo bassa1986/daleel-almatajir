@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿'use client';
-=======
 'use client';
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 
 import Link from 'next/link';
 import { useState } from 'react';
@@ -11,27 +7,15 @@ import { Mail, Twitter, Linkedin, Youtube, ArrowLeft, CheckCircle2 } from 'lucid
 import { subscribeEmail } from '@/lib/actions/subscribe';
 
 const NAV_LINKS = [
-<<<<<<< HEAD
-  { href: '/muqaranat', labelAr: 'المقارنات' },
-  { href: '/calculator', labelAr: 'الحاسبة' },
-  { href: '/adilla', labelAr: 'الأدلة' },
-  { href: '/case-studies', labelAr: 'دراسات الحالة' },
+  { href: '/Ù…Ù‚Ø§Ø±Ù†Ø§Øª', labelAr: 'Ø§Ù„Ù…Ù‚Ø§Ø±Ù†Ø§Øª' },
+  { href: '/Ø­Ø§Ø³Ø¨Ø©-Ø§Ù„ØªÙƒØ§Ù„ÙŠÙ', labelAr: 'Ø§Ù„Ø­Ø§Ø³Ø¨Ø©' },
+  { href: '/Ø£Ø¯Ù„Ø©', labelAr: 'Ø§Ù„Ø£Ø¯Ù„Ø©' },
+  { href: '/Ø¯Ø±Ø§Ø³Ø§Øª-Ø§Ù„Ø­Ø§Ù„Ø©', labelAr: 'Ø¯Ø±Ø§Ø³Ø§Øª Ø§Ù„Ø­Ø§Ù„Ø©' },
 ];
 
 const LEGAL_LINKS = [
-  { href: '/privacy', labelAr: 'سياسة الخصوصية' },
-  { href: '/affiliate-disclosure', labelAr: 'إفصاح الروابط التابعة' },
-=======
-  { href: '/مقارنات', labelAr: 'المقارنات' },
-  { href: '/حاسبة-التكاليف', labelAr: 'الحاسبة' },
-  { href: '/أدلة', labelAr: 'الأدلة' },
-  { href: '/دراسات-الحالة', labelAr: 'دراسات الحالة' },
-];
-
-const LEGAL_LINKS = [
-  { href: '/سياسة-الخصوصية', labelAr: 'سياسة الخصوصية' },
-  { href: '/إفصاح-التابع', labelAr: 'إفصاح الروابط التابعة' },
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
+  { href: '/Ø³ÙŠØ§Ø³Ø©-Ø§Ù„Ø®ØµÙˆØµÙŠØ©', labelAr: 'Ø³ÙŠØ§Ø³Ø© Ø§Ù„Ø®ØµÙˆØµÙŠØ©' },
+  { href: '/Ø¥ÙØµØ§Ø­-Ø§Ù„ØªØ§Ø¨Ø¹', labelAr: 'Ø¥ÙØµØ§Ø­ Ø§Ù„Ø±ÙˆØ§Ø¨Ø· Ø§Ù„ØªØ§Ø¨Ø¹Ø©' },
 ];
 
 export function SiteFooter() {
@@ -55,17 +39,17 @@ export function SiteFooter() {
         <div className="grid md:grid-cols-2 gap-12 mb-14">
           {/* Brand */}
           <div>
-            <h2 className="text-2xl font-extrabold text-white mb-3">دليل المتاجر</h2>
+            <h2 className="text-2xl font-extrabold text-white mb-3">Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù…ØªØ§Ø¬Ø±</h2>
             <p className="text-slate-400 text-sm leading-relaxed mb-5 max-w-sm">
-              المرجع الأول عربياً لمقارنة منصات التجارة الإلكترونية. بيانات مستقلة وموضوعية،
-              محدّثة دورياً، للمساعدة في اتخاذ القرار الصحيح.
+              Ø§Ù„Ù…Ø±Ø¬Ø¹ Ø§Ù„Ø£ÙˆÙ„ Ø¹Ø±Ø¨ÙŠØ§Ù‹ Ù„Ù…Ù‚Ø§Ø±Ù†Ø© Ù…Ù†ØµØ§Øª Ø§Ù„ØªØ¬Ø§Ø±Ø© Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠØ©. Ø¨ÙŠØ§Ù†Ø§Øª Ù…Ø³ØªÙ‚Ù„Ø© ÙˆÙ…ÙˆØ¶ÙˆØ¹ÙŠØ©ØŒ
+              Ù…Ø­Ø¯Ù‘Ø«Ø© Ø¯ÙˆØ±ÙŠØ§Ù‹ØŒ Ù„Ù„Ù…Ø³Ø§Ø¹Ø¯Ø© ÙÙŠ Ø§ØªØ®Ø§Ø° Ø§Ù„Ù‚Ø±Ø§Ø± Ø§Ù„ØµØ­ÙŠØ­.
             </p>
             <div className="flex items-center gap-3">
               <a
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="تويتر"
+                aria-label="ØªÙˆÙŠØªØ±"
                 className="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/20 transition-all"
               >
                 <Twitter size={16} />
@@ -74,7 +58,7 @@ export function SiteFooter() {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="لينكدإن"
+                aria-label="Ù„ÙŠÙ†ÙƒØ¯Ø¥Ù†"
                 className="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/20 transition-all"
               >
                 <Linkedin size={16} />
@@ -83,7 +67,7 @@ export function SiteFooter() {
                 href="https://youtube.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="يوتيوب"
+                aria-label="ÙŠÙˆØªÙŠÙˆØ¨"
                 className="w-9 h-9 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:border-white/20 transition-all"
               >
                 <Youtube size={16} />
@@ -95,10 +79,10 @@ export function SiteFooter() {
           <div>
             <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
               <Mail size={18} className="text-secondary" />
-              اشترك في النشرة الأسبوعية
+              Ø§Ø´ØªØ±Ùƒ ÙÙŠ Ø§Ù„Ù†Ø´Ø±Ø© Ø§Ù„Ø£Ø³Ø¨ÙˆØ¹ÙŠØ©
             </h3>
             <p className="text-slate-400 text-sm mb-5">
-              أحدث مقارنات الأسعار وتحديثات المنصات مباشرةً إلى بريدك.
+              Ø£Ø­Ø¯Ø« Ù…Ù‚Ø§Ø±Ù†Ø§Øª Ø§Ù„Ø£Ø³Ø¹Ø§Ø± ÙˆØªØ­Ø¯ÙŠØ«Ø§Øª Ø§Ù„Ù…Ù†ØµØ§Øª Ù…Ø¨Ø§Ø´Ø±Ø©Ù‹ Ø¥Ù„Ù‰ Ø¨Ø±ÙŠØ¯Ùƒ.
             </p>
 
             {status === 'success' ? (
@@ -117,7 +101,7 @@ export function SiteFooter() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSubscribe()}
-                  placeholder="بريدك الإلكتروني"
+                  placeholder="Ø¨Ø±ÙŠØ¯Ùƒ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ"
                   className="flex-1 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-slate-200 placeholder-slate-500 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 backdrop-blur-sm transition-all"
                   dir="ltr"
                 />
@@ -126,7 +110,7 @@ export function SiteFooter() {
                   disabled={status === 'loading' || !email}
                   className="btn-primary text-sm px-5 py-3 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {status === 'loading' ? '...' : 'اشترك'}
+                  {status === 'loading' ? '...' : 'Ø§Ø´ØªØ±Ùƒ'}
                 </button>
               </div>
             )}
@@ -164,26 +148,21 @@ export function SiteFooter() {
         {/* Affiliate disclosure */}
         <div className="glass p-5 mb-8 rounded-xl">
           <p className="text-xs text-slate-500 leading-relaxed">
-            <span className="font-semibold text-slate-400">إفصاح: </span>
-            دليل المتاجر موقع مستقل، وقد نحصل على عمولة من بعض الروابط التابعة في هذا الموقع دون
-            أي تكلفة إضافية عليك. هذا لا يؤثر على تقييماتنا أو ترتيب المقارنات، والتي تستند
-            إلى أسعار ومزايا حقيقية لكل منصة.
+            <span className="font-semibold text-slate-400">Ø¥ÙØµØ§Ø­: </span>
+            Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù…ØªØ§Ø¬Ø± Ù…ÙˆÙ‚Ø¹ Ù…Ø³ØªÙ‚Ù„ØŒ ÙˆÙ‚Ø¯ Ù†Ø­ØµÙ„ Ø¹Ù„Ù‰ Ø¹Ù…ÙˆÙ„Ø© Ù…Ù† Ø¨Ø¹Ø¶ Ø§Ù„Ø±ÙˆØ§Ø¨Ø· Ø§Ù„ØªØ§Ø¨Ø¹Ø© ÙÙŠ Ù‡Ø°Ø§ Ø§Ù„Ù…ÙˆÙ‚Ø¹ Ø¯ÙˆÙ†
+            Ø£ÙŠ ØªÙƒÙ„ÙØ© Ø¥Ø¶Ø§ÙÙŠØ© Ø¹Ù„ÙŠÙƒ. Ù‡Ø°Ø§ Ù„Ø§ ÙŠØ¤Ø«Ø± Ø¹Ù„Ù‰ ØªÙ‚ÙŠÙŠÙ…Ø§ØªÙ†Ø§ Ø£Ùˆ ØªØ±ØªÙŠØ¨ Ø§Ù„Ù…Ù‚Ø§Ø±Ù†Ø§ØªØŒ ÙˆØ§Ù„ØªÙŠ ØªØ³ØªÙ†Ø¯
+            Ø¥Ù„Ù‰ Ø£Ø³Ø¹Ø§Ø± ÙˆÙ…Ø²Ø§ÙŠØ§ Ø­Ù‚ÙŠÙ‚ÙŠØ© Ù„ÙƒÙ„ Ù…Ù†ØµØ©.
           </p>
         </div>
 
         {/* Copyright */}
         <div className="flex flex-wrap items-center justify-between gap-4 text-xs text-slate-600">
-          <span>© ٢٠٢٦ دليل المتاجر — مستقل عن جميع المنصات المذكورة</span>
+          <span>Â© Ù¢Ù Ù¢Ù¦ Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù…ØªØ§Ø¬Ø± â€” Ù…Ø³ØªÙ‚Ù„ Ø¹Ù† Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ù†ØµØ§Øª Ø§Ù„Ù…Ø°ÙƒÙˆØ±Ø©</span>
           <span className="flex items-center gap-1">
-            صُنع بـ ♥ للتجار العرب
+            ØµÙÙ†Ø¹ Ø¨Ù€ â™¥ Ù„Ù„ØªØ¬Ø§Ø± Ø§Ù„Ø¹Ø±Ø¨
           </span>
         </div>
       </div>
     </footer>
   );
 }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f

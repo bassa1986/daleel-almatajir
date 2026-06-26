@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-﻿'use client';
-=======
 'use client';
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -18,12 +14,12 @@ const PLATFORM_COLORS: Record<string, string> = {
 };
 
 const PLATFORM_NAMES_AR: Record<string, string> = {
-  salla: 'سلة',
-  zid: 'زد',
-  shopify: 'شوبيفاي',
-  woocommerce: 'ووكومرس',
-  bigcommerce: 'بيغ كومرس',
-  magento: 'ماجنتو',
+  salla: 'Ø³Ù„Ø©',
+  zid: 'Ø²Ø¯',
+  shopify: 'Ø´ÙˆØ¨ÙŠÙØ§ÙŠ',
+  woocommerce: 'ÙˆÙˆÙƒÙˆÙ…Ø±Ø³',
+  bigcommerce: 'Ø¨ÙŠØº ÙƒÙˆÙ…Ø±Ø³',
+  magento: 'Ù…Ø§Ø¬Ù†ØªÙˆ',
 };
 
 const TOP_COMPARISONS: Array<[string, string]> = [
@@ -50,9 +46,9 @@ export function TopComparisons() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-extrabold text-white mb-3">المقارنات الأكثر بحثاً</h2>
+          <h2 className="text-4xl font-extrabold text-white mb-3">Ø§Ù„Ù…Ù‚Ø§Ø±Ù†Ø§Øª Ø§Ù„Ø£ÙƒØ«Ø± Ø¨Ø­Ø«Ø§Ù‹</h2>
           <p className="text-slate-400 text-lg">
-            مقارنات شاملة جنباً إلى جنب بين المنصات الأكثر طلباً
+            Ù…Ù‚Ø§Ø±Ù†Ø§Øª Ø´Ø§Ù…Ù„Ø© Ø¬Ù†Ø¨Ø§Ù‹ Ø¥Ù„Ù‰ Ø¬Ù†Ø¨ Ø¨ÙŠÙ† Ø§Ù„Ù…Ù†ØµØ§Øª Ø§Ù„Ø£ÙƒØ«Ø± Ø·Ù„Ø¨Ø§Ù‹
           </p>
         </motion.div>
 
@@ -66,11 +62,7 @@ export function TopComparisons() {
               transition={{ delay: i * 0.06, duration: 0.5 }}
             >
               <Link
-<<<<<<< HEAD
-                href={`/muqaranat/${vsSlug(slugA, slugB)}`}
-=======
-                href={`/مقارنات/${vsSlug(slugA, slugB)}`}
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
+                href={`/Ù…Ù‚Ø§Ø±Ù†Ø§Øª/${vsSlug(slugA, slugB)}`}
                 className="group glass glass-hover flex items-center gap-4 p-5"
               >
                 {/* Platform A */}
@@ -116,12 +108,8 @@ export function TopComparisons() {
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
         >
-<<<<<<< HEAD
-          <Link href="/muqaranat" className="btn-glass text-sm px-6 py-3">
-=======
-          <Link href="/مقارنات" className="btn-glass text-sm px-6 py-3">
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
-            عرض جميع المقارنات
+          <Link href="/Ù…Ù‚Ø§Ø±Ù†Ø§Øª" className="btn-glass text-sm px-6 py-3">
+            Ø¹Ø±Ø¶ Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ù‚Ø§Ø±Ù†Ø§Øª
             <ArrowLeft size={15} />
           </Link>
         </motion.div>
@@ -129,7 +117,3 @@ export function TopComparisons() {
     </section>
   );
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f

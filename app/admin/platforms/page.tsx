@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 export const dynamic = 'force-dynamic';
->>>>>>> ca239989fff9125529f0ce22d5442ac82e5aac5f
 import Link from 'next/link';
 import { prisma } from '@/lib/db';
 
@@ -18,10 +15,10 @@ export default async function AdminPlatformsPage() {
               className="w-10 h-10 rounded-xl border border-white/10 flex items-center justify-center mb-3"
               style={{ backgroundColor: `${p.brandColor}22`, color: p.brandColor }}
             >
-              ●
+              â—
             </div>
             <div className="font-extrabold text-white">{p.nameAr}</div>
-            <div className="text-xs text-slate-500">{p.nameEn} · {p.origin}</div>
+            <div className="text-xs text-slate-500">{p.nameEn} Â· {p.origin}</div>
           </Link>
         ))}
       </div>
