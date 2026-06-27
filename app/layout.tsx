@@ -3,10 +3,6 @@ import { cairo } from '@/lib/fonts';
 import { ThemeProvider } from '@/components/theme-provider';
 import './globals.css';
 
-// NOTE: this is the layout for the public (RTL, Arabic) site. The admin CMS
-// (Section 7) gets its own nested layout at app/admin/layout.tsx that
-// overrides `dir` to "ltr" with a dark sidebar — see SECTION 7.
-
 export const metadata: Metadata = {
   title: {
     default: 'دليل المتاجر — مقارنة منصات التجارة الإلكترونية',
@@ -31,6 +27,9 @@ const organizationJsonLd = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ar" dir="rtl" className={cairo.variable} suppressHydrationWarning>
+      <head>
+        <meta charSet="utf-8" />
+      </head>
       <body className="min-h-screen bg-background font-sans text-slate-200 antialiased">
         <script
           type="application/ld+json"
