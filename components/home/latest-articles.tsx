@@ -4,8 +4,9 @@ interface Article {
   id: string;
   slug: string;
   titleAr: string;
-  metaDescAr: string | null;
   category: string | null;
+  featuredImage: string | null;
+  readingTimeMin: number | null;
   publishedAt: Date | null;
 }
 
@@ -36,7 +37,9 @@ export function LatestArticles({ articles }: Props) {
                 <span className={`badge text-xs mb-3 inline-block ${CATEGORY_COLORS[article.category] || 'badge-primary'}`}>{article.category}</span>
               )}
               <h3 className="text-lg font-extrabold text-white mb-2 leading-snug">{article.titleAr}</h3>
-              {article.metaDescAr && <p className="text-slate-400 text-sm line-clamp-2">{article.metaDescAr}</p>}
+              {article.readingTimeMin && (
+                <p className="text-slate-500 text-xs">{article.readingTimeMin} دقائق للقراءة</p>
+              )}
             </Link>
           ))}
         </div>
