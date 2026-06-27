@@ -1,118 +1,38 @@
 'use client';
-
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
 
-const PLATFORM_COLORS: Record<string, string> = {
-  salla: '#4CAF50',
-  zid: '#2196F3',
-  shopify: '#96BF48',
-  woocommerce: '#7F54B3',
-  bigcommerce: '#34313F',
-  magento: '#F26322',
-};
-
-const PLATFORM_NAMES_AR: Record<string, string> = {
-  salla: 'Ø³Ù„Ø©',
-  zid: 'Ø²Ø¯',
-  shopify: 'Ø´ÙˆØ¨ÙŠÙØ§ÙŠ',
-  woocommerce: 'ÙˆÙˆÙƒÙˆÙ…Ø±Ø³',
-  bigcommerce: 'Ø¨ÙŠØº ÙƒÙˆÙ…Ø±Ø³',
-  magento: 'Ù…Ø§Ø¬Ù†ØªÙˆ',
-};
-
-const TOP_COMPARISONS: Array<[string, string]> = [
-  ['salla', 'zid'],
-  ['salla', 'shopify'],
-  ['zid', 'shopify'],
-  ['salla', 'woocommerce'],
-  ['shopify', 'woocommerce'],
-  ['zid', 'woocommerce'],
+const COMPARISONS = [
+  { slugA: 'salla', slugB: 'zid', nameA: 'سلة', nameB: 'زد' },
+  { slugA: 'salla', slugB: 'shopify', nameA: 'سلة', nameB: 'شوبيفاي' },
+  { slugA: 'zid', slugB: 'shopify', nameA: 'زد', nameB: 'شوبيفاي' },
+  { slugA: 'shopify', slugB: 'woocommerce', nameA: 'شوبيفاي', nameB: 'ووكومرس' },
+  { slugA: 'salla', slugB: 'woocommerce', nameA: 'سلة', nameB: 'ووكومرس' },
+  { slugA: 'shopify', slugB: 'bigcommerce', nameA: 'شوبيفاي', nameB: 'بيغ كومرس' },
 ];
-
-function vsSlug(a: string, b: string) {
-  return `${a}-vs-${b}`;
-}
 
 export function TopComparisons() {
   return (
-    <section className="py-20 px-4 bg-surface/30">
+    <section className="py-20 px-4 bg-white/2">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-4xl font-extrabold text-white mb-3">Ø§Ù„Ù…Ù‚Ø§Ø±Ù†Ø§Øª Ø§Ù„Ø£ÙƒØ«Ø± Ø¨Ø­Ø«Ø§Ù‹</h2>
-          <p className="text-slate-400 text-lg">
-            Ù…Ù‚Ø§Ø±Ù†Ø§Øª Ø´Ø§Ù…Ù„Ø© Ø¬Ù†Ø¨Ø§Ù‹ Ø¥Ù„Ù‰ Ø¬Ù†Ø¨ Ø¨ÙŠÙ† Ø§Ù„Ù…Ù†ØµØ§Øª Ø§Ù„Ø£ÙƒØ«Ø± Ø·Ù„Ø¨Ø§Ù‹
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {TOP_COMPARISONS.map(([slugA, slugB], i) => (
-            <motion.div
-              key={`${slugA}-${slugB}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.06, duration: 0.5 }}
-            >
-              <Link
-                href={`/Ù…Ù‚Ø§Ø±Ù†Ø§Øª/${vsSlug(slugA, slugB)}`}
-                className="group glass glass-hover flex items-center gap-4 p-5"
-              >
-                {/* Platform A */}
-                <div className="flex items-center gap-2 min-w-0 flex-1">
-                  <span
-                    className="w-3 h-3 rounded-full flex-shrink-0"
-                    style={{ backgroundColor: PLATFORM_COLORS[slugA] }}
-                  />
-                  <span className="font-bold text-white text-sm truncate">
-                    {PLATFORM_NAMES_AR[slugA]}
-                  </span>
-                </div>
-
-                {/* VS badge */}
-                <span className="badge badge-neutral text-xs flex-shrink-0 font-extrabold">
-                  VS
-                </span>
-
-                {/* Platform B */}
-                <div className="flex items-center gap-2 min-w-0 flex-1 flex-row-reverse">
-                  <span
-                    className="w-3 h-3 rounded-full flex-shrink-0"
-                    style={{ backgroundColor: PLATFORM_COLORS[slugB] }}
-                  />
-                  <span className="font-bold text-white text-sm truncate">
-                    {PLATFORM_NAMES_AR[slugB]}
-                  </span>
-                </div>
-
-                <ArrowLeft
-                  size={16}
-                  className="text-slate-500 group-hover:text-primary transition-colors flex-shrink-0"
-                />
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">أشهر المقارنات</h2>
+          <p className="text-slate-400">اختر المقارنة التي تناسب احتياجاتك</p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {COMPARISONS.map(({ slugA, slugB, nameA, nameB }) => (
+            <motion.div key={`${slugA}-${slugB}`} whileHover={{ scale: 1.02 }}>
+              <Link href={`/muqaranat/${slugA}-vs-${slugB}`} className="glass glass-hover flex items-center justify-between p-5 block">
+                <span className="font-bold text-white">{nameA}</span>
+                <span className="badge badge-neutral text-xs font-extrabold px-3 py-1">VS</span>
+                <span className="font-bold text-white">{nameB}</span>
               </Link>
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          className="text-center mt-8"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-        >
-          <Link href="/Ù…Ù‚Ø§Ø±Ù†Ø§Øª" className="btn-glass text-sm px-6 py-3">
-            Ø¹Ø±Ø¶ Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ù‚Ø§Ø±Ù†Ø§Øª
-            <ArrowLeft size={15} />
-          </Link>
-        </motion.div>
+        <div className="text-center mt-8">
+          <Link href="/muqaranat" className="text-secondary hover:underline font-semibold">عرض كل المقارنات ←</Link>
+        </div>
       </div>
     </section>
   );
