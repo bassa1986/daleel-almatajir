@@ -27,7 +27,7 @@ export default async function HomePage() {
       <main>
         <HeroSection platforms={display} />
         <PlatformGrid platforms={display} />
-        <TopComparisons platforms={display} />
+        <TopComparisons />
         <CalculatorTeaser />
         <LatestArticles articles={articles} />
       </main>
