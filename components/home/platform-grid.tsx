@@ -8,12 +8,12 @@ import type { PlatformDisplay } from '@/lib/data/platforms';
 interface PlatformGridProps { platforms: PlatformDisplay[]; }
 
 const PLATFORM_LOGOS: Record<string, string> = {
-  salla: 'https://cdn.worldvectorlogo.com/logos/salla.svg',
-  zid: 'https://cdn.worldvectorlogo.com/logos/zid.svg',
-  shopify: 'https://cdn.worldvectorlogo.com/logos/shopify.svg',
-  woocommerce: 'https://cdn.worldvectorlogo.com/logos/woocommerce.svg',
-  bigcommerce: 'https://cdn.worldvectorlogo.com/logos/bigcommerce.svg',
-  magento: 'https://cdn.worldvectorlogo.com/logos/magento.svg',
+  salla: 'https://seeklogo.com/images/S/Salla-logo-A9F3A1C0D4-seeklogo.com.png',
+  zid: 'https://seeklogo.com/images/Z/ZID-logo-8C8A4D5C1E-seeklogo.com.png',
+  shopify: 'https://seeklogo.com/images/S/Shopify-logo-CF0D2E47C4-seeklogo.com.png',
+  woocommerce: 'https://seeklogo.com/images/W/WooCommerce-logo-D5A233D58E-seeklogo.com.png',
+  bigcommerce: 'https://seeklogo.com/images/B/BigCommerce-logo-D0D6E9E4FC-seeklogo.com.png',
+  magento: 'https://seeklogo.com/images/M/Magento-logo-A987E32300-seeklogo.com.png',
 };
 
 export function PlatformGrid({ platforms }: PlatformGridProps) {
@@ -31,14 +31,21 @@ export function PlatformGrid({ platforms }: PlatformGridProps) {
               <Link href={`/muqaranat/${p.slug}`} className="glass glass-hover p-6 block h-full flex flex-col">
                 <div className="flex items-center justify-between mb-4">
                   <div className="w-16 h-16 rounded-xl border border-white/10 flex items-center justify-center p-2" style={{ backgroundColor: `${p.brandColor}22` }}>
-                    <Image
-                      src={PLATFORM_LOGOS[p.slug] || ''}
-                      alt={p.nameAr}
-                      width={48}
-                      height={48}
-                      className="object-contain filter brightness-110"
-                      onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                    />
+                    <div className="relative w-12 h-12">
+                      <Image
+                        src={PLATFORM_LOGOS[p.slug] || ''}
+                        alt={p.nameAr}
+                        width={48}
+                        height={48}
+                        className="object-contain"
+                        unoptimized
+                        onError={(e) => {
+                          const el = e.currentTarget;
+                          el.style.display = 'none';
+                          el.parentElement!.innerHTML = `<span className="text-2xl font-extrabold" style="color: ${p.brandColor}">${p.nameEn?.[0] || '●'}</span>`;
+                        }}
+                      />
+                    </div>
                   </div>
                   <span className={`badge text-xs ${p.origin === 'GCC' ? 'badge-secondary' : 'badge-primary'}`}>{p.origin === 'GCC' ? 'خليجي' : 'عالمي'}</span>
                 </div>
