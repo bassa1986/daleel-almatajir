@@ -5,31 +5,15 @@ import { prisma } from '@/lib/db';
 
 export const dynamic = 'force-dynamic';
 
-async function isAuthenticated() {
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const cookieStore = await cookies();
   const token = cookieStore.get('admin_token');
-  if (!token) return false;
-  const user = await prisma.adminUser.findFirst({ where: { token: token.value } });
-  return !!user;
-}
 
-async function hasAnyUser() {
-  const count = await prisma.adminUser.count();
-  return count > 0;
-}
+  const hasUser = await prisma.adminUser.count() > 0;
+  if (!hasUser) redirect('/admin-setup');
 
-export default async function AdminLayout({ children }: { children: React.ReactNode }) {
-  const [authed, hasUser] = await Promise.all([isAuthenticated(), hasAnyUser()]);
-
-  const pathname = '';
-
-  if (!hasUser) {
-    redirect('/admin/setup');
-  }
-
-  if (!authed) {
-    redirect('/admin/login');
-  }
+  const authed = token ? !!(await prisma.adminUser.findFirst({ where: { token: token.value } })) : false;
+  if (!authed) redirect('/admin-login');
 
   return (
     <div className="min-h-screen bg-[#0A0F1E] flex" dir="ltr">
