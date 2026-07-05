@@ -1,51 +1,58 @@
-import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
+import { cookies } from 'next/headers';
+import Link from 'next/link';
+import { prisma } from '@/lib/db';
 
-export const metadata: Metadata = { title: { default: 'Admin', template: '%s | Daleel Admin' } };
+export const dynamic = 'force-dynamic';
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+async function isAuthenticated() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get('admin_token');
+  if (!token) return false;
+  const user = await prisma.adminUser.findFirst({ where: { token: token.value } });
+  return !!user;
+}
+
+async function hasAnyUser() {
+  const count = await prisma.adminUser.count();
+  return count > 0;
+}
+
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+  const [authed, hasUser] = await Promise.all([isAuthenticated(), hasAnyUser()]);
+
+  const pathname = '';
+
+  if (!hasUser) {
+    redirect('/admin/setup');
+  }
+
+  if (!authed) {
+    redirect('/admin/login');
+  }
+
   return (
-    // Admin CMS is LTR per spec (Section 7)
-    <div dir="ltr" className="min-h-screen flex" style={{ background: '#0B1120' }}>
-      {/* Sidebar */}
-      <aside className="w-56 flex-shrink-0 border-r border-white/8 flex flex-col" style={{ background: '#0F1629' }}>
-        <div className="p-5 border-b border-white/8">
-          <div className="text-sm font-extrabold text-white">Daleel Al-Matajir</div>
-          <div className="text-xs text-slate-500 mt-0.5">Admin CMS</div>
-        </div>
-        <nav className="flex-1 p-3 space-y-1">
+    <div className="min-h-screen bg-[#0A0F1E] flex" dir="ltr">
+      <aside className="w-56 border-r border-white/6 flex flex-col py-8 px-4 fixed inset-y-0">
+        <Link href="/admin" className="text-lg font-extrabold text-white mb-8 block">⚙ Admin</Link>
+        <nav className="flex flex-col gap-1 flex-1">
           {[
             { href: '/admin', label: 'Dashboard' },
-            { href: '/admin/articles', label: 'Articles' },
             { href: '/admin/platforms', label: 'Platforms' },
-            { href: '/admin/calculator', label: 'Calculator' },
+            { href: '/admin/articles', label: 'Articles' },
             { href: '/admin/subscribers', label: 'Subscribers' },
+            { href: '/admin/calculator', label: 'Calculator' },
             { href: '/admin/affiliate-links', label: 'Affiliate Links' },
             { href: '/admin/settings', label: 'Settings' },
-          ].map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="block px-3 py-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-white/8 transition-all"
-            >
-              {item.label}
-            </a>
+          ].map(link => (
+            <Link key={link.href} href={link.href} className="text-slate-400 hover:text-white text-sm px-3 py-2 rounded-lg hover:bg-white/5 transition-colors">{link.label}</Link>
           ))}
         </nav>
-        <div className="p-3 border-t border-white/8">
-          <a href="/admin/login" className="block px-3 py-2 rounded-lg text-xs text-slate-500 hover:text-red-400 transition-colors">
-            Sign out
-          </a>
-        </div>
+        <form action="/api/admin/logout" method="POST">
+          <button type="submit" className="text-slate-500 hover:text-white text-sm px-3 py-2 w-full text-left rounded-lg hover:bg-white/5 transition-colors">Logout</button>
+        </form>
       </aside>
-
-      {/* Main */}
-      <div className="flex-1 flex flex-col min-w-0">
-        <header className="h-14 border-b border-white/8 flex items-center px-6">
-          <span className="text-sm text-slate-400 flex-1">Admin Panel</span>
-          <div className="w-8 h-8 rounded-full bg-primary/20 border border-primary/30 flex items-center justify-center text-xs text-primary font-bold">A</div>
-        </header>
-        <main className="flex-1 overflow-auto p-6">{children}</main>
-      </div>
+      <main className="flex-1 ml-56 p-8">{children}</main>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 // =============================================================
-// دليل المتاجر (Daleel Al-Matajir) — Prisma Schema
+// Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù…ØªØ§Ø¬Ø± (Daleel Al-Matajir) â€” Prisma Schema
 // Arabic E-Commerce Platform Intelligence Hub
 // =============================================================
 
@@ -76,7 +76,7 @@ model PricingTier {
 // NOTE: `scenarios` was added (beyond the original spec) to support
 // the WooCommerce minimal / typical / managed cost scenarios described
 // in SECTION 3 of the build prompt. For platforms without scenario-based
-// costs (e.g. Magento), leave this array empty — the cost simply applies
+// costs (e.g. Magento), leave this array empty â€” the cost simply applies
 // whenever `isRequired` is true (or is shown as an optional add-on).
 // -------------------------------------------------------------
 model HiddenCost {
@@ -157,7 +157,7 @@ model Article {
   slug             String    @unique
   titleAr          String
   bodyHtml         String    @db.Text
-  category         String // 'مقارنات' | 'مراجعات' | 'أدلة' | 'دراسات الحالة' | 'أخبار'
+  category         String // 'Ù…Ù‚Ø§Ø±Ù†Ø§Øª' | 'Ù…Ø±Ø§Ø¬Ø¹Ø§Øª' | 'Ø£Ø¯Ù„Ø©' | 'Ø¯Ø±Ø§Ø³Ø§Øª Ø§Ù„Ø­Ø§Ù„Ø©' | 'Ø£Ø®Ø¨Ø§Ø±'
   status           String    @default("draft") // 'draft' | 'published'
   featuredImage    String?
   featuredImageAlt String?
@@ -165,7 +165,7 @@ model Article {
   metaTitleAr      String?
   metaDescAr       String?
   readingTimeMin   Int       @default(5)
-  authorName       String    @default("دليل المتاجر")
+  authorName       String    @default("Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù…ØªØ§Ø¬Ø±")
   publishedAt      DateTime?
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
@@ -210,7 +210,7 @@ model Subscriber {
 // -------------------------------------------------------------
 model SiteSettings {
   id               String  @id @default(cuid())
-  siteNameAr       String  @default("دليل المتاجر")
+  siteNameAr       String  @default("Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù…ØªØ§Ø¬Ø±")
   taglineAr        String?
   contactEmail     String?
   twitterUrl       String?
@@ -221,4 +221,15 @@ model SiteSettings {
   defaultMetaDesc  String? @db.Text
 
   @@map("site_settings")
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  token        String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("admin_users")
 }
