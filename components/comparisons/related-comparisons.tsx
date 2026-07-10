@@ -17,11 +17,14 @@ const ALL_PAIRS = [
   ['woocommerce','bigcommerce'],['woocommerce','magento'],['bigcommerce','magento'],
 ];
 
-interface Props { slugA: string; slugB: string; }
+interface Props { currentSlugA: string; currentSlugB: string; }
 
-export function RelatedComparisons({ slugA, slugB }: Props) {
+export function RelatedComparisons({ currentSlugA, currentSlugB }: Props) {
   const related = ALL_PAIRS.filter(
-    ([a, b]) => (a === slugA || b === slugA || a === slugB || b === slugB) && !(a === slugA && b === slugB) && !(a === slugB && b === slugA)
+    ([a, b]) =>
+      (a === currentSlugA || b === currentSlugA || a === currentSlugB || b === currentSlugB) &&
+      !(a === currentSlugA && b === currentSlugB) &&
+      !(a === currentSlugB && b === currentSlugA)
   ).slice(0, 4);
 
   if (related.length === 0) return null;
