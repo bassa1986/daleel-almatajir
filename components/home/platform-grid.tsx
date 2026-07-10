@@ -21,22 +21,15 @@ export function PlatformGrid({ platforms }: PlatformGridProps) {
             <motion.div key={p.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
               <Link href={`/muqaranat/${p.slug}`} className="glass glass-hover p-6 block h-full flex flex-col">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-16 h-16 rounded-xl border border-white/10 flex items-center justify-center overflow-hidden p-1"
+                  <div className="w-16 h-16 rounded-xl border border-white/10 flex items-center justify-center overflow-hidden p-2"
                     style={{ backgroundColor: `${p.brandColor}22` }}>
-                    {p.logo ? (
-                      <Image
-                        src={p.logo}
-                        alt={p.nameAr}
-                        width={56}
-                        height={56}
-                        className="object-contain w-full h-full"
-                        unoptimized
-                      />
-                    ) : (
-                      <span className="text-2xl font-extrabold" style={{ color: p.brandColor }}>
-                        {p.nameEn?.[0] || '●'}
-                      </span>
-                    )}
+                    <Image
+                      src={`/logos/${p.slug}.svg`}
+                      alt={p.nameAr}
+                      width={52}
+                      height={52}
+                      className="object-contain w-full h-full"
+                    />
                   </div>
                   <span className={`badge text-xs ${p.origin === 'GCC' ? 'badge-secondary' : 'badge-primary'}`}>
                     {p.origin === 'GCC' ? 'خليجي' : 'عالمي'}
