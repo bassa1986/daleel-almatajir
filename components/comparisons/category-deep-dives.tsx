@@ -1,78 +1,39 @@
-'use client';
-
-import { useState } from 'react';
-import { ChevronDown, Trophy } from 'lucide-react';
-import type { ScorecardResult } from '@/lib/data/scorecard';
 import type { PlatformFullRelations } from '@/lib/data/platforms';
+import type { Scorecard } from '@/lib/data/scorecard';
 
-interface CategoryDeepDivesProps {
-  scorecard: ScorecardResult;
+interface Props {
   platformA: PlatformFullRelations;
   platformB: PlatformFullRelations;
+  scorecard: Scorecard;
 }
 
-/**
- * Generates a short data-driven explanation for a scorecard category.
- * With 15 platform pairs ÃÂ 8 categories (120 combinations), hand-authoring
- * unique editorial essays for every combination isn't feasible Ã¢ÂÂ instead
- * each category has a template that plugs in the actual winner's name, so
- * the text stays accurate as scores/winners change.
- */
-function getCategoryProse(categoryKey: string, winnerName: string | null): string {
-  if (!winnerName) {
-    return 'ÃÂ§ÃÂÃÂÃÂÃÂµÃÂªÃÂ§ÃÂ ÃÂÃÂªÃÂÃÂ§ÃÂ±ÃÂ¨ÃÂªÃÂ§ÃÂ ÃÂ¬ÃÂ¯ÃÂ§ÃÂ ÃÂÃÂ ÃÂÃÂ°ÃÂ ÃÂ§ÃÂÃÂÃÂ¦ÃÂ© ÃÂÃÂÃÂ§ ÃÂÃÂÃÂ¬ÃÂ¯ ÃÂÃÂ§ÃÂ±ÃÂ ÃÂ¬ÃÂÃÂÃÂ±ÃÂ ÃÂ¨ÃÂÃÂÃÂÃÂÃÂ§.';
-  }
+const CATEGORY_INSIGHTS: Record<string, (winnerName: string) => string> = {
+  'arabic-support': (w) => `${w} يقدم دعماً أعلى للغة العربية وتجربة واجهة مصممة خصيصاً للسوق الخليجي.`,
+  'payment-gateways': (w) => `${w} يدعم عدداً أكبر من بوابات الدفع المحلية الشائعة في السعودية والخليج، مثل مدى وSTC Pay.`,
+  'التوسع الدولي': (w) => `${w} أكثر ملاءمة للتوسع في أسواق خارج المنطقة العربية بفضل مرونته وتوافقه مع شبكات الشحن والدفع الدولية.`,
+  'التخصيص': (w) => `${w} يمنح التاجر حرية أكبر في تخصيص التصميم والوظائف حسب حاجة المتجر.`,
+  'سهولة الاستخدام': (w) => `${w} أسهل في الإعداد والاستخدام اليومي، خصوصاً لمن لا يملك خبرة تقنية متعلقة.`,
+  'التسويق': (w) => `${w} يوفر أدوات تسويق وتحليل أكثر تطوراً بشكل مباشر من المنصة.`,
+  'الدعم الفني': (w) => `${w} يوفر دعماً فنياً أسرع وأكثر اعتمادية وثقة لدى تجارب التجار.`,
+};
 
-  const templates: Record<string, string> = {
-    pricing: `${winnerName} ÃÂÃÂ ÃÂ§ÃÂÃÂ®ÃÂÃÂ§ÃÂ± ÃÂ§ÃÂÃÂ£ÃÂÃÂÃÂ± ÃÂÃÂ ÃÂ§ÃÂÃÂÃÂ«ÃÂ§ÃÂ ÃÂ§ÃÂÃÂ­ÃÂ³ÃÂ§ÃÂ¨ÃÂ ÃÂ§ÃÂÃÂÃÂ³ÃÂªÃÂ®ÃÂ¯ÃÂ ÃÂÃÂ ÃÂÃÂ°ÃÂ ÃÂ§ÃÂÃÂÃÂÃÂ§ÃÂ±ÃÂÃÂ© ÃÂ¹ÃÂÃÂ¯ ÃÂÃÂ°ÃÂ§ ÃÂ§ÃÂÃÂÃÂ³ÃÂªÃÂÃÂ ÃÂÃÂ ÃÂ§ÃÂÃÂ¥ÃÂÃÂ±ÃÂ§ÃÂ¯ÃÂ§ÃÂª.`,
-    'arabic-support': `${winnerName} ÃÂÃÂÃÂ¯ÃÂÃÂ ÃÂ¯ÃÂ¹ÃÂÃÂ§ÃÂ ÃÂ£ÃÂ¹ÃÂÃÂ ÃÂÃÂÃÂºÃÂ© ÃÂ§ÃÂÃÂ¹ÃÂ±ÃÂ¨ÃÂÃÂ© ÃÂÃÂªÃÂ¬ÃÂ±ÃÂ¨ÃÂ© ÃÂÃÂ§ÃÂ¬ÃÂÃÂ© ÃÂÃÂµÃÂÃÂÃÂ© ÃÂ®ÃÂµÃÂÃÂµÃÂ§ÃÂ ÃÂÃÂÃÂ³ÃÂÃÂ ÃÂ§ÃÂÃÂ®ÃÂÃÂÃÂ¬ÃÂ.`,
-    'payment-gateways': `${winnerName} ÃÂÃÂ¯ÃÂ¹ÃÂ ÃÂ¹ÃÂ¯ÃÂ¯ÃÂ§ÃÂ ÃÂ£ÃÂÃÂ¨ÃÂ± ÃÂÃÂ ÃÂ¨ÃÂÃÂ§ÃÂ¨ÃÂ§ÃÂª ÃÂ§ÃÂÃÂ¯ÃÂÃÂ¹ ÃÂ§ÃÂÃÂÃÂ­ÃÂÃÂÃÂ© ÃÂ§ÃÂÃÂ´ÃÂ§ÃÂ¦ÃÂ¹ÃÂ© ÃÂÃÂ ÃÂ§ÃÂÃÂ³ÃÂ¹ÃÂÃÂ¯ÃÂÃÂ© ÃÂÃÂ§ÃÂÃÂ®ÃÂÃÂÃÂ¬ÃÂ ÃÂÃÂ«ÃÂ ÃÂÃÂ¯ÃÂ ÃÂSTC Pay.`,
-    'ÃÂ§ÃÂÃÂªÃÂÃÂ³ÃÂ¹ ÃÂ§ÃÂÃÂ¯ÃÂÃÂÃÂ': `${winnerName} ÃÂ£ÃÂÃÂ«ÃÂ± ÃÂÃÂÃÂ§ÃÂ¡ÃÂÃÂ© ÃÂÃÂÃÂªÃÂÃÂ³ÃÂ¹ ÃÂÃÂ ÃÂ£ÃÂ³ÃÂÃÂ§ÃÂ ÃÂ®ÃÂ§ÃÂ±ÃÂ¬ ÃÂ§ÃÂÃÂÃÂÃÂ·ÃÂÃÂ© ÃÂ§ÃÂÃÂ¹ÃÂ±ÃÂ¨ÃÂÃÂ© ÃÂ¨ÃÂÃÂ¶ÃÂ ÃÂÃÂ±ÃÂÃÂÃÂªÃÂ ÃÂÃÂªÃÂÃÂ§ÃÂÃÂÃÂ ÃÂÃÂ¹ ÃÂ´ÃÂ¨ÃÂÃÂ§ÃÂª ÃÂ§ÃÂÃÂ´ÃÂ­ÃÂ ÃÂÃÂ§ÃÂÃÂ¯ÃÂÃÂ¹ ÃÂ§ÃÂÃÂ¯ÃÂÃÂÃÂÃÂ©.`,
-    ÃÂ§ÃÂÃÂªÃÂ®ÃÂµÃÂÃÂµ: `${winnerName} ÃÂÃÂÃÂÃÂ­ ÃÂ§ÃÂÃÂªÃÂ§ÃÂ¬ÃÂ± ÃÂ­ÃÂ±ÃÂÃÂ© ÃÂ£ÃÂÃÂ¨ÃÂ± ÃÂÃÂ ÃÂªÃÂ®ÃÂµÃÂÃÂµ ÃÂ§ÃÂÃÂªÃÂµÃÂÃÂÃÂ ÃÂÃÂ§ÃÂÃÂÃÂ¸ÃÂ§ÃÂ¦ÃÂ ÃÂ­ÃÂ³ÃÂ¨ ÃÂ­ÃÂ§ÃÂ¬ÃÂ© ÃÂ§ÃÂÃÂÃÂªÃÂ¬ÃÂ±.`,
-    'ÃÂ³ÃÂÃÂÃÂÃÂ© ÃÂ§ÃÂÃÂ§ÃÂ³ÃÂªÃÂ®ÃÂ¯ÃÂ§ÃÂ': `${winnerName} ÃÂ£ÃÂ³ÃÂÃÂ ÃÂÃÂ ÃÂ§ÃÂÃÂ¥ÃÂ¹ÃÂ¯ÃÂ§ÃÂ¯ ÃÂÃÂ§ÃÂÃÂ§ÃÂ³ÃÂªÃÂ®ÃÂ¯ÃÂ§ÃÂ ÃÂ§ÃÂÃÂÃÂÃÂÃÂÃÂ ÃÂ®ÃÂµÃÂÃÂµÃÂ§ÃÂ ÃÂÃÂÃÂ ÃÂÃÂ§ ÃÂÃÂÃÂÃÂ ÃÂ®ÃÂ¨ÃÂ±ÃÂ© ÃÂªÃÂÃÂÃÂÃÂ© ÃÂÃÂªÃÂ¹ÃÂÃÂÃÂ©.`,
-    ÃÂ§ÃÂÃÂªÃÂ³ÃÂÃÂÃÂ: `${winnerName} ÃÂÃÂÃÂ¯ÃÂÃÂ ÃÂ£ÃÂ¯ÃÂÃÂ§ÃÂª ÃÂªÃÂ³ÃÂÃÂÃÂ ÃÂÃÂªÃÂ­ÃÂÃÂÃÂ ÃÂ£ÃÂÃÂ«ÃÂ± ÃÂªÃÂ·ÃÂÃÂ±ÃÂ§ÃÂ ÃÂÃÂÃÂ¯ÃÂÃÂ¬ÃÂ© ÃÂ¨ÃÂ´ÃÂÃÂ ÃÂÃÂ¨ÃÂ§ÃÂ´ÃÂ± ÃÂÃÂ ÃÂ§ÃÂÃÂÃÂÃÂµÃÂ©.`,
-    'ÃÂ§ÃÂÃÂ¯ÃÂ¹ÃÂ ÃÂ§ÃÂÃÂÃÂÃÂ': `${winnerName} ÃÂÃÂÃÂÃÂÃÂ± ÃÂ¯ÃÂ¹ÃÂÃÂ§ÃÂ ÃÂÃÂÃÂÃÂ§ÃÂ ÃÂ£ÃÂ³ÃÂ±ÃÂ¹ ÃÂÃÂ£ÃÂÃÂ«ÃÂ± ÃÂ§ÃÂ¹ÃÂªÃÂÃÂ§ÃÂ¯ÃÂÃÂ© ÃÂÃÂÃÂÃÂ§ÃÂ ÃÂÃÂªÃÂ¬ÃÂ§ÃÂ±ÃÂ¨ ÃÂ§ÃÂÃÂªÃÂ¬ÃÂ§ÃÂ±.`,
-  };
+export function CategoryDeepDives({ platformA, platformB, scorecard }: Props) {
+  const winnerName = scorecard.winner === 'A' ? platformA.nameAr
+    : scorecard.winner === 'B' ? platformB.nameAr
+    : null;
 
-  return templates[categoryKey] ?? `${winnerName} ÃÂÃÂªÃÂÃÂ¯ÃÂÃÂ ÃÂÃÂ ÃÂÃÂ°ÃÂ ÃÂ§ÃÂÃÂÃÂ¦ÃÂ©.`;
-}
-
-export function CategoryDeepDives({ scorecard, platformA, platformB }: CategoryDeepDivesProps) {
-  const [openKey, setOpenKey] = useState<string | null>(scorecard.categories[0]?.key ?? null);
+  if (!winnerName) return null;
 
   return (
-    <section id="deep-dives" className="mb-12">
-      <h2 className="text-2xl font-extrabold text-white mb-6">ÃÂªÃÂÃÂµÃÂÃÂ ÃÂÃÂ ÃÂÃÂ¦ÃÂ©</h2>
-
-      <div className="glass overflow-hidden">
-        {scorecard.categories.map((cat) => {
-          const isOpen = openKey === cat.key;
-          const winnerName = cat.winner === 'a' ? platformA.nameAr : cat.winner === 'b' ? platformB.nameAr : null;
-
-          return (
-            <div key={cat.key} className="border-b border-white/6 last:border-0">
-              <button
-                onClick={() => setOpenKey(isOpen ? null : cat.key)}
-                className="w-full flex items-center justify-between px-5 py-4 text-right"
-              >
-                <span className="flex items-center gap-2.5">
-                  <span className="font-bold text-white text-sm">{cat.labelAr}</span>
-                  {winnerName && (
-                    <span className="badge badge-success text-xs flex items-center gap-1">
-                      <Trophy size={11} /> {winnerName}
-                    </span>
-                  )}
-                </span>
-                <ChevronDown size={16} className={`text-slate-500 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
-              </button>
-              {isOpen && (
-                <div className="px-5 pb-5 text-sm text-slate-300 leading-relaxed">
-                  {getCategoryProse(cat.key, winnerName)}
-                </div>
-              )}
-            </div>
-          );
-        })}
+    <section id="التفصيل" className="mb-12">
+      <h2 className="text-2xl font-extrabold text-white mb-6">تحليل تفصيلي بالفئات</h2>
+      <div className="space-y-4">
+        {Object.entries(CATEGORY_INSIGHTS).map(([key, getInsight]) => (
+          <div key={key} className="glass p-5">
+            <h3 className="font-bold text-white mb-2">{key}</h3>
+            <p className="text-slate-300 text-sm leading-relaxed">{getInsight(winnerName)}</p>
+          </div>
+        ))}
       </div>
     </section>
   );
