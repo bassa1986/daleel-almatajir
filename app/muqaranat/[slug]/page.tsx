@@ -108,9 +108,8 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
             <div className="flex items-start gap-6 flex-wrap">
               <div className="w-20 h-20 rounded-2xl border border-white/10 flex items-center justify-center p-2 flex-shrink-0"
                 style={{ backgroundColor: `${platform.brandColor}22` }}>
-                <img src={`/logos/${platform.slug}.svg`} alt={platform.nameAr}
-                  className="w-full h-full object-contain"
-                  onError={(e) => { (e.target as HTMLImageElement).src = `/logos/${platform.slug}.png`; }} />
+                <img src={`/logos/${platform.slug}.png`} alt={platform.nameAr}
+                  className="w-full h-full object-contain" />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-3 flex-wrap mb-2">
