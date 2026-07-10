@@ -43,15 +43,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     ]);
     if (!pa || !pb) return {};
     return {
-      title: `${pa.nameAr} vs ${pb.nameAr}: مقارنة شاملة ٢٠٢٦`,
-      description: `مقارنة شاملة بين ${pa.nameAr} و${pb.nameAr} من حيث الأسعار، المزايا، الدعم العربي وبوابات الدفع.`.slice(0, 155),
+      title: `${pa.nameAr} vs ${pb.nameAr}: ÙÙØ§Ø±ÙØ© Ø´Ø§ÙÙØ© Ù¢Ù Ù¢Ù¦`,
+      description: `ÙÙØ§Ø±ÙØ© Ø´Ø§ÙÙØ© Ø¨ÙÙ ${pa.nameAr} Ù${pb.nameAr} ÙÙ Ø­ÙØ« Ø§ÙØ£Ø³Ø¹Ø§Ø±Ø Ø§ÙÙØ²Ø§ÙØ§Ø Ø§ÙØ¯Ø¹Ù Ø§ÙØ¹Ø±Ø¨Ù ÙØ¨ÙØ§Ø¨Ø§Øª Ø§ÙØ¯ÙØ¹.`.slice(0, 155),
     };
   }
 
   const p = await prisma.platform.findUnique({ where: { slug } });
   if (!p) return {};
   return {
-    title: `مراجعة ${p.nameAr} ٢٠٢٦: الأسعار والمميزات`,
+    title: `ÙØ±Ø§Ø¬Ø¹Ø© ${p.nameAr} Ù¢Ù Ù¢Ù¦: Ø§ÙØ£Ø³Ø¹Ø§Ø± ÙØ§ÙÙÙÙØ²Ø§Øª`,
     description: p.descriptionAr.slice(0, 155),
   };
 }
@@ -89,28 +89,28 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
   // FAQPage + Review + BreadcrumbList JSON-LD (SECTION 8 SEO SYSTEM)
   const faqs = [
     {
-      q: `كم تكلفة استخدام ${platform.nameAr} شهرياً؟`,
+      q: `ÙÙ ØªÙÙÙØ© Ø§Ø³ØªØ®Ø¯Ø§Ù ${platform.nameAr} Ø´ÙØ±ÙØ§ÙØ`,
       a: entryTier
         ? entryTier.monthlyFeeSAR === 0
-          ? `تبدأ باقات ${platform.nameAr} مجانية، مع تكاليف إضافية محتملة بحسب الاستخدام.`
-          : `تبدأ باقات ${platform.nameAr} من ${entryTier.monthlyFeeSAR.toLocaleString('en-US')} ر.س شهرياً للباقة ${entryTier.nameAr}.`
-        : `تختلف تكلفة ${platform.nameAr} حسب الباقة المختارة.`,
+          ? `ØªØ¨Ø¯Ø£ Ø¨Ø§ÙØ§Øª ${platform.nameAr} ÙØ¬Ø§ÙÙØ©Ø ÙØ¹ ØªÙØ§ÙÙÙ Ø¥Ø¶Ø§ÙÙØ© ÙØ­ØªÙÙØ© Ø¨Ø­Ø³Ø¨ Ø§ÙØ§Ø³ØªØ®Ø¯Ø§Ù.`
+          : `ØªØ¨Ø¯Ø£ Ø¨Ø§ÙØ§Øª ${platform.nameAr} ÙÙ ${entryTier.monthlyFeeSAR.toLocaleString('en-US')} Ø±.Ø³ Ø´ÙØ±ÙØ§Ù ÙÙØ¨Ø§ÙØ© ${entryTier.nameAr}.`
+        : `ØªØ®ØªÙÙ ØªÙÙÙØ© ${platform.nameAr} Ø­Ø³Ø¨ Ø§ÙØ¨Ø§ÙØ© Ø§ÙÙØ®ØªØ§Ø±Ø©.`,
     },
     {
-      q: `هل ${platform.nameAr} مناسب للمبتدئين؟`,
+      q: `ÙÙ ${platform.nameAr} ÙÙØ§Ø³Ø¨ ÙÙÙØ¨ØªØ¯Ø¦ÙÙØ`,
       a: platform.isEnterprise
-        ? `${platform.nameAr} مصمم بشكل أساسي للمؤسسات الكبرى ويتطلب فريقاً تقنياً، وقد لا يكون الخيار الأمثل للمبتدئين.`
-        : `${platform.nameAr} مناسب نسبياً لأصحاب المتاجر الجدد، خصوصاً عند مقارنته بالمنصات التي تتطلب خبرة تقنية متعمقة.`,
+        ? `${platform.nameAr} ÙØµÙÙ Ø¨Ø´ÙÙ Ø£Ø³Ø§Ø³Ù ÙÙÙØ¤Ø³Ø³Ø§Øª Ø§ÙÙØ¨Ø±Ù ÙÙØªØ·ÙØ¨ ÙØ±ÙÙØ§Ù ØªÙÙÙØ§ÙØ ÙÙØ¯ ÙØ§ ÙÙÙÙ Ø§ÙØ®ÙØ§Ø± Ø§ÙØ£ÙØ«Ù ÙÙÙØ¨ØªØ¯Ø¦ÙÙ.`
+        : `${platform.nameAr} ÙÙØ§Ø³Ø¨ ÙØ³Ø¨ÙØ§Ù ÙØ£ØµØ­Ø§Ø¨ Ø§ÙÙØªØ§Ø¬Ø± Ø§ÙØ¬Ø¯Ø¯Ø Ø®ØµÙØµØ§Ù Ø¹ÙØ¯ ÙÙØ§Ø±ÙØªÙ Ø¨Ø§ÙÙÙØµØ§Øª Ø§ÙØªÙ ØªØªØ·ÙØ¨ Ø®Ø¨Ø±Ø© ØªÙÙÙØ© ÙØªØ¹ÙÙØ©.`,
     },
     {
-      q: `ما هي أهم مزايا ${platform.nameAr}؟`,
-      a: platform.pros.slice(0, 2).map((p) => p.textAr).join(' كما أن ') || `${platform.nameAr} يقدم مجموعة من المزايا التنافسية في السوق.`,
+      q: `ÙØ§ ÙÙ Ø£ÙÙ ÙØ²Ø§ÙØ§ ${platform.nameAr}Ø`,
+      a: platform.pros.slice(0, 2).map((p) => p.textAr).join(' ÙÙØ§ Ø£Ù ') || `${platform.nameAr} ÙÙØ¯Ù ÙØ¬ÙÙØ¹Ø© ÙÙ Ø§ÙÙØ²Ø§ÙØ§ Ø§ÙØªÙØ§ÙØ³ÙØ© ÙÙ Ø§ÙØ³ÙÙ.`,
     },
     {
-      q: `هل يدعم ${platform.nameAr} السوق السعودي والخليجي؟`,
+      q: `ÙÙ ÙØ¯Ø¹Ù ${platform.nameAr} Ø§ÙØ³ÙÙ Ø§ÙØ³Ø¹ÙØ¯Ù ÙØ§ÙØ®ÙÙØ¬ÙØ`,
       a: platform.origin === 'GCC'
-        ? `نعم، ${platform.nameAr} مصمم خصيصاً للسوق السعودي والخليجي مع دعم كامل للغة العربية وبوابات الدفع المحلية.`
-        : `${platform.nameAr} منصة عالمية، ويختلف مستوى دعمها للسوق السعودي والخليجي بحسب الميزة — راجع مصفوفة المزايا للتفاصيل الدقيقة.`,
+        ? `ÙØ¹ÙØ ${platform.nameAr} ÙØµÙÙ Ø®ØµÙØµØ§Ù ÙÙØ³ÙÙ Ø§ÙØ³Ø¹ÙØ¯Ù ÙØ§ÙØ®ÙÙØ¬Ù ÙØ¹ Ø¯Ø¹Ù ÙØ§ÙÙ ÙÙØºØ© Ø§ÙØ¹Ø±Ø¨ÙØ© ÙØ¨ÙØ§Ø¨Ø§Øª Ø§ÙØ¯ÙØ¹ Ø§ÙÙØ­ÙÙØ©.`
+        : `${platform.nameAr} ÙÙØµØ© Ø¹Ø§ÙÙÙØ©Ø ÙÙØ®ØªÙÙ ÙØ³ØªÙÙ Ø¯Ø¹ÙÙØ§ ÙÙØ³ÙÙ Ø§ÙØ³Ø¹ÙØ¯Ù ÙØ§ÙØ®ÙÙØ¬Ù Ø¨Ø­Ø³Ø¨ Ø§ÙÙÙØ²Ø© â Ø±Ø§Ø¬Ø¹ ÙØµÙÙÙØ© Ø§ÙÙØ²Ø§ÙØ§ ÙÙØªÙØ§ØµÙÙ Ø§ÙØ¯ÙÙÙØ©.`,
     },
   ];
 
@@ -119,9 +119,9 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: 'https://daleel-almatajir.com' },
-        { '@type': 'ListItem', position: 2, name: 'المقارنات', item: 'https://daleel-almatajir.com/مقارنات' },
-        { '@type': 'ListItem', position: 3, name: platform.nameAr, item: `https://daleel-almatajir.com/مقارنات/${slug}` },
+        { '@type': 'ListItem', position: 1, name: 'Ø§ÙØ±Ø¦ÙØ³ÙØ©', item: 'https://daleel-almatajir.com' },
+        { '@type': 'ListItem', position: 2, name: 'Ø§ÙÙÙØ§Ø±ÙØ§Øª', item: 'https://daleel-almatajir.com/ÙÙØ§Ø±ÙØ§Øª' },
+        { '@type': 'ListItem', position: 3, name: platform.nameAr, item: `https://daleel-almatajir.com/ÙÙØ§Ø±ÙØ§Øª/${slug}` },
       ],
     },
     {
@@ -129,7 +129,7 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
       '@type': 'Review',
       itemReviewed: { '@type': 'SoftwareApplication', name: platform.nameAr, applicationCategory: 'BusinessApplication' },
       reviewRating: { '@type': 'Rating', ratingValue: platform.rating, bestRating: 5 },
-      author: { '@type': 'Organization', name: 'دليل المتاجر' },
+      author: { '@type': 'Organization', name: 'Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø±' },
     },
     {
       '@context': 'https://schema.org',
@@ -153,9 +153,9 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
 
           {/* Breadcrumb */}
           <nav className="text-sm text-slate-500 mb-8 flex items-center gap-2">
-            <Link href="/" className="hover:text-white transition-colors">الرئيسية</Link>
+            <Link href="/" className="hover:text-white transition-colors">Ø§ÙØ±Ø¦ÙØ³ÙØ©</Link>
             <span>/</span>
-            <Link href="/مقارنات" className="hover:text-white transition-colors">المقارنات</Link>
+            <Link href="/ÙÙØ§Ø±ÙØ§Øª" className="hover:text-white transition-colors">Ø§ÙÙÙØ§Ø±ÙØ§Øª</Link>
             <span>/</span>
             <span className="text-white">{platform.nameAr}</span>
           </nav>
@@ -167,15 +167,15 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
                 className="w-20 h-20 rounded-2xl border border-white/10 flex items-center justify-center text-3xl flex-shrink-0"
                 style={{ backgroundColor: `${platform.brandColor}22` }}
               >
-                <span style={{ color: platform.brandColor }}>●</span>
+                <span style={{ color: platform.brandColor }}>â</span>
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-3 flex-wrap mb-2">
                   <h1 className="text-4xl font-extrabold text-white">{platform.nameAr}</h1>
                   <span className={`badge text-sm ${platform.origin === 'GCC' ? 'badge-secondary' : 'badge-primary'}`}>
-                    {platform.origin === 'GCC' ? 'خليجي' : 'عالمي'}
+                    {platform.origin === 'GCC' ? 'Ø®ÙÙØ¬Ù' : 'Ø¹Ø§ÙÙÙ'}
                   </span>
-                  {platform.isEnterprise && <span className="badge badge-warning text-sm">مؤسسي</span>}
+                  {platform.isEnterprise && <span className="badge badge-warning text-sm">ÙØ¤Ø³Ø³Ù</span>}
                 </div>
                 <StarRating rating={platform.rating} size="md" className="mb-3" />
                 <p className="text-slate-300 leading-relaxed">{platform.descriptionAr}</p>
@@ -190,7 +190,7 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
                   className="btn-primary text-sm px-6 py-3"
                   style={{ backgroundColor: platform.brandColor }}
                 >
-                  ابدأ مع {platform.nameAr} ←
+                  Ø§Ø¨Ø¯Ø£ ÙØ¹ {platform.nameAr} â
                 </a>
               </div>
             )}
@@ -198,7 +198,7 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
 
           {/* Pricing tiers */}
           <section className="mb-8">
-            <h2 className="text-2xl font-extrabold text-white mb-4">الباقات والأسعار</h2>
+            <h2 className="text-2xl font-extrabold text-white mb-4">Ø§ÙØ¨Ø§ÙØ§Øª ÙØ§ÙØ£Ø³Ø¹Ø§Ø±</h2>
             <div className="grid gap-4">
               {platform.pricingTiers.map((tier) => (
                 <div key={tier.id} className="glass p-5 flex items-center gap-4 flex-wrap">
@@ -206,20 +206,20 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
                     <div className="font-extrabold text-white text-lg">{tier.nameAr}</div>
                     {tier.maxRevenueSAR && (
                       <div className="text-xs text-slate-500 mt-0.5">
-                        حتى {tier.maxRevenueSAR.toLocaleString('en-US')} ر.س إيرادات شهرية
+                        Ø­ØªÙ {tier.maxRevenueSAR.toLocaleString('en-US')} Ø±.Ø³ Ø¥ÙØ±Ø§Ø¯Ø§Øª Ø´ÙØ±ÙØ©
                       </div>
                     )}
                   </div>
                   <div className="text-right">
                     <div className="figure text-2xl font-extrabold text-white">
-                      {tier.monthlyFeeSAR === 0 ? <span className="text-emerald-400">مجاني</span>
-                        : <>{tier.monthlyFeeSAR.toLocaleString('en-US')} <span className="text-sm text-slate-400">ر.س/شهر</span></>}
+                      {tier.monthlyFeeSAR === 0 ? <span className="text-emerald-400">ÙØ¬Ø§ÙÙ</span>
+                        : <>{tier.monthlyFeeSAR.toLocaleString('en-US')} <span className="text-sm text-slate-400">Ø±.Ø³/Ø´ÙØ±</span></>}
                     </div>
                     {tier.transactionFeePct > 0 && (
-                      <div className="text-xs text-amber-400">+ {tier.transactionFeePct}% رسوم معاملات</div>
+                      <div className="text-xs text-amber-400">+ {tier.transactionFeePct}% Ø±Ø³ÙÙ ÙØ¹Ø§ÙÙØ§Øª</div>
                     )}
                     {tier.maxOrders && (
-                      <div className="text-xs text-slate-500">حتى {tier.maxOrders.toLocaleString('en-US')} طلب/شهر</div>
+                      <div className="text-xs text-slate-500">Ø­ØªÙ {tier.maxOrders.toLocaleString('en-US')} Ø·ÙØ¨/Ø´ÙØ±</div>
                     )}
                   </div>
                 </div>
@@ -230,17 +230,17 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
           {/* Hidden costs */}
           {platform.hiddenCosts.length > 0 && (
             <section className="mb-8">
-              <h2 className="text-2xl font-extrabold text-white mb-4">التكاليف الإضافية</h2>
+              <h2 className="text-2xl font-extrabold text-white mb-4">Ø§ÙØªÙØ§ÙÙÙ Ø§ÙØ¥Ø¶Ø§ÙÙØ©</h2>
               <div className="glass overflow-hidden">
                 {platform.hiddenCosts.map((cost, i) => (
                   <div key={cost.id} className={`flex items-center justify-between p-4 ${i < platform.hiddenCosts.length - 1 ? 'border-b border-white/6' : ''}`}>
                     <span className="text-slate-300 text-sm">{cost.labelAr}</span>
                     <div className="text-right">
                       <span className="figure font-bold text-white text-sm">
-                        {cost.monthlySAR.toLocaleString('en-US')} ر.س/شهر
+                        {cost.monthlySAR.toLocaleString('en-US')} Ø±.Ø³/Ø´ÙØ±
                       </span>
                       <span className={`block text-xs ${cost.isRequired ? 'text-red-400' : 'text-slate-500'}`}>
-                        {cost.isRequired ? 'إلزامي' : 'اختياري'}
+                        {cost.isRequired ? 'Ø¥ÙØ²Ø§ÙÙ' : 'Ø§Ø®ØªÙØ§Ø±Ù'}
                       </span>
                     </div>
                   </div>
@@ -253,12 +253,12 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <section>
               <h2 className="text-xl font-extrabold text-white mb-4 flex items-center gap-2">
-                <span className="text-emerald-400">✓</span> المميزات
+                <span className="text-emerald-400">â</span> Ø§ÙÙÙÙØ²Ø§Øª
               </h2>
               <ul className="space-y-3">
                 {platform.pros.map((pro) => (
                   <li key={pro.id} className="flex items-start gap-3 text-sm text-slate-300">
-                    <span className="text-emerald-400 mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-emerald-400 mt-0.5 flex-shrink-0">â</span>
                     {pro.textAr}
                   </li>
                 ))}
@@ -266,12 +266,12 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
             </section>
             <section>
               <h2 className="text-xl font-extrabold text-white mb-4 flex items-center gap-2">
-                <span className="text-red-400">✗</span> العيوب
+                <span className="text-red-400">â</span> Ø§ÙØ¹ÙÙØ¨
               </h2>
               <ul className="space-y-3">
                 {platform.cons.map((con) => (
                   <li key={con.id} className="flex items-start gap-3 text-sm text-slate-300">
-                    <span className="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+                    <span className="text-red-400 mt-0.5 flex-shrink-0">â</span>
                     {con.textAr}
                   </li>
                 ))}
@@ -282,14 +282,14 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
           {/* Quick verdict */}
           {platform.quickVerdictAr && (
             <div className="glass p-6 border-r-4 border-secondary mb-8">
-              <h3 className="text-lg font-extrabold text-white mb-2">الحكم السريع</h3>
+              <h3 className="text-lg font-extrabold text-white mb-2">Ø§ÙØ­ÙÙ Ø§ÙØ³Ø±ÙØ¹</h3>
               <p className="text-slate-300 leading-relaxed">{platform.quickVerdictAr}</p>
             </div>
           )}
 
           {/* FAQ */}
           <section>
-            <h2 className="text-2xl font-extrabold text-white mb-4">الأسئلة الشائعة</h2>
+            <h2 className="text-2xl font-extrabold text-white mb-4">Ø§ÙØ£Ø³Ø¦ÙØ© Ø§ÙØ´Ø§Ø¦Ø¹Ø©</h2>
             <div className="glass overflow-hidden">
               {faqs.map((faq, i) => (
                 <div key={i} className={`p-5 ${i < faqs.length - 1 ? 'border-b border-white/6' : ''}`}>

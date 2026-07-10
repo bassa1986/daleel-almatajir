@@ -1,13 +1,13 @@
 // =============================================================
-// دليل المتاجر — PDF export
+// Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø± â PDF export
 //
 // SECTION 3, "PDF EXPORT (jsPDF)":
-//   Header:  "دليل المتاجر — تقرير تكاليف منصات التجارة الإلكترونية"
+//   Header:  "Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø± â ØªÙØ±ÙØ± ØªÙØ§ÙÙÙ ÙÙØµØ§Øª Ø§ÙØªØ¬Ø§Ø±Ø© Ø§ÙØ¥ÙÙØªØ±ÙÙÙØ©"
 //   Inputs summary row
 //   Per-platform result with cost breakdown
-//   Footer:  "daleel-almatajir.com | الأرقام تقديرية"
+//   Footer:  "daleel-almatajir.com | Ø§ÙØ£Ø±ÙØ§Ù ØªÙØ¯ÙØ±ÙØ©"
 //
-// IMPORTANT — why this isn't pure jsPDF text:
+// IMPORTANT â why this isn't pure jsPDF text:
 // jsPDF's built-in fonts have no Arabic glyphs and don't perform Arabic
 // contextual shaping (initial/medial/final letterforms) or bidi reordering.
 // Rather than embed a custom font + a reshaping library, we rasterize a
@@ -25,8 +25,8 @@ import { convertFromSAR, formatCurrency, formatNumber, formatPercent } from './c
 import { WOOCOMMERCE_SCENARIO_LABELS_AR } from './constants';
 import type { CalculatorOutput } from './types';
 
-export const PDF_REPORT_HEADER_AR = 'دليل المتاجر — تقرير تكاليف منصات التجارة الإلكترونية';
-export const PDF_REPORT_FOOTER_AR = 'daleel-almatajir.com | الأرقام تقديرية';
+export const PDF_REPORT_HEADER_AR = 'Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø± â ØªÙØ±ÙØ± ØªÙØ§ÙÙÙ ÙÙØµØ§Øª Ø§ÙØªØ¬Ø§Ø±Ø© Ø§ÙØ¥ÙÙØªØ±ÙÙÙØ©';
+export const PDF_REPORT_FOOTER_AR = 'daleel-almatajir.com | Ø§ÙØ£Ø±ÙØ§Ù ØªÙØ¯ÙØ±ÙØ©';
 
 export interface PdfSummaryRow {
   labelAr: string;
@@ -63,27 +63,27 @@ export function buildPdfReportData(output: CalculatorOutput): PdfReportData {
   const currency = inputs.currency;
 
   const inputsSummary: PdfSummaryRow[] = [
-    { labelAr: 'الإيرادات الشهرية', valueAr: formatCurrency(inputs.monthlyRevenue, 'SAR') },
-    { labelAr: 'عدد الطلبات الشهرية', valueAr: formatNumber(inputs.monthlyOrders) },
-    { labelAr: 'العملة المعروضة', valueAr: currency },
-    { labelAr: 'تضمين رسوم الإعداد في التكلفة السنوية', valueAr: inputs.includeSetup ? 'نعم' : 'لا' },
+    { labelAr: 'Ø§ÙØ¥ÙØ±Ø§Ø¯Ø§Øª Ø§ÙØ´ÙØ±ÙØ©', valueAr: formatCurrency(inputs.monthlyRevenue, 'SAR') },
+    { labelAr: 'Ø¹Ø¯Ø¯ Ø§ÙØ·ÙØ¨Ø§Øª Ø§ÙØ´ÙØ±ÙØ©', valueAr: formatNumber(inputs.monthlyOrders) },
+    { labelAr: 'Ø§ÙØ¹ÙÙØ© Ø§ÙÙØ¹Ø±ÙØ¶Ø©', valueAr: currency },
+    { labelAr: 'ØªØ¶ÙÙÙ Ø±Ø³ÙÙ Ø§ÙØ¥Ø¹Ø¯Ø§Ø¯ ÙÙ Ø§ÙØªÙÙÙØ© Ø§ÙØ³ÙÙÙØ©', valueAr: inputs.includeSetup ? 'ÙØ¹Ù' : 'ÙØ§' },
     {
-      labelAr: 'سيناريو تكاليف ووكومرس',
+      labelAr: 'Ø³ÙÙØ§Ø±ÙÙ ØªÙØ§ÙÙÙ ÙÙÙÙÙØ±Ø³',
       valueAr: WOOCOMMERCE_SCENARIO_LABELS_AR[inputs.wooCommerceScenario],
     },
   ];
 
   const platforms: PdfPlatformBreakdown[] = results.map((r) => {
     // monthlySubscription / transactionFees / perOrderFees / hiddenCostsTotal /
-    // costPerOrder are all stored in SAR — convert each to the display
+    // costPerOrder are all stored in SAR â convert each to the display
     // currency before formatting, same as totalMonthlyCostConverted etc.
     const rows: PdfSummaryRow[] = [
-      { labelAr: 'الاشتراك الشهري', valueAr: formatCurrency(convertFromSAR(r.monthlySubscription, currency), currency) },
-      { labelAr: 'رسوم المعاملات', valueAr: formatCurrency(convertFromSAR(r.transactionFees, currency), currency) },
-      { labelAr: 'رسوم الطلبات', valueAr: formatCurrency(convertFromSAR(r.perOrderFees, currency), currency) },
-      { labelAr: 'تكاليف خفية', valueAr: formatCurrency(convertFromSAR(r.hiddenCostsTotal, currency), currency) },
-      { labelAr: 'التكلفة لكل طلب', valueAr: formatCurrency(convertFromSAR(r.costPerOrder, currency), currency) },
-      { labelAr: 'التكلفة كنسبة من الإيرادات', valueAr: formatPercent(r.costAsRevenuePercent) },
+      { labelAr: 'Ø§ÙØ§Ø´ØªØ±Ø§Ù Ø§ÙØ´ÙØ±Ù', valueAr: formatCurrency(convertFromSAR(r.monthlySubscription, currency), currency) },
+      { labelAr: 'Ø±Ø³ÙÙ Ø§ÙÙØ¹Ø§ÙÙØ§Øª', valueAr: formatCurrency(convertFromSAR(r.transactionFees, currency), currency) },
+      { labelAr: 'Ø±Ø³ÙÙ Ø§ÙØ·ÙØ¨Ø§Øª', valueAr: formatCurrency(convertFromSAR(r.perOrderFees, currency), currency) },
+      { labelAr: 'ØªÙØ§ÙÙÙ Ø®ÙÙØ©', valueAr: formatCurrency(convertFromSAR(r.hiddenCostsTotal, currency), currency) },
+      { labelAr: 'Ø§ÙØªÙÙÙØ© ÙÙÙ Ø·ÙØ¨', valueAr: formatCurrency(convertFromSAR(r.costPerOrder, currency), currency) },
+      { labelAr: 'Ø§ÙØªÙÙÙØ© ÙÙØ³Ø¨Ø© ÙÙ Ø§ÙØ¥ÙØ±Ø§Ø¯Ø§Øª', valueAr: formatPercent(r.costAsRevenuePercent) },
     ];
 
     const warningsAr: string[] = [];
@@ -124,7 +124,7 @@ export interface ExportPdfOptions {
   pageFormat?: 'a4' | 'letter';
 }
 
-const DEFAULT_FILENAME = 'تقرير-تكاليف-دليل-المتاجر.pdf';
+const DEFAULT_FILENAME = 'ØªÙØ±ÙØ±-ØªÙØ§ÙÙÙ-Ø¯ÙÙÙ-Ø§ÙÙØªØ§Ø¬Ø±.pdf';
 
 /**
  * Renders a DOM element (the printable report) to a paginated PDF and
@@ -132,7 +132,7 @@ const DEFAULT_FILENAME = 'تقرير-تكاليف-دليل-المتاجر.pdf';
  *
  * @param element - root element of the printable report, e.g. a hidden
  *   `<div dir="rtl">` containing the header, inputs summary, per-platform
- *   breakdown cards, and footer — styled with the Cairo font.
+ *   breakdown cards, and footer â styled with the Cairo font.
  */
 export async function exportCalculatorReportPdf(
   element: HTMLElement,
@@ -140,7 +140,7 @@ export async function exportCalculatorReportPdf(
 ): Promise<void> {
   const { filename = DEFAULT_FILENAME, pageFormat = 'a4' } = options;
 
-  // jsPDF is a named export (`export { jsPDF }`), not a default export —
+  // jsPDF is a named export (`export { jsPDF }`), not a default export â
   // html2canvas, by contrast, exports its function as the default.
   const [{ jsPDF }, { default: html2canvas }] = await Promise.all([
     import('jspdf'),

@@ -14,12 +14,12 @@ export function ScorecardTable({ scorecard, platformA, platformB }: ScorecardTab
 
   return (
     <section id="scorecard" className="mb-12">
-      <h2 className="text-2xl font-extrabold text-white mb-6">بطاقة النقاط</h2>
+      <h2 className="text-2xl font-extrabold text-white mb-6">Ø¨Ø·Ø§ÙØ© Ø§ÙÙÙØ§Ø·</h2>
 
       <div className="glass overflow-hidden">
         {/* Header row */}
         <div className="grid grid-cols-[1fr_auto_auto] gap-4 px-5 py-3 text-xs text-slate-500 border-b border-white/8">
-          <span>الفئة</span>
+          <span>Ø§ÙÙØ¦Ø©</span>
           <span className="w-24 text-center">{platformA.nameAr}</span>
           <span className="w-24 text-center">{platformB.nameAr}</span>
         </div>
@@ -40,7 +40,7 @@ export function ScorecardTable({ scorecard, platformA, platformB }: ScorecardTab
 
         {/* Total row */}
         <div className="grid grid-cols-[1fr_auto_auto] gap-4 px-5 py-4 bg-white/4 items-center">
-          <span className="text-sm font-bold text-white">المجموع</span>
+          <span className="text-sm font-bold text-white">Ø§ÙÙØ¬ÙÙØ¹</span>
           <span className="w-24 text-center figure font-extrabold text-white">{scorecard.totalWinsA}</span>
           <span className="w-24 text-center figure font-extrabold text-white">{scorecard.totalWinsB}</span>
         </div>
@@ -50,7 +50,7 @@ export function ScorecardTable({ scorecard, platformA, platformB }: ScorecardTab
         <div className="mt-4 flex items-center justify-center gap-2 text-sm text-amber-300">
           <Trophy size={16} />
           <span className="font-bold">{overall.nameAr}</span>
-          يتقدم في بطاقة النقاط الإجمالية
+          ÙØªÙØ¯Ù ÙÙ Ø¨Ø·Ø§ÙØ© Ø§ÙÙÙØ§Ø· Ø§ÙØ¥Ø¬ÙØ§ÙÙØ©
         </div>
       )}
     </section>
@@ -66,7 +66,7 @@ function ScoreBar({ value, won, color }: { value: number; won: boolean; color: s
           style={{ width: `${Math.max(4, value)}%`, backgroundColor: won ? color : 'rgba(255,255,255,0.25)' }}
         />
       </div>
-      {won && <span className="text-[10px] text-emerald-400 font-bold">الأفضل</span>}
+      {won && <span className="text-[10px] text-emerald-400 font-bold">Ø§ÙØ£ÙØ¶Ù</span>}
     </div>
   );
 }

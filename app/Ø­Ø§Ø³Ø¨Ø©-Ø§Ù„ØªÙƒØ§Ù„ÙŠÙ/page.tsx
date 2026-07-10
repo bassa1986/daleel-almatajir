@@ -6,9 +6,9 @@ import { CalculatorApp } from '@/components/calculator/calculator-app';
 import { getPlatformsForCalculator } from '@/lib/data/platforms';
 
 export const metadata: Metadata = {
-  title: 'حاسبة تكاليف منصات التجارة الإلكترونية ٢٠٢٦',
+  title: 'Ø­Ø§Ø³Ø¨Ø© ØªÙØ§ÙÙÙ ÙÙØµØ§Øª Ø§ÙØªØ¬Ø§Ø±Ø© Ø§ÙØ¥ÙÙØªØ±ÙÙÙØ© Ù¢Ù Ù¢Ù¦',
   description:
-    'احسب التكلفة الفعلية لمتجرك على سلة، زد، شوبيفاي، ووكومرس، بيغ كومرس وماجنتو بالريال السعودي. مقارنة فورية ومحدثة، مع تصدير تقرير PDF.',
+    'Ø§Ø­Ø³Ø¨ Ø§ÙØªÙÙÙØ© Ø§ÙÙØ¹ÙÙØ© ÙÙØªØ¬Ø±Ù Ø¹ÙÙ Ø³ÙØ©Ø Ø²Ø¯Ø Ø´ÙØ¨ÙÙØ§ÙØ ÙÙÙÙÙØ±Ø³Ø Ø¨ÙØº ÙÙÙØ±Ø³ ÙÙØ§Ø¬ÙØªÙ Ø¨Ø§ÙØ±ÙØ§Ù Ø§ÙØ³Ø¹ÙØ¯Ù. ÙÙØ§Ø±ÙØ© ÙÙØ±ÙØ© ÙÙØ­Ø¯Ø«Ø©Ø ÙØ¹ ØªØµØ¯ÙØ± ØªÙØ±ÙØ± PDF.',
 };
 
 export const revalidate = 3600;
@@ -16,7 +16,7 @@ export const revalidate = 3600;
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
-  name: 'حاسبة تكاليف منصات التجارة الإلكترونية',
+  name: 'Ø­Ø§Ø³Ø¨Ø© ØªÙØ§ÙÙÙ ÙÙØµØ§Øª Ø§ÙØªØ¬Ø§Ø±Ø© Ø§ÙØ¥ÙÙØªØ±ÙÙÙØ©',
   applicationCategory: 'BusinessApplication',
   operatingSystem: 'Web',
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'SAR' },
@@ -32,10 +32,10 @@ export default async function CalculatorPage() {
       <main className="min-h-screen pt-28 pb-20 px-4">
         <div className="text-center mb-10 max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-            حاسبة تكاليف المنصات
+            Ø­Ø§Ø³Ø¨Ø© ØªÙØ§ÙÙÙ Ø§ÙÙÙØµØ§Øª
           </h1>
           <p className="text-slate-400 text-lg">
-            أدخل بيانات متجرك واحصل على مقارنة دقيقة بين {platforms.length} منصات بالريال السعودي
+            Ø£Ø¯Ø®Ù Ø¨ÙØ§ÙØ§Øª ÙØªØ¬Ø±Ù ÙØ§Ø­ØµÙ Ø¹ÙÙ ÙÙØ§Ø±ÙØ© Ø¯ÙÙÙØ© Ø¨ÙÙ {platforms.length} ÙÙØµØ§Øª Ø¨Ø§ÙØ±ÙØ§Ù Ø§ÙØ³Ø¹ÙØ¯Ù
           </p>
         </div>
 

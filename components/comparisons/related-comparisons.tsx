@@ -2,12 +2,12 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
 const PLATFORM_NAMES_AR: Record<string, string> = {
-  salla: 'سلة',
-  zid: 'زد',
-  shopify: 'شوبيفاي',
-  woocommerce: 'ووكومرس',
-  bigcommerce: 'بيغ كومرس',
-  magento: 'ماجنتو',
+  salla: 'Ø³ÙØ©',
+  zid: 'Ø²Ø¯',
+  shopify: 'Ø´ÙØ¨ÙÙØ§Ù',
+  woocommerce: 'ÙÙÙÙÙØ±Ø³',
+  bigcommerce: 'Ø¨ÙØº ÙÙÙØ±Ø³',
+  magento: 'ÙØ§Ø¬ÙØªÙ',
 };
 
 const ALL_PAIRS = [
@@ -31,7 +31,7 @@ export function RelatedComparisons({ currentSlugA, currentSlugB }: Props) {
 
   return (
     <section className="mt-12">
-      <h2 className="text-xl font-extrabold text-white mb-4">مقارنات ذات صلة</h2>
+      <h2 className="text-xl font-extrabold text-white mb-4">ÙÙØ§Ø±ÙØ§Øª Ø°Ø§Øª ØµÙØ©</h2>
       <div className="grid sm:grid-cols-2 gap-3">
         {related.map(([a, b]) => (
           <Link key={`${a}-${b}`} href={`/muqaranat/${a}-vs-${b}`}

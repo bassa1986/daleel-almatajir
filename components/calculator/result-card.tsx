@@ -53,8 +53,8 @@ export function ResultCard({ result, wooCommerceScenario, onWooCommerceScenarioC
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="font-extrabold text-white">{result.nameAr}</span>
-            {result.isRecommended && <span className="badge badge-success text-xs">الأوفر</span>}
-            <span className="text-xs text-slate-500">باقة {result.selectedTier.nameAr}</span>
+            {result.isRecommended && <span className="badge badge-success text-xs">Ø§ÙØ£ÙÙØ±</span>}
+            <span className="text-xs text-slate-500">Ø¨Ø§ÙØ© {result.selectedTier.nameAr}</span>
           </div>
         </div>
 
@@ -65,7 +65,7 @@ export function ResultCard({ result, wooCommerceScenario, onWooCommerceScenarioC
           <div className="text-xs text-slate-500">
             {result.savingsVsMostExpensive > 0 && (
               <span className="text-emerald-400">
-                وفّر {formatCurrency(result.savingsVsMostExpensive, currency)}/شهر
+                ÙÙÙØ± {formatCurrency(result.savingsVsMostExpensive, currency)}/Ø´ÙØ±
               </span>
             )}
           </div>
@@ -87,20 +87,20 @@ export function ResultCard({ result, wooCommerceScenario, onWooCommerceScenarioC
 
           {/* Cost breakdown */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 my-4">
-            <BreakdownItem label="الاشتراك الشهري" value={formatCurrency(result.monthlySubscription, currency)} />
-            <BreakdownItem label="رسوم المعاملات" value={formatCurrency(result.transactionFees, currency)} />
-            <BreakdownItem label="رسوم الطلبات" value={formatCurrency(result.perOrderFees, currency)} />
-            <BreakdownItem label="تكاليف خفية" value={formatCurrency(result.hiddenCostsTotal, currency)} />
-            <BreakdownItem label="التكلفة لكل طلب" value={formatCurrency(result.costPerOrder, currency)} />
-            <BreakdownItem label="من الإيرادات" value={formatPercent(result.costAsRevenuePercent)} />
+            <BreakdownItem label="Ø§ÙØ§Ø´ØªØ±Ø§Ù Ø§ÙØ´ÙØ±Ù" value={formatCurrency(result.monthlySubscription, currency)} />
+            <BreakdownItem label="Ø±Ø³ÙÙ Ø§ÙÙØ¹Ø§ÙÙØ§Øª" value={formatCurrency(result.transactionFees, currency)} />
+            <BreakdownItem label="Ø±Ø³ÙÙ Ø§ÙØ·ÙØ¨Ø§Øª" value={formatCurrency(result.perOrderFees, currency)} />
+            <BreakdownItem label="ØªÙØ§ÙÙÙ Ø®ÙÙØ©" value={formatCurrency(result.hiddenCostsTotal, currency)} />
+            <BreakdownItem label="Ø§ÙØªÙÙÙØ© ÙÙÙ Ø·ÙØ¨" value={formatCurrency(result.costPerOrder, currency)} />
+            <BreakdownItem label="ÙÙ Ø§ÙØ¥ÙØ±Ø§Ø¯Ø§Øª" value={formatPercent(result.costAsRevenuePercent)} />
           </div>
 
           <div className="flex items-center justify-between text-sm mb-3 pt-3 border-t border-white/6">
-            <span className="text-slate-400">التكلفة الشهرية الإجمالية</span>
+            <span className="text-slate-400">Ø§ÙØªÙÙÙØ© Ø§ÙØ´ÙØ±ÙØ© Ø§ÙØ¥Ø¬ÙØ§ÙÙØ©</span>
             <span className="figure font-bold text-white">{formatCurrency(result.totalMonthlyCostConverted, currency)}</span>
           </div>
           <div className="flex items-center justify-between text-sm mb-4">
-            <span className="text-slate-400">التكلفة السنوية الإجمالية</span>
+            <span className="text-slate-400">Ø§ÙØªÙÙÙØ© Ø§ÙØ³ÙÙÙØ© Ø§ÙØ¥Ø¬ÙØ§ÙÙØ©</span>
             <span className="figure font-bold text-white">{formatCurrency(result.totalAnnualCostConverted, currency)}</span>
           </div>
 

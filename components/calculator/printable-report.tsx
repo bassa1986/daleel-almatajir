@@ -7,8 +7,8 @@ interface PrintableReportProps {
 
 /**
  * Rendered off-screen (see CalculatorApp) and rasterized by html2canvas in
- * exportCalculatorReportPdf. Must stay self-contained inline styles only —
- * no Tailwind utility classes — since html2canvas snapshots computed styles
+ * exportCalculatorReportPdf. Must stay self-contained inline styles only â
+ * no Tailwind utility classes â since html2canvas snapshots computed styles
  * and we want this to look identical regardless of the page's CSS state.
  */
 export function PrintableReport({ data }: PrintableReportProps) {
@@ -31,7 +31,7 @@ export function PrintableReport({ data }: PrintableReportProps) {
 
       {/* Inputs summary */}
       <div style={{ marginBottom: '28px' }}>
-        <div style={{ fontSize: '14px', fontWeight: 700, color: '#fff', marginBottom: '10px' }}>ملخص المدخلات</div>
+        <div style={{ fontSize: '14px', fontWeight: 700, color: '#fff', marginBottom: '10px' }}>ÙÙØ®Øµ Ø§ÙÙØ¯Ø®ÙØ§Øª</div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
           {data.inputsSummary.map((row, i) => (
             <div
@@ -69,9 +69,9 @@ export function PrintableReport({ data }: PrintableReportProps) {
               <span style={{ fontSize: '15px', fontWeight: 800, color: '#fff' }}>
                 #{platform.rank} {platform.nameAr}
               </span>
-              <span style={{ fontSize: '11px', color: '#94A3B8', marginRight: '8px' }}>باقة {platform.tierNameAr}</span>
+              <span style={{ fontSize: '11px', color: '#94A3B8', marginRight: '8px' }}>Ø¨Ø§ÙØ© {platform.tierNameAr}</span>
             </div>
-            <span style={{ fontSize: '16px', fontWeight: 800, color: '#fff' }}>{platform.totalMonthlyCostAr}/شهر</span>
+            <span style={{ fontSize: '16px', fontWeight: 800, color: '#fff' }}>{platform.totalMonthlyCostAr}/Ø´ÙØ±</span>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '6px', marginBottom: '8px' }}>
@@ -83,11 +83,11 @@ export function PrintableReport({ data }: PrintableReportProps) {
             ))}
           </div>
 
-          <div style={{ fontSize: '11px', color: '#94A3B8' }}>التكلفة السنوية: {platform.totalAnnualCostAr}</div>
+          <div style={{ fontSize: '11px', color: '#94A3B8' }}>Ø§ÙØªÙÙÙØ© Ø§ÙØ³ÙÙÙØ©: {platform.totalAnnualCostAr}</div>
 
           {platform.warningsAr.map((w, i) => (
             <div key={i} style={{ fontSize: '10px', color: '#FCD34D', marginTop: '6px' }}>
-              ⚠ {w}
+              â  {w}
             </div>
           ))}
         </div>

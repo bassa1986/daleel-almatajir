@@ -4,12 +4,12 @@ import { SiteHeader } from '@/components/layout/site-header';
 import { SiteFooter } from '@/components/layout/site-footer';
 import { CalculatorApp } from '@/components/calculator/calculator-app';
 import { getPlatformsForCalculator } from '@/lib/data/platforms';
-export const metadata: Metadata = { title: 'حاسبة تكاليف منصات التجارة الإلكترونية ٢٠٢٦', description: 'احسب التكلفة الفعلية لمتجرك بالريال السعودي.' };
+export const metadata: Metadata = { title: 'Ø­Ø§Ø³Ø¨Ø© ØªÙØ§ÙÙÙ ÙÙØµØ§Øª Ø§ÙØªØ¬Ø§Ø±Ø© Ø§ÙØ¥ÙÙØªØ±ÙÙÙØ© Ù¢Ù Ù¢Ù¦', description: 'Ø§Ø­Ø³Ø¨ Ø§ÙØªÙÙÙØ© Ø§ÙÙØ¹ÙÙØ© ÙÙØªØ¬Ø±Ù Ø¨Ø§ÙØ±ÙØ§Ù Ø§ÙØ³Ø¹ÙØ¯Ù.' };
 export const revalidate = 3600;
 export default async function CalculatorPage() {
   const platforms = await getPlatformsForCalculator();
   return (<><SiteHeader/><main className="min-h-screen pt-28 pb-20 px-4">
-    <div className="text-center mb-10 max-w-3xl mx-auto"><h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">حاسبة تكاليف المنصات</h1><p className="text-slate-400 text-lg">أدخل بيانات متجرك واحصل على مقارنة دقيقة بين {platforms.length} منصات بالريال السعودي</p></div>
+    <div className="text-center mb-10 max-w-3xl mx-auto"><h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">Ø­Ø§Ø³Ø¨Ø© ØªÙØ§ÙÙÙ Ø§ÙÙÙØµØ§Øª</h1><p className="text-slate-400 text-lg">Ø£Ø¯Ø®Ù Ø¨ÙØ§ÙØ§Øª ÙØªØ¬Ø±Ù ÙØ§Ø­ØµÙ Ø¹ÙÙ ÙÙØ§Ø±ÙØ© Ø¯ÙÙÙØ© Ø¨ÙÙ {platforms.length} ÙÙØµØ§Øª Ø¨Ø§ÙØ±ÙØ§Ù Ø§ÙØ³Ø¹ÙØ¯Ù</p></div>
     <Suspense fallback={<div className="max-w-5xl mx-auto"><div className="glass h-64 mb-8 animate-pulse"/></div>}><CalculatorApp platforms={platforms}/></Suspense>
   </main><SiteFooter/></>);
 }

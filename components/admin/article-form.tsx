@@ -6,7 +6,7 @@ import { Save, Eye, Send, Trash2 } from 'lucide-react';
 import { TiptapEditor } from './tiptap-editor';
 import { createArticle, updateArticle, deleteArticle, type ArticleFormInput } from '@/lib/actions/articles';
 
-const CATEGORIES = ['مقارنات', 'مراجعات', 'أدلة', 'دراسات الحالة', 'أخبار'];
+const CATEGORIES = ['ÙÙØ§Ø±ÙØ§Øª', 'ÙØ±Ø§Ø¬Ø¹Ø§Øª', 'Ø£Ø¯ÙØ©', 'Ø¯Ø±Ø§Ø³Ø§Øª Ø§ÙØ­Ø§ÙØ©', 'Ø£Ø®Ø¨Ø§Ø±'];
 
 export interface ArticleFormData {
   id?: string;
@@ -64,7 +64,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
 
   function handleSave(targetStatus: 'draft' | 'published') {
     if (!titleAr.trim()) {
-      alert('يرجى إدخال عنوان للمقال');
+      alert('ÙØ±Ø¬Ù Ø¥Ø¯Ø®Ø§Ù Ø¹ÙÙØ§Ù ÙÙÙÙØ§Ù');
       return;
     }
     startTransition(async () => {
@@ -81,7 +81,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
 
   function handleDelete() {
     if (!article?.id) return;
-    if (!window.confirm('هل أنت متأكد من حذف هذا المقال؟ لا يمكن التراجع عن هذا الإجراء.')) return;
+    if (!window.confirm('ÙÙ Ø£ÙØª ÙØªØ£ÙØ¯ ÙÙ Ø­Ø°Ù ÙØ°Ø§ Ø§ÙÙÙØ§ÙØ ÙØ§ ÙÙÙÙ Ø§ÙØªØ±Ø§Ø¬Ø¹ Ø¹Ù ÙØ°Ø§ Ø§ÙØ¥Ø¬Ø±Ø§Ø¡.')) return;
     startTransition(async () => {
       await deleteArticle(article.id!);
       router.push('/admin/articles');
@@ -100,7 +100,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
               setTitleAr(e.target.value);
               if (!article?.id) setSlug(slugify(e.target.value));
             }}
-            placeholder="عنوان المقال"
+            placeholder="Ø¹ÙÙØ§Ù Ø§ÙÙÙØ§Ù"
             className="w-full text-2xl font-extrabold bg-transparent text-white placeholder-slate-600 mb-4 focus:outline-none border-b border-white/10 pb-3"
           />
           <TiptapEditor content={bodyHtml} onChange={setBodyHtml} />
@@ -108,7 +108,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
 
         {/* Sidebar (30%) */}
         <div className="space-y-5">
-          <Field label="الرابط (Slug)">
+          <Field label="Ø§ÙØ±Ø§Ø¨Ø· (Slug)">
             <input
               type="text"
               value={slug}
@@ -118,7 +118,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
             />
           </Field>
 
-          <Field label="التصنيف">
+          <Field label="Ø§ÙØªØµÙÙÙ">
             <select value={category} onChange={(e) => setCategory(e.target.value)} className="admin-input" dir="rtl">
               {CATEGORIES.map((c) => (
                 <option key={c} value={c}>{c}</option>
@@ -126,7 +126,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
             </select>
           </Field>
 
-          <Field label="صورة مميزة (رابط)">
+          <Field label="ØµÙØ±Ø© ÙÙÙØ²Ø© (Ø±Ø§Ø¨Ø·)">
             <input
               type="text"
               value={featuredImage}
@@ -136,7 +136,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
             />
           </Field>
 
-          <Field label="نص بديل للصورة (Alt)">
+          <Field label="ÙØµ Ø¨Ø¯ÙÙ ÙÙØµÙØ±Ø© (Alt)">
             <input
               type="text"
               value={featuredImageAlt}
@@ -146,7 +146,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
             />
           </Field>
 
-          <Field label="الوسوم (مفصولة بفاصلة)">
+          <Field label="Ø§ÙÙØ³ÙÙ (ÙÙØµÙÙØ© Ø¨ÙØ§ØµÙØ©)">
             <input
               type="text"
               value={tagsInput}
@@ -158,7 +158,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
 
           <div className="border-t border-white/8 pt-4">
             <div className="text-xs font-bold text-slate-400 mb-3">SEO</div>
-            <Field label="عنوان Meta">
+            <Field label="Ø¹ÙÙØ§Ù Meta">
               <input
                 type="text"
                 value={metaTitleAr}
@@ -167,7 +167,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
                 className="admin-input"
               />
             </Field>
-            <Field label="وصف Meta">
+            <Field label="ÙØµÙ Meta">
               <textarea
                 value={metaDescAr}
                 onChange={(e) => setMetaDescAr(e.target.value)}
@@ -183,7 +183,7 @@ export function ArticleForm({ article }: ArticleFormProps) {
               onClick={handleDelete}
               className="flex items-center gap-2 text-xs text-red-400 hover:text-red-300 transition-colors pt-2"
             >
-              <Trash2 size={13} /> حذف المقال
+              <Trash2 size={13} /> Ø­Ø°Ù Ø§ÙÙÙØ§Ù
             </button>
           )}
         </div>
@@ -192,20 +192,20 @@ export function ArticleForm({ article }: ArticleFormProps) {
       {/* Sticky bottom bar */}
       <div className="fixed bottom-0 left-56 right-0 border-t border-white/8 bg-[#0B1120]/95 backdrop-blur-md px-6 py-3 flex items-center justify-end gap-3">
         <span className="text-xs text-slate-500 flex-1">
-          {status === 'published' ? '🟢 منشور' : '⚪ مسودة'}
+          {status === 'published' ? 'ð¢ ÙÙØ´ÙØ±' : 'âª ÙØ³ÙØ¯Ø©'}
         </span>
         <button onClick={() => handleSave('draft')} disabled={isPending} className="btn-glass text-sm px-4 py-2 disabled:opacity-50">
-          <Save size={14} /> حفظ مسودة
+          <Save size={14} /> Ø­ÙØ¸ ÙØ³ÙØ¯Ø©
         </button>
         <button
-          onClick={() => window.open(`/أدلة/${slug}`, '_blank')}
+          onClick={() => window.open(`/Ø£Ø¯ÙØ©/${slug}`, '_blank')}
           disabled={!article?.id}
           className="btn-glass text-sm px-4 py-2 disabled:opacity-50"
         >
-          <Eye size={14} /> معاينة
+          <Eye size={14} /> ÙØ¹Ø§ÙÙØ©
         </button>
         <button onClick={() => handleSave('published')} disabled={isPending} className="btn-primary text-sm px-4 py-2 disabled:opacity-50">
-          <Send size={14} /> انشر الآن
+          <Send size={14} /> Ø§ÙØ´Ø± Ø§ÙØ¢Ù
         </button>
       </div>
 

@@ -19,13 +19,13 @@ export function MiniCalculatorEmbedded({ configA, configB }: MiniCalculatorEmbed
 
   return (
     <section id="mini-calculator" className="mb-12">
-      <h2 className="text-2xl font-extrabold text-white mb-6">Ø­Ø§Ø³Ø¨Ø© Ù…ØµØºÙ‘Ø±Ø©: {configA.nameAr} Ø¶Ø¯ {configB.nameAr}</h2>
+      <h2 className="text-2xl font-extrabold text-white mb-6">ÃÂ­ÃÂ§ÃÂ³ÃÂ¨ÃÂ© Ãâ¦ÃÂµÃÂºÃâÃÂ±ÃÂ©: {configA.nameAr} ÃÂ¶ÃÂ¯ {configB.nameAr}</h2>
 
       <div className="glass p-6 md:p-8">
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           <div>
             <div className="flex justify-between items-center mb-2">
-              <label className="text-sm font-semibold text-slate-300">Ø§Ù„Ø¥ÙŠØ±Ø§Ø¯Ø§Øª Ø§Ù„Ø´Ù‡Ø±ÙŠØ©</label>
+              <label className="text-sm font-semibold text-slate-300">ÃÂ§ÃâÃÂ¥ÃÅ ÃÂ±ÃÂ§ÃÂ¯ÃÂ§ÃÂª ÃÂ§ÃâÃÂ´Ãâ¡ÃÂ±ÃÅ ÃÂ©</label>
               <span className="figure text-primary font-bold text-sm">{formatCurrency(inputs.monthlyRevenue, 'SAR')}</span>
             </div>
             <input
@@ -42,7 +42,7 @@ export function MiniCalculatorEmbedded({ configA, configB }: MiniCalculatorEmbed
           </div>
           <div>
             <div className="flex justify-between items-center mb-2">
-              <label className="text-sm font-semibold text-slate-300">Ø¹Ø¯Ø¯ Ø§Ù„Ø·Ù„Ø¨Ø§Øª Ø§Ù„Ø´Ù‡Ø±ÙŠØ©</label>
+              <label className="text-sm font-semibold text-slate-300">ÃÂ¹ÃÂ¯ÃÂ¯ ÃÂ§ÃâÃÂ·ÃâÃÂ¨ÃÂ§ÃÂª ÃÂ§ÃâÃÂ´Ãâ¡ÃÂ±ÃÅ ÃÂ©</label>
               <span className="figure text-secondary font-bold text-sm">{inputs.monthlyOrders.toLocaleString('en-US')}</span>
             </div>
             <input
@@ -67,22 +67,22 @@ export function MiniCalculatorEmbedded({ configA, configB }: MiniCalculatorEmbed
             >
               <div className="flex items-center justify-between mb-1">
                 <span className="font-bold text-white text-sm">{r.nameAr}</span>
-                {r.isRecommended && <span className="badge badge-success text-xs">Ø§Ù„Ø£ÙˆÙØ±</span>}
+                {r.isRecommended && <span className="badge badge-success text-xs">ÃÂ§ÃâÃÂ£ÃËÃÂÃÂ±</span>}
               </div>
-              <div className="figure text-xl font-extrabold text-white">{formatCurrency(r.totalMonthlyCost, 'SAR')}/Ø´Ù‡Ø±</div>
+              <div className="figure text-xl font-extrabold text-white">{formatCurrency(r.totalMonthlyCost, 'SAR')}/ÃÂ´Ãâ¡ÃÂ±</div>
             </div>
           ))}
         </div>
 
         {diff > 0 && (
           <div className="text-center text-sm text-emerald-400 font-semibold mb-6">
-            ØªÙˆÙØ± Ù…Ø¹ {winner.nameAr}: {formatCurrency(diff, 'SAR')}/Ø´Ù‡Ø±
+            ÃÂªÃËÃÂÃÂ± Ãâ¦ÃÂ¹ {winner.nameAr}: {formatCurrency(diff, 'SAR')}/ÃÂ´Ãâ¡ÃÂ±
           </div>
         )}
 
         <div className="text-center">
-          <Link href="/Ø­Ø§Ø³Ø¨Ø©-Ø§Ù„ØªÙƒØ§Ù„ÙŠÙ" className="btn-primary text-sm px-6 py-3">
-            Ù‚Ø§Ø±Ù† Ù…Ø¹ Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ù†ØµØ§Øª Ø§Ù„Ø³Øª
+          <Link href="/ÃÂ­ÃÂ§ÃÂ³ÃÂ¨ÃÂ©-ÃÂ§ÃâÃÂªÃÆÃÂ§ÃâÃÅ ÃÂ" className="btn-primary text-sm px-6 py-3">
+            ÃâÃÂ§ÃÂ±Ãâ  Ãâ¦ÃÂ¹ ÃÂ¬Ãâ¦ÃÅ ÃÂ¹ ÃÂ§ÃâÃâ¦Ãâ ÃÂµÃÂ§ÃÂª ÃÂ§ÃâÃÂ³ÃÂª
             <ArrowLeft size={15} />
           </Link>
         </div>

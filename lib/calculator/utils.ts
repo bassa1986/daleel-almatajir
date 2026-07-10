@@ -1,5 +1,5 @@
 // =============================================================
-// دليل المتاجر — Generic numeric helpers
+// Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø± â Generic numeric helpers
 // =============================================================
 
 /** Rounds to 2 decimal places, avoiding floating-point artifacts like 12.000000000000002. */

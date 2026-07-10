@@ -34,9 +34,9 @@ export default async function ArticlePage({ params }: Props) {
       <main className="min-h-screen pt-28 pb-20 px-4">
         <div className="max-w-3xl mx-auto">
           <nav className="text-sm text-slate-500 mb-8 flex items-center gap-2">
-            <Link href="/" className="hover:text-white transition-colors">الرئيسية</Link>
+            <Link href="/" className="hover:text-white transition-colors">Ø§ÙØ±Ø¦ÙØ³ÙØ©</Link>
             <span>/</span>
-            <Link href="/أدلة" className="hover:text-white transition-colors">الأدلة</Link>
+            <Link href="/Ø£Ø¯ÙØ©" className="hover:text-white transition-colors">Ø§ÙØ£Ø¯ÙØ©</Link>
             <span>/</span>
             <span className="text-white line-clamp-1">{article.titleAr}</span>
           </nav>
@@ -45,7 +45,7 @@ export default async function ArticlePage({ params }: Props) {
           <h1 className="text-4xl font-extrabold text-white mb-4 leading-snug">{article.titleAr}</h1>
 
           <div className="flex items-center gap-4 text-sm text-slate-500 mb-8">
-            <span className="flex items-center gap-1"><Clock size={13} />{article.readingTimeMin} دقائق للقراءة</span>
+            <span className="flex items-center gap-1"><Clock size={13} />{article.readingTimeMin} Ø¯ÙØ§Ø¦Ù ÙÙÙØ±Ø§Ø¡Ø©</span>
             <span>{article.authorName}</span>
             {article.publishedAt && (
               <span>{new Intl.DateTimeFormat('ar-SA',{year:'numeric',month:'long',day:'numeric'}).format(new Date(article.publishedAt))}</span>
@@ -69,9 +69,9 @@ export default async function ArticlePage({ params }: Props) {
           />
 
           <div className="mt-12 pt-8 border-t border-white/8">
-            <Link href="/أدلة" className="flex items-center gap-2 text-primary font-semibold text-sm">
+            <Link href="/Ø£Ø¯ÙØ©" className="flex items-center gap-2 text-primary font-semibold text-sm">
               <ArrowRight size={15} />
-              العودة إلى جميع المقالات
+              Ø§ÙØ¹ÙØ¯Ø© Ø¥ÙÙ Ø¬ÙÙØ¹ Ø§ÙÙÙØ§ÙØ§Øª
             </Link>
           </div>
         </div>

@@ -1,7 +1,7 @@
 // =============================================================
-// دليل المتاجر — Calculator URL state encoding
+// Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø± â Calculator URL state encoding
 //
-// SECTION 3: /حاسبة-التكاليف?r=120000&o=250&c=SAR&s=0
+// SECTION 3: /Ø­Ø§Ø³Ø¨Ø©-Ø§ÙØªÙØ§ÙÙÙ?r=120000&o=250&c=SAR&s=0
 //   r = monthlyRevenue, o = monthlyOrders, c = currency, s = includeSetup (0/1)
 //
 // Two extra (optional) params are supported beyond the spec so the full
@@ -13,7 +13,7 @@ import { DEFAULT_MERCHANT_INPUTS, DEFAULT_WOOCOMMERCE_SCENARIO } from './constan
 import { nonNegative } from './utils';
 import type { Currency, MerchantInputs, WooCommerceScenario } from './types';
 
-export const CALCULATOR_PATH = '/حاسبة-التكاليف';
+export const CALCULATOR_PATH = '/Ø­Ø§Ø³Ø¨Ø©-Ø§ÙØªÙØ§ÙÙÙ';
 
 const CURRENCIES: readonly Currency[] = ['SAR', 'USD', 'AED'];
 const WOOCOMMERCE_SCENARIOS: readonly WooCommerceScenario[] = ['minimal', 'typical', 'managed'];
@@ -61,7 +61,7 @@ export function buildCalculatorUrl(inputs: MerchantInputs, basePath: string = CA
 
 /**
  * Decodes calculator state from URL search params. Returns only the keys
- * that were present and valid — callers should merge this with defaults,
+ * that were present and valid â callers should merge this with defaults,
  * e.g.: `{ ...DEFAULT_MERCHANT_INPUTS, ...decodeCalculatorState(searchParams) }`
  */
 export function decodeCalculatorState(searchParams: SearchParamsLike): Partial<MerchantInputs> {

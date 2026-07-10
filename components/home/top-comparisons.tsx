@@ -3,12 +3,12 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const COMPARISONS = [
-  { slugA: 'salla', slugB: 'zid', nameA: 'سلة', nameB: 'زد' },
-  { slugA: 'salla', slugB: 'shopify', nameA: 'سلة', nameB: 'شوبيفاي' },
-  { slugA: 'zid', slugB: 'shopify', nameA: 'زد', nameB: 'شوبيفاي' },
-  { slugA: 'shopify', slugB: 'woocommerce', nameA: 'شوبيفاي', nameB: 'ووكومرس' },
-  { slugA: 'salla', slugB: 'woocommerce', nameA: 'سلة', nameB: 'ووكومرس' },
-  { slugA: 'shopify', slugB: 'bigcommerce', nameA: 'شوبيفاي', nameB: 'بيغ كومرس' },
+  { slugA: 'salla', slugB: 'zid', nameA: 'Ø³ÙØ©', nameB: 'Ø²Ø¯' },
+  { slugA: 'salla', slugB: 'shopify', nameA: 'Ø³ÙØ©', nameB: 'Ø´ÙØ¨ÙÙØ§Ù' },
+  { slugA: 'zid', slugB: 'shopify', nameA: 'Ø²Ø¯', nameB: 'Ø´ÙØ¨ÙÙØ§Ù' },
+  { slugA: 'shopify', slugB: 'woocommerce', nameA: 'Ø´ÙØ¨ÙÙØ§Ù', nameB: 'ÙÙÙÙÙØ±Ø³' },
+  { slugA: 'salla', slugB: 'woocommerce', nameA: 'Ø³ÙØ©', nameB: 'ÙÙÙÙÙØ±Ø³' },
+  { slugA: 'shopify', slugB: 'bigcommerce', nameA: 'Ø´ÙØ¨ÙÙØ§Ù', nameB: 'Ø¨ÙØº ÙÙÙØ±Ø³' },
 ];
 
 export function TopComparisons() {
@@ -16,8 +16,8 @@ export function TopComparisons() {
     <section className="py-20 px-4 bg-white/2">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">أشهر المقارنات</h2>
-          <p className="text-slate-400">اختر المقارنة التي تناسب احتياجاتك</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Ø£Ø´ÙØ± Ø§ÙÙÙØ§Ø±ÙØ§Øª</h2>
+          <p className="text-slate-400">Ø§Ø®ØªØ± Ø§ÙÙÙØ§Ø±ÙØ© Ø§ÙØªÙ ØªÙØ§Ø³Ø¨ Ø§Ø­ØªÙØ§Ø¬Ø§ØªÙ</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {COMPARISONS.map(({ slugA, slugB, nameA, nameB }) => (
@@ -31,7 +31,7 @@ export function TopComparisons() {
           ))}
         </div>
         <div className="text-center mt-8">
-          <Link href="/muqaranat" className="text-secondary hover:underline font-semibold">عرض كل المقارنات ←</Link>
+          <Link href="/muqaranat" className="text-secondary hover:underline font-semibold">Ø¹Ø±Ø¶ ÙÙ Ø§ÙÙÙØ§Ø±ÙØ§Øª â</Link>
         </div>
       </div>
     </section>

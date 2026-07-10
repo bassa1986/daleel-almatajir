@@ -1,5 +1,5 @@
 // =============================================================
-// دليل المتاجر — Calculator types
+// Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø± â Calculator types
 // =============================================================
 
 export type Currency = 'SAR' | 'USD' | 'AED';
@@ -34,7 +34,7 @@ export interface MerchantInputs {
 
 // -------------------------------------------------------------
 // Platform configuration (shape compatible with the Prisma models
-// from prisma/schema.prisma — a `Platform` with its relations loaded
+// from prisma/schema.prisma â a `Platform` with its relations loaded
 // can be passed directly).
 // -------------------------------------------------------------
 

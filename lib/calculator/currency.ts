@@ -1,5 +1,5 @@
 // =============================================================
-// دليل المتاجر — Currency conversion & formatting
+// Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø± â Currency conversion & formatting
 // =============================================================
 
 import { CURRENCY_SYMBOLS_AR, EXCHANGE_RATES } from './constants';
@@ -16,7 +16,7 @@ export function convertToSAR(amount: number, currency: Currency): number {
 }
 
 /**
- * Formats a numeric amount with an Arabic currency label, e.g. "1,234 ر.س".
+ * Formats a numeric amount with an Arabic currency label, e.g. "1,234 Ø±.Ø³".
  * Uses Western (Latin) digits regardless of locale, which is the
  * convention used across Saudi e-commerce platforms.
  */

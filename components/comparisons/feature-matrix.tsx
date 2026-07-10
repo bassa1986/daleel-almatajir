@@ -44,11 +44,11 @@ export function FeatureMatrix({ rows, nameA, nameB }: FeatureMatrixProps) {
 
   return (
     <section id="features" className="mb-12">
-      <h2 className="text-2xl font-extrabold text-white mb-6">مصفوفة المزايا</h2>
+      <h2 className="text-2xl font-extrabold text-white mb-6">ÙØµÙÙÙØ© Ø§ÙÙØ²Ø§ÙØ§</h2>
 
       {/* Filter bar */}
       <div className="flex flex-wrap gap-2 mb-6">
-        <FilterChip label="الكل" active={activeCategory === 'all'} onClick={() => setActiveCategory('all')} />
+        <FilterChip label="Ø§ÙÙÙ" active={activeCategory === 'all'} onClick={() => setActiveCategory('all')} />
         {categories.map((cat) => (
           <FilterChip
             key={cat.slug}

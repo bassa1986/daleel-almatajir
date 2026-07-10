@@ -1,5 +1,5 @@
 // =============================================================
-// دليل المتاجر — Calculator engine
+// Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø± â Calculator engine
 //
 // Core function: calculatePlatformCosts(inputs, platforms)
 //
@@ -58,7 +58,7 @@ function resolveStandardTier(
 }
 
 /**
- * Shopify's tiers aren't revenue-banded — the calculator picks whichever
+ * Shopify's tiers aren't revenue-banded â the calculator picks whichever
  * tier yields the lowest combined cost (monthly fee + transaction fees) for
  * the merchant's revenue (SECTION 3, "SHOPIFY SPECIAL LOGIC").
  */
@@ -87,7 +87,7 @@ function shopifyTierCost(tier: PricingTierConfig, monthlyRevenue: number): numbe
 }
 
 /**
- * "ترقيتك لخطة [X] توفر عليك [Y] ر.س شهرياً"
+ * "ØªØ±ÙÙØªÙ ÙØ®Ø·Ø© [X] ØªÙÙØ± Ø¹ÙÙÙ [Y] Ø±.Ø³ Ø´ÙØ±ÙØ§Ù"
  * Compares the optimal (selected) Shopify tier against the entry-level tier
  * (lowest sortOrder). If the optimal tier is cheaper than what a merchant
  * would default to, surface the savings as an insight string.
@@ -108,7 +108,7 @@ function getShopifyInsightAr(
 
   if (savings <= 0) return null;
 
-  return `ترقيتك لخطة ${selectedTier.nameAr} توفر عليك ${formatNumber(savings, 0)} ر.س شهرياً`;
+  return `ØªØ±ÙÙØªÙ ÙØ®Ø·Ø© ${selectedTier.nameAr} ØªÙÙØ± Ø¹ÙÙÙ ${formatNumber(savings, 0)} Ø±.Ø³ Ø´ÙØ±ÙØ§Ù`;
 }
 
 // -------------------------------------------------------------

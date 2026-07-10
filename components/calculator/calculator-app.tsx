@@ -55,7 +55,7 @@ export function CalculatorApp({ platforms }: CalculatorAppProps) {
     setExporting(true);
     try {
       await exportCalculatorReportPdf(printableRef.current, {
-        filename: 'تقرير-تكاليف-دليل-المتاجر.pdf',
+        filename: 'ØªÙØ±ÙØ±-ØªÙØ§ÙÙÙ-Ø¯ÙÙÙ-Ø§ÙÙØªØ§Ø¬Ø±.pdf',
       });
     } finally {
       setExporting(false);
@@ -77,7 +77,7 @@ export function CalculatorApp({ platforms }: CalculatorAppProps) {
           {/* Revenue */}
           <div>
             <div className="flex justify-between items-center mb-3">
-              <label className="text-sm font-semibold text-slate-300">الإيرادات الشهرية</label>
+              <label className="text-sm font-semibold text-slate-300">Ø§ÙØ¥ÙØ±Ø§Ø¯Ø§Øª Ø§ÙØ´ÙØ±ÙØ©</label>
               <span className="figure text-primary font-bold text-sm">
                 {formatCurrency(inputs.monthlyRevenue, 'SAR')}
               </span>
@@ -106,9 +106,9 @@ export function CalculatorApp({ platforms }: CalculatorAppProps) {
           {/* Orders */}
           <div>
             <div className="flex justify-between items-center mb-3">
-              <label className="text-sm font-semibold text-slate-300">عدد الطلبات الشهرية</label>
+              <label className="text-sm font-semibold text-slate-300">Ø¹Ø¯Ø¯ Ø§ÙØ·ÙØ¨Ø§Øª Ø§ÙØ´ÙØ±ÙØ©</label>
               <span className="figure text-secondary font-bold text-sm">
-                {inputs.monthlyOrders.toLocaleString('en-US')} طلب
+                {inputs.monthlyOrders.toLocaleString('en-US')} Ø·ÙØ¨
               </span>
             </div>
             <input
@@ -151,10 +151,10 @@ export function CalculatorApp({ platforms }: CalculatorAppProps) {
           </div>
 
           {/* Annual toggle */}
-          <ToggleChip active={inputs.annualToggle} onClick={toggleAnnual} label="عرض التكلفة السنوية" />
+          <ToggleChip active={inputs.annualToggle} onClick={toggleAnnual} label="Ø¹Ø±Ø¶ Ø§ÙØªÙÙÙØ© Ø§ÙØ³ÙÙÙØ©" />
 
           {/* Setup fee toggle */}
-          <ToggleChip active={inputs.includeSetup} onClick={toggleSetupFees} label="تضمين رسوم الإعداد" />
+          <ToggleChip active={inputs.includeSetup} onClick={toggleSetupFees} label="ØªØ¶ÙÙÙ Ø±Ø³ÙÙ Ø§ÙØ¥Ø¹Ø¯Ø§Ø¯" />
 
           <div className="flex-1" />
 
@@ -164,7 +164,7 @@ export function CalculatorApp({ platforms }: CalculatorAppProps) {
             className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-300 transition-colors px-3 py-2"
           >
             <RotateCcw size={13} />
-            إعادة ضبط
+            Ø¥Ø¹Ø§Ø¯Ø© Ø¶Ø¨Ø·
           </button>
 
           {/* PDF export */}
@@ -174,7 +174,7 @@ export function CalculatorApp({ platforms }: CalculatorAppProps) {
             className="btn-glass text-xs px-4 py-2.5 disabled:opacity-50"
           >
             <FileDown size={14} />
-            {exporting ? 'جارٍ التصدير...' : 'تصدير PDF'}
+            {exporting ? 'Ø¬Ø§Ø±Ù Ø§ÙØªØµØ¯ÙØ±...' : 'ØªØµØ¯ÙØ± PDF'}
           </button>
         </div>
       </motion.div>

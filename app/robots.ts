@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
-      allow: ['/مقارنات/', '/حاسبة-التكاليف/', '/أدلة/'],
+      allow: ['/ÙÙØ§Ø±ÙØ§Øª/', '/Ø­Ø§Ø³Ø¨Ø©-Ø§ÙØªÙØ§ÙÙÙ/', '/Ø£Ø¯ÙØ©/'],
       disallow: ['/admin/', '/api/'],
     },
     sitemap: `${BASE_URL}/sitemap.xml`,

@@ -1,8 +1,8 @@
 // =============================================================
-// دليل المتاجر — Design tokens (JS/TS access)
+// Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø± â Design tokens (JS/TS access)
 //
 // Mirrors the CSS custom properties defined in app/globals.css `@theme`.
-// Use this where Tailwind classes can't reach — Recharts series colors,
+// Use this where Tailwind classes can't reach â Recharts series colors,
 // canvas/SVG fills, <meta theme-color>, etc. For everything else, prefer
 // the Tailwind utilities (bg-primary, text-secondary, .glass, .figure...).
 // =============================================================
@@ -30,7 +30,7 @@ export const chartPalette: readonly string[] = [
   colors.success,
   colors.warning,
   colors.danger,
-  '#A78BFA', // violet-400 — extra series color if needed
+  '#A78BFA', // violet-400 â extra series color if needed
 ];
 
 export const radii = {

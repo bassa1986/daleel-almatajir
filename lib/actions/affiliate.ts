@@ -9,5 +9,5 @@ export async function updateAffiliateLink(platformId: string, affiliateUrl: stri
     data: { affiliateUrl, cookieDurationDays },
   });
   revalidatePath('/admin/affiliate-links');
-  revalidatePath('/مقارنات');
+  revalidatePath('/ÙÙØ§Ø±ÙØ§Øª');
 }

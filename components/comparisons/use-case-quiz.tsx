@@ -16,29 +16,29 @@ type Answer = 'a' | 'b' | null;
 const QUESTIONS = [
   {
     id: 'revenue',
-    labelAr: 'ما حجم إيرادات متجرك الشهرية؟',
+    labelAr: 'ÙØ§ Ø­Ø¬Ù Ø¥ÙØ±Ø§Ø¯Ø§Øª ÙØªØ¬Ø±Ù Ø§ÙØ´ÙØ±ÙØ©Ø',
     options: [
-      { labelAr: 'صغيرة (أقل من ٥٠ ألف ر.س)', weightCategories: ['pricing'] },
-      { labelAr: 'متوسطة (٥٠ - ٥٠٠ ألف ر.س)', weightCategories: ['pricing', 'سهولة الاستخدام'] },
-      { labelAr: 'كبيرة (أكثر من ٥٠٠ ألف ر.س)', weightCategories: ['التوسع الدولي', 'التخصيص'] },
+      { labelAr: 'ØµØºÙØ±Ø© (Ø£ÙÙ ÙÙ Ù¥Ù  Ø£ÙÙ Ø±.Ø³)', weightCategories: ['pricing'] },
+      { labelAr: 'ÙØªÙØ³Ø·Ø© (Ù¥Ù  - Ù¥Ù Ù  Ø£ÙÙ Ø±.Ø³)', weightCategories: ['pricing', 'Ø³ÙÙÙØ© Ø§ÙØ§Ø³ØªØ®Ø¯Ø§Ù'] },
+      { labelAr: 'ÙØ¨ÙØ±Ø© (Ø£ÙØ«Ø± ÙÙ Ù¥Ù Ù  Ø£ÙÙ Ø±.Ø³)', weightCategories: ['Ø§ÙØªÙØ³Ø¹ Ø§ÙØ¯ÙÙÙ', 'Ø§ÙØªØ®ØµÙØµ'] },
     ],
   },
   {
     id: 'market',
-    labelAr: 'ما هو سوقك المستهدف؟',
+    labelAr: 'ÙØ§ ÙÙ Ø³ÙÙÙ Ø§ÙÙØ³ØªÙØ¯ÙØ',
     options: [
-      { labelAr: 'السعودية والخليج فقط', weightCategories: ['arabic-support', 'payment-gateways'] },
-      { labelAr: 'الدول العربية الأخرى', weightCategories: ['arabic-support', 'التسويق'] },
-      { labelAr: 'أسواق عالمية', weightCategories: ['التوسع الدولي'] },
+      { labelAr: 'Ø§ÙØ³Ø¹ÙØ¯ÙØ© ÙØ§ÙØ®ÙÙØ¬ ÙÙØ·', weightCategories: ['arabic-support', 'payment-gateways'] },
+      { labelAr: 'Ø§ÙØ¯ÙÙ Ø§ÙØ¹Ø±Ø¨ÙØ© Ø§ÙØ£Ø®Ø±Ù', weightCategories: ['arabic-support', 'Ø§ÙØªØ³ÙÙÙ'] },
+      { labelAr: 'Ø£Ø³ÙØ§Ù Ø¹Ø§ÙÙÙØ©', weightCategories: ['Ø§ÙØªÙØ³Ø¹ Ø§ÙØ¯ÙÙÙ'] },
     ],
   },
   {
     id: 'tech',
-    labelAr: 'ما مستوى خبرتك التقنية؟',
+    labelAr: 'ÙØ§ ÙØ³ØªÙÙ Ø®Ø¨Ø±ØªÙ Ø§ÙØªÙÙÙØ©Ø',
     options: [
-      { labelAr: 'مبتدئ — لا أملك خبرة تقنية', weightCategories: ['سهولة الاستخدام', 'الدعم الفني'] },
-      { labelAr: 'متوسط — أستطيع التعامل مع لوحات التحكم', weightCategories: ['سهولة الاستخدام'] },
-      { labelAr: 'مطور أو أملك فريقاً تقنياً', weightCategories: ['التخصيص'] },
+      { labelAr: 'ÙØ¨ØªØ¯Ø¦ â ÙØ§ Ø£ÙÙÙ Ø®Ø¨Ø±Ø© ØªÙÙÙØ©', weightCategories: ['Ø³ÙÙÙØ© Ø§ÙØ§Ø³ØªØ®Ø¯Ø§Ù', 'Ø§ÙØ¯Ø¹Ù Ø§ÙÙÙÙ'] },
+      { labelAr: 'ÙØªÙØ³Ø· â Ø£Ø³ØªØ·ÙØ¹ Ø§ÙØªØ¹Ø§ÙÙ ÙØ¹ ÙÙØ­Ø§Øª Ø§ÙØªØ­ÙÙ', weightCategories: ['Ø³ÙÙÙØ© Ø§ÙØ§Ø³ØªØ®Ø¯Ø§Ù'] },
+      { labelAr: 'ÙØ·ÙØ± Ø£Ù Ø£ÙÙÙ ÙØ±ÙÙØ§Ù ØªÙÙÙØ§Ù', weightCategories: ['Ø§ÙØªØ®ØµÙØµ'] },
     ],
   },
 ] as const;
@@ -78,8 +78,8 @@ export function UseCaseQuiz({ scorecard, platformA, platformB }: UseCaseQuizProp
 
   return (
     <section id="quiz" className="mb-12">
-      <h2 className="text-2xl font-extrabold text-white mb-2">أيّ منصة تناسبك؟</h2>
-      <p className="text-sm text-slate-500 mb-6">أجب عن ٣ أسئلة قصيرة لتحصل على توصية شخصية</p>
+      <h2 className="text-2xl font-extrabold text-white mb-2">Ø£ÙÙ ÙÙØµØ© ØªÙØ§Ø³Ø¨ÙØ</h2>
+      <p className="text-sm text-slate-500 mb-6">Ø£Ø¬Ø¨ Ø¹Ù Ù£ Ø£Ø³Ø¦ÙØ© ÙØµÙØ±Ø© ÙØªØ­ØµÙ Ø¹ÙÙ ØªÙØµÙØ© Ø´Ø®ØµÙØ©</p>
 
       <div className="glass p-6 md:p-8">
         <div className="space-y-6 mb-6">
@@ -108,7 +108,7 @@ export function UseCaseQuiz({ scorecard, platformA, platformB }: UseCaseQuizProp
         {recommendedPlatform && (
           <div className="rounded-xl border border-secondary/30 bg-secondary/8 p-5 text-center">
             <Sparkles size={20} className="text-secondary mx-auto mb-2" />
-            <div className="text-sm text-slate-400 mb-1">التوصية المناسبة لك</div>
+            <div className="text-sm text-slate-400 mb-1">Ø§ÙØªÙØµÙØ© Ø§ÙÙÙØ§Ø³Ø¨Ø© ÙÙ</div>
             <div className="text-2xl font-extrabold text-white mb-4">{recommendedPlatform.nameAr}</div>
             {recommendedPlatform.affiliateUrl && (
               <a
@@ -118,7 +118,7 @@ export function UseCaseQuiz({ scorecard, platformA, platformB }: UseCaseQuizProp
                 className="btn text-white text-sm px-6 py-3 inline-flex"
                 style={{ backgroundColor: recommendedPlatform.brandColor }}
               >
-                ابدأ مع {recommendedPlatform.nameAr} ←
+                Ø§Ø¨Ø¯Ø£ ÙØ¹ {recommendedPlatform.nameAr} â
               </a>
             )}
           </div>

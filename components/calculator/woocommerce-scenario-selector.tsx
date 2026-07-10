@@ -14,7 +14,7 @@ interface WooCommerceScenarioSelectorProps {
 export function WooCommerceScenarioSelector({ value, onChange }: WooCommerceScenarioSelectorProps) {
   return (
     <div className="mb-3">
-      <div className="text-xs text-slate-500 mb-2">سيناريو التكاليف الخفية:</div>
+      <div className="text-xs text-slate-500 mb-2">Ø³ÙÙØ§Ø±ÙÙ Ø§ÙØªÙØ§ÙÙÙ Ø§ÙØ®ÙÙØ©:</div>
       <div className="flex gap-2 flex-wrap">
         {SCENARIOS.map((scenario) => (
           <button

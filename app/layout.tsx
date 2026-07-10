@@ -5,10 +5,10 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: {
-    default: 'دليل المتاجر — مقارنة منصات التجارة الإلكترونية',
-    template: '%s | دليل المتاجر',
+    default: 'Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø± â ÙÙØ§Ø±ÙØ© ÙÙØµØ§Øª Ø§ÙØªØ¬Ø§Ø±Ø© Ø§ÙØ¥ÙÙØªØ±ÙÙÙØ©',
+    template: '%s | Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø±',
   },
-  description: 'المرجع الأول عربياً لمقارنة سلة، زد، شوبيفاي، ووكومرس، BigCommerce وماجنتو.',
+  description: 'Ø§ÙÙØ±Ø¬Ø¹ Ø§ÙØ£ÙÙ Ø¹Ø±Ø¨ÙØ§Ù ÙÙÙØ§Ø±ÙØ© Ø³ÙØ©Ø Ø²Ø¯Ø Ø´ÙØ¨ÙÙØ§ÙØ ÙÙÙÙÙØ±Ø³Ø BigCommerce ÙÙØ§Ø¬ÙØªÙ.',
 };
 
 export const viewport: Viewport = {
@@ -18,10 +18,10 @@ export const viewport: Viewport = {
 const organizationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'دليل المتاجر',
+  name: 'Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø±',
   alternateName: 'Daleel Al-Matajir',
   url: 'https://daleel-almatajir.com',
-  description: 'المرجع الأول عربياً لمقارنة منصات التجارة الإلكترونية في السعودية والخليج.',
+  description: 'Ø§ÙÙØ±Ø¬Ø¹ Ø§ÙØ£ÙÙ Ø¹Ø±Ø¨ÙØ§Ù ÙÙÙØ§Ø±ÙØ© ÙÙØµØ§Øª Ø§ÙØªØ¬Ø§Ø±Ø© Ø§ÙØ¥ÙÙØªØ±ÙÙÙØ© ÙÙ Ø§ÙØ³Ø¹ÙØ¯ÙØ© ÙØ§ÙØ®ÙÙØ¬.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

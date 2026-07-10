@@ -19,11 +19,11 @@ export function DisclosureBanner() {
           <div className="max-w-5xl mx-auto px-4 py-2.5 flex items-center gap-3 text-xs text-slate-400">
             <Info size={14} className="text-secondary flex-shrink-0" />
             <span className="flex-1">
-              إفصاح: قد تحتوي هذه الصفحة على روابط تابعة. مقارنتنا مستقلة وموضوعية.
+              Ø¥ÙØµØ§Ø­: ÙØ¯ ØªØ­ØªÙÙ ÙØ°Ù Ø§ÙØµÙØ­Ø© Ø¹ÙÙ Ø±ÙØ§Ø¨Ø· ØªØ§Ø¨Ø¹Ø©. ÙÙØ§Ø±ÙØªÙØ§ ÙØ³ØªÙÙØ© ÙÙÙØ¶ÙØ¹ÙØ©.
             </span>
             <button
               onClick={() => setDismissed(true)}
-              aria-label="إغلاق"
+              aria-label="Ø¥ØºÙØ§Ù"
               className="flex-shrink-0 text-slate-500 hover:text-white transition-colors"
             >
               <X size={14} />

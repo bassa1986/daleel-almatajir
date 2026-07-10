@@ -5,24 +5,24 @@ import { SlidersHorizontal, BarChart3, CheckCircle2 } from 'lucide-react';
 
 const STEPS = [
   {
-    number: '١',
+    number: 'Ù¡',
     icon: SlidersHorizontal,
-    titleAr: 'أدخل بيانات متجرك',
-    descAr: 'حجم الإيرادات الشهرية وعدد الطلبات — لا حاجة للتسجيل.',
+    titleAr: 'Ø£Ø¯Ø®Ù Ø¨ÙØ§ÙØ§Øª ÙØªØ¬Ø±Ù',
+    descAr: 'Ø­Ø¬Ù Ø§ÙØ¥ÙØ±Ø§Ø¯Ø§Øª Ø§ÙØ´ÙØ±ÙØ© ÙØ¹Ø¯Ø¯ Ø§ÙØ·ÙØ¨Ø§Øª â ÙØ§ Ø­Ø§Ø¬Ø© ÙÙØªØ³Ø¬ÙÙ.',
     color: '#3B82F6',
   },
   {
-    number: '٢',
+    number: 'Ù¢',
     icon: BarChart3,
-    titleAr: 'قارن التكاليف الحقيقية',
-    descAr: 'نحسب الاشتراك + رسوم المعاملات + التكاليف الخفية لكل منصة.',
+    titleAr: 'ÙØ§Ø±Ù Ø§ÙØªÙØ§ÙÙÙ Ø§ÙØ­ÙÙÙÙØ©',
+    descAr: 'ÙØ­Ø³Ø¨ Ø§ÙØ§Ø´ØªØ±Ø§Ù + Ø±Ø³ÙÙ Ø§ÙÙØ¹Ø§ÙÙØ§Øª + Ø§ÙØªÙØ§ÙÙÙ Ø§ÙØ®ÙÙØ© ÙÙÙ ÙÙØµØ©.',
     color: '#06B6D4',
   },
   {
-    number: '٣',
+    number: 'Ù£',
     icon: CheckCircle2,
-    titleAr: 'اختر المنصة الأنسب',
-    descAr: 'احصل على توصية شخصية مع تقرير PDF للتنزيل.',
+    titleAr: 'Ø§Ø®ØªØ± Ø§ÙÙÙØµØ© Ø§ÙØ£ÙØ³Ø¨',
+    descAr: 'Ø§Ø­ØµÙ Ø¹ÙÙ ØªÙØµÙØ© Ø´Ø®ØµÙØ© ÙØ¹ ØªÙØ±ÙØ± PDF ÙÙØªÙØ²ÙÙ.',
     color: '#22C55E',
   },
 ] as const;
@@ -38,8 +38,8 @@ export function HowItWorks() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-4xl font-extrabold text-white mb-3">كيف يعمل دليل المتاجر؟</h2>
-          <p className="text-slate-400 text-lg">ثلاث خطوات للوصول إلى القرار الصحيح</p>
+          <h2 className="text-4xl font-extrabold text-white mb-3">ÙÙÙ ÙØ¹ÙÙ Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø±Ø</h2>
+          <p className="text-slate-400 text-lg">Ø«ÙØ§Ø« Ø®Ø·ÙØ§Øª ÙÙÙØµÙÙ Ø¥ÙÙ Ø§ÙÙØ±Ø§Ø± Ø§ÙØµØ­ÙØ­</p>
         </motion.div>
 
         <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8">

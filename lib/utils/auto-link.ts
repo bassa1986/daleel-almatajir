@@ -1,18 +1,18 @@
 /**
- * SECTION 8 SEO SYSTEM — "INTERNAL LINKING": auto-links the first occurrence
- * of each platform name (and "حاسبة التكاليف") inside rendered article HTML.
+ * SECTION 8 SEO SYSTEM â "INTERNAL LINKING": auto-links the first occurrence
+ * of each platform name (and "Ø­Ø§Ø³Ø¨Ø© Ø§ÙØªÙØ§ÙÙÙ") inside rendered article HTML.
  *
  * Applied at render time (not persisted to the stored bodyHtml) so the
  * Tiptap editor's saved content stays exactly what the editor produced.
  */
 const LINK_TARGETS: Array<{ term: string; href: string }> = [
-  { term: 'سلة', href: '/مقارنات/salla' },
-  { term: 'زد', href: '/مقارنات/zid' },
-  { term: 'شوبيفاي', href: '/مقارنات/shopify' },
-  { term: 'ووكومرس', href: '/مقارنات/woocommerce' },
-  { term: 'بيغ كومرس', href: '/مقارنات/bigcommerce' },
-  { term: 'ماجنتو', href: '/مقارنات/magento' },
-  { term: 'حاسبة التكاليف', href: '/حاسبة-التكاليف' },
+  { term: 'Ø³ÙØ©', href: '/ÙÙØ§Ø±ÙØ§Øª/salla' },
+  { term: 'Ø²Ø¯', href: '/ÙÙØ§Ø±ÙØ§Øª/zid' },
+  { term: 'Ø´ÙØ¨ÙÙØ§Ù', href: '/ÙÙØ§Ø±ÙØ§Øª/shopify' },
+  { term: 'ÙÙÙÙÙØ±Ø³', href: '/ÙÙØ§Ø±ÙØ§Øª/woocommerce' },
+  { term: 'Ø¨ÙØº ÙÙÙØ±Ø³', href: '/ÙÙØ§Ø±ÙØ§Øª/bigcommerce' },
+  { term: 'ÙØ§Ø¬ÙØªÙ', href: '/ÙÙØ§Ø±ÙØ§Øª/magento' },
+  { term: 'Ø­Ø§Ø³Ø¨Ø© Ø§ÙØªÙØ§ÙÙÙ', href: '/Ø­Ø§Ø³Ø¨Ø©-Ø§ÙØªÙØ§ÙÙÙ' },
 ];
 
 /** Escapes a string for safe use inside a RegExp. */
@@ -24,7 +24,7 @@ export function autoLinkArticleHtml(html: string): string {
   let result = html;
 
   for (const { term, href } of LINK_TARGETS) {
-    // Skip if the term already appears inside an <a ...>...</a> anywhere —
+    // Skip if the term already appears inside an <a ...>...</a> anywhere â
     // crude but effective guard against double-linking on re-render.
     const alreadyLinked = new RegExp(`<a[^>]*>[^<]*${escapeRegExp(term)}[^<]*</a>`).test(result);
     if (alreadyLinked) continue;

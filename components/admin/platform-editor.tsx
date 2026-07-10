@@ -15,11 +15,11 @@ import {
 } from '@/lib/actions/platforms';
 
 const TABS = [
-  { key: 'basic', labelAr: 'المعلومات الأساسية' },
-  { key: 'pricing', labelAr: 'الأسعار والتكاليف' },
-  { key: 'features', labelAr: 'مصفوفة المزايا' },
-  { key: 'proscons', labelAr: 'المميزات والعيوب' },
-  { key: 'summary', labelAr: 'الملخص والتوصية' },
+  { key: 'basic', labelAr: 'Ø§ÙÙØ¹ÙÙÙØ§Øª Ø§ÙØ£Ø³Ø§Ø³ÙØ©' },
+  { key: 'pricing', labelAr: 'Ø§ÙØ£Ø³Ø¹Ø§Ø± ÙØ§ÙØªÙØ§ÙÙÙ' },
+  { key: 'features', labelAr: 'ÙØµÙÙÙØ© Ø§ÙÙØ²Ø§ÙØ§' },
+  { key: 'proscons', labelAr: 'Ø§ÙÙÙÙØ²Ø§Øª ÙØ§ÙØ¹ÙÙØ¨' },
+  { key: 'summary', labelAr: 'Ø§ÙÙÙØ®Øµ ÙØ§ÙØªÙØµÙØ©' },
 ] as const;
 
 type TabKey = (typeof TABS)[number]['key'];
@@ -85,7 +85,7 @@ export function PlatformEditor({ platform, categories }: PlatformEditorProps) {
 }
 
 /* ---------------------------------------------------------------- */
-/* Tab 1 — Basic info                                                 */
+/* Tab 1 â Basic info                                                 */
 /* ---------------------------------------------------------------- */
 
 function BasicInfoTab({ platform }: { platform: PlatformEditorData }) {
@@ -114,32 +114,32 @@ function BasicInfoTab({ platform }: { platform: PlatformEditorData }) {
   return (
     <div className="space-y-5 max-w-2xl">
       <div className="grid grid-cols-2 gap-4">
-        <LabeledInput label="الاسم بالعربية" value={form.nameAr} onChange={(v) => setForm({ ...form, nameAr: v })} dir="rtl" />
-        <LabeledInput label="الاسم بالإنجليزية" value={form.nameEn} onChange={(v) => setForm({ ...form, nameEn: v })} />
+        <LabeledInput label="Ø§ÙØ§Ø³Ù Ø¨Ø§ÙØ¹Ø±Ø¨ÙØ©" value={form.nameAr} onChange={(v) => setForm({ ...form, nameAr: v })} dir="rtl" />
+        <LabeledInput label="Ø§ÙØ§Ø³Ù Ø¨Ø§ÙØ¥ÙØ¬ÙÙØ²ÙØ©" value={form.nameEn} onChange={(v) => setForm({ ...form, nameEn: v })} />
       </div>
       <div className="grid grid-cols-2 gap-4">
-        <LabeledInput label="رابط الموقع" value={form.websiteUrl} onChange={(v) => setForm({ ...form, websiteUrl: v })} />
-        <LabeledInput label="رابط الإحالة (Affiliate)" value={form.affiliateUrl} onChange={(v) => setForm({ ...form, affiliateUrl: v })} />
+        <LabeledInput label="Ø±Ø§Ø¨Ø· Ø§ÙÙÙÙØ¹" value={form.websiteUrl} onChange={(v) => setForm({ ...form, websiteUrl: v })} />
+        <LabeledInput label="Ø±Ø§Ø¨Ø· Ø§ÙØ¥Ø­Ø§ÙØ© (Affiliate)" value={form.affiliateUrl} onChange={(v) => setForm({ ...form, affiliateUrl: v })} />
       </div>
       <div className="grid grid-cols-3 gap-4">
-        <LabeledInput label="لون العلامة" value={form.brandColor} onChange={(v) => setForm({ ...form, brandColor: v })} />
+        <LabeledInput label="ÙÙÙ Ø§ÙØ¹ÙØ§ÙØ©" value={form.brandColor} onChange={(v) => setForm({ ...form, brandColor: v })} />
         <LabeledInput
-          label="التقييم (0-5)"
+          label="Ø§ÙØªÙÙÙÙ (0-5)"
           type="number"
           value={String(form.rating)}
           onChange={(v) => setForm({ ...form, rating: Number(v) })}
         />
         <LabeledInput
-          label="مدة الكوكي (أيام)"
+          label="ÙØ¯Ø© Ø§ÙÙÙÙÙ (Ø£ÙØ§Ù)"
           type="number"
           value={String(form.cookieDurationDays)}
           onChange={(v) => setForm({ ...form, cookieDurationDays: Number(v) })}
         />
       </div>
-      <LabeledTextarea label="الوصف بالعربية" value={form.descriptionAr} onChange={(v) => setForm({ ...form, descriptionAr: v })} />
+      <LabeledTextarea label="Ø§ÙÙØµÙ Ø¨Ø§ÙØ¹Ø±Ø¨ÙØ©" value={form.descriptionAr} onChange={(v) => setForm({ ...form, descriptionAr: v })} />
       <div className="grid grid-cols-2 gap-4">
         <LabeledInput
-          label="رسوم الإعداد (ر.س)"
+          label="Ø±Ø³ÙÙ Ø§ÙØ¥Ø¹Ø¯Ø§Ø¯ (Ø±.Ø³)"
           type="number"
           value={String(form.setupFeeSAR)}
           onChange={(v) => setForm({ ...form, setupFeeSAR: Number(v) })}
@@ -151,28 +151,28 @@ function BasicInfoTab({ platform }: { platform: PlatformEditorData }) {
             onChange={(e) => setForm({ ...form, isEnterprise: e.target.checked })}
             id="isEnterprise"
           />
-          <label htmlFor="isEnterprise" className="text-sm text-slate-300">منصة مؤسسية (Enterprise)</label>
+          <label htmlFor="isEnterprise" className="text-sm text-slate-300">ÙÙØµØ© ÙØ¤Ø³Ø³ÙØ© (Enterprise)</label>
         </div>
       </div>
       <div className="grid grid-cols-2 gap-4">
         <LabeledInput
-          label="حد التحذير (ر.س/شهر، اختياري)"
+          label="Ø­Ø¯ Ø§ÙØªØ­Ø°ÙØ± (Ø±.Ø³/Ø´ÙØ±Ø Ø§Ø®ØªÙØ§Ø±Ù)"
           type="number"
           value={form.warningThresholdSAR === null ? '' : String(form.warningThresholdSAR)}
           onChange={(v) => setForm({ ...form, warningThresholdSAR: v === '' ? null : Number(v) })}
         />
-        <LabeledInput label="نص التحذير" value={form.warningTextAr} onChange={(v) => setForm({ ...form, warningTextAr: v })} dir="rtl" />
+        <LabeledInput label="ÙØµ Ø§ÙØªØ­Ø°ÙØ±" value={form.warningTextAr} onChange={(v) => setForm({ ...form, warningTextAr: v })} dir="rtl" />
       </div>
 
       <button onClick={save} disabled={isPending} className="btn-primary text-sm px-5 py-2.5 disabled:opacity-50">
-        <Save size={14} /> {isPending ? 'جارٍ الحفظ...' : 'حفظ'}
+        <Save size={14} /> {isPending ? 'Ø¬Ø§Ø±Ù Ø§ÙØ­ÙØ¸...' : 'Ø­ÙØ¸'}
       </button>
     </div>
   );
 }
 
 /* ---------------------------------------------------------------- */
-/* Tab 2 — Pricing tiers + hidden costs                                */
+/* Tab 2 â Pricing tiers + hidden costs                                */
 /* ---------------------------------------------------------------- */
 
 function PricingTab({ platform }: { platform: PlatformEditorData }) {
@@ -209,23 +209,23 @@ function PricingTab({ platform }: { platform: PlatformEditorData }) {
       {/* Tiers */}
       <div>
         <div className="flex items-center justify-between mb-4">
-          <h3 className="font-bold text-white">باقات الأسعار</h3>
+          <h3 className="font-bold text-white">Ø¨Ø§ÙØ§Øª Ø§ÙØ£Ø³Ø¹Ø§Ø±</h3>
           <button onClick={addTier} className="btn-glass text-xs px-3 py-1.5">
-            <Plus size={13} /> إضافة باقة
+            <Plus size={13} /> Ø¥Ø¶Ø§ÙØ© Ø¨Ø§ÙØ©
           </button>
         </div>
         <div className="space-y-3">
           {tiers.map((tier, i) => (
             <div key={i} className="glass p-4 grid grid-cols-2 md:grid-cols-4 gap-3">
-              <LabeledInput label="الاسم بالعربية" value={tier.nameAr} onChange={(v) => updateTier(i, { nameAr: v })} dir="rtl" compact />
-              <LabeledInput label="رسوم شهرية (ر.س)" type="number" value={String(tier.monthlyFeeSAR)} onChange={(v) => updateTier(i, { monthlyFeeSAR: Number(v) })} compact />
-              <LabeledInput label="رسوم المعاملات (%)" type="number" value={String(tier.transactionFeePct)} onChange={(v) => updateTier(i, { transactionFeePct: Number(v) })} compact />
-              <LabeledInput label="حد أدنى للإيراد" type="number" value={String(tier.minRevenueSAR)} onChange={(v) => updateTier(i, { minRevenueSAR: Number(v) })} compact />
-              <LabeledInput label="حد أقصى للإيراد" type="number" value={tier.maxRevenueSAR === null ? '' : String(tier.maxRevenueSAR)} onChange={(v) => updateTier(i, { maxRevenueSAR: v === '' ? null : Number(v) })} compact />
-              <LabeledInput label="حد أقصى للطلبات" type="number" value={tier.maxOrders === null ? '' : String(tier.maxOrders)} onChange={(v) => updateTier(i, { maxOrders: v === '' ? null : Number(v) })} compact />
+              <LabeledInput label="Ø§ÙØ§Ø³Ù Ø¨Ø§ÙØ¹Ø±Ø¨ÙØ©" value={tier.nameAr} onChange={(v) => updateTier(i, { nameAr: v })} dir="rtl" compact />
+              <LabeledInput label="Ø±Ø³ÙÙ Ø´ÙØ±ÙØ© (Ø±.Ø³)" type="number" value={String(tier.monthlyFeeSAR)} onChange={(v) => updateTier(i, { monthlyFeeSAR: Number(v) })} compact />
+              <LabeledInput label="Ø±Ø³ÙÙ Ø§ÙÙØ¹Ø§ÙÙØ§Øª (%)" type="number" value={String(tier.transactionFeePct)} onChange={(v) => updateTier(i, { transactionFeePct: Number(v) })} compact />
+              <LabeledInput label="Ø­Ø¯ Ø£Ø¯ÙÙ ÙÙØ¥ÙØ±Ø§Ø¯" type="number" value={String(tier.minRevenueSAR)} onChange={(v) => updateTier(i, { minRevenueSAR: Number(v) })} compact />
+              <LabeledInput label="Ø­Ø¯ Ø£ÙØµÙ ÙÙØ¥ÙØ±Ø§Ø¯" type="number" value={tier.maxRevenueSAR === null ? '' : String(tier.maxRevenueSAR)} onChange={(v) => updateTier(i, { maxRevenueSAR: v === '' ? null : Number(v) })} compact />
+              <LabeledInput label="Ø­Ø¯ Ø£ÙØµÙ ÙÙØ·ÙØ¨Ø§Øª" type="number" value={tier.maxOrders === null ? '' : String(tier.maxOrders)} onChange={(v) => updateTier(i, { maxOrders: v === '' ? null : Number(v) })} compact />
               <div className="flex items-end">
                 <button onClick={() => removeTier(i)} className="text-red-400 hover:text-red-300 text-xs flex items-center gap-1">
-                  <Trash2 size={13} /> حذف
+                  <Trash2 size={13} /> Ø­Ø°Ù
                 </button>
               </div>
             </div>
@@ -236,32 +236,32 @@ function PricingTab({ platform }: { platform: PlatformEditorData }) {
           disabled={isPendingTiers}
           className="btn-primary text-sm px-5 py-2.5 mt-4 disabled:opacity-50"
         >
-          <Save size={14} /> حفظ الباقات
+          <Save size={14} /> Ø­ÙØ¸ Ø§ÙØ¨Ø§ÙØ§Øª
         </button>
       </div>
 
       {/* Hidden costs */}
       <div>
         <div className="flex items-center justify-between mb-4">
-          <h3 className="font-bold text-white">التكاليف الخفية</h3>
+          <h3 className="font-bold text-white">Ø§ÙØªÙØ§ÙÙÙ Ø§ÙØ®ÙÙØ©</h3>
           <button onClick={addCost} className="btn-glass text-xs px-3 py-1.5">
-            <Plus size={13} /> إضافة تكلفة
+            <Plus size={13} /> Ø¥Ø¶Ø§ÙØ© ØªÙÙÙØ©
           </button>
         </div>
         <div className="space-y-3">
           {costs.map((cost, i) => (
             <div key={i} className="glass p-4 grid grid-cols-2 md:grid-cols-4 gap-3 items-end">
-              <LabeledInput label="الوصف" value={cost.labelAr} onChange={(v) => updateCost(i, { labelAr: v })} dir="rtl" compact />
-              <LabeledInput label="القيمة (ر.س/شهر)" type="number" value={String(cost.monthlySAR)} onChange={(v) => updateCost(i, { monthlySAR: Number(v) })} compact />
+              <LabeledInput label="Ø§ÙÙØµÙ" value={cost.labelAr} onChange={(v) => updateCost(i, { labelAr: v })} dir="rtl" compact />
+              <LabeledInput label="Ø§ÙÙÙÙØ© (Ø±.Ø³/Ø´ÙØ±)" type="number" value={String(cost.monthlySAR)} onChange={(v) => updateCost(i, { monthlySAR: Number(v) })} compact />
               <LabeledInput
-                label="السيناريوهات (مفصولة بفاصلة)"
+                label="Ø§ÙØ³ÙÙØ§Ø±ÙÙÙØ§Øª (ÙÙØµÙÙØ© Ø¨ÙØ§ØµÙØ©)"
                 value={cost.scenarios.join(',')}
                 onChange={(v) => updateCost(i, { scenarios: v.split(',').map((s) => s.trim()).filter(Boolean) })}
                 compact
               />
               <div className="flex items-center gap-2">
                 <input type="checkbox" checked={cost.isRequired} onChange={(e) => updateCost(i, { isRequired: e.target.checked })} />
-                <label className="text-xs text-slate-400">إلزامي</label>
+                <label className="text-xs text-slate-400">Ø¥ÙØ²Ø§ÙÙ</label>
                 <button onClick={() => removeCost(i)} className="text-red-400 hover:text-red-300 text-xs flex items-center gap-1 mr-auto">
                   <Trash2 size={13} />
                 </button>
@@ -274,7 +274,7 @@ function PricingTab({ platform }: { platform: PlatformEditorData }) {
           disabled={isPendingCosts}
           className="btn-primary text-sm px-5 py-2.5 mt-4 disabled:opacity-50"
         >
-          <Save size={14} /> حفظ التكاليف الخفية
+          <Save size={14} /> Ø­ÙØ¸ Ø§ÙØªÙØ§ÙÙÙ Ø§ÙØ®ÙÙØ©
         </button>
       </div>
     </div>
@@ -282,7 +282,7 @@ function PricingTab({ platform }: { platform: PlatformEditorData }) {
 }
 
 /* ---------------------------------------------------------------- */
-/* Tab 3 — Feature matrix                                              */
+/* Tab 3 â Feature matrix                                              */
 /* ---------------------------------------------------------------- */
 
 function FeaturesTab({ platform, categories }: { platform: PlatformEditorData; categories: { id: string; nameAr: string }[] }) {
@@ -304,9 +304,9 @@ function FeaturesTab({ platform, categories }: { platform: PlatformEditorData; c
   return (
     <div>
       <div className="flex items-center justify-between mb-4">
-        <h3 className="font-bold text-white">مصفوفة المزايا</h3>
+        <h3 className="font-bold text-white">ÙØµÙÙÙØ© Ø§ÙÙØ²Ø§ÙØ§</h3>
         <button onClick={add} className="btn-glass text-xs px-3 py-1.5">
-          <Plus size={13} /> إضافة ميزة
+          <Plus size={13} /> Ø¥Ø¶Ø§ÙØ© ÙÙØ²Ø©
         </button>
       </div>
       <div className="space-y-2">
@@ -315,7 +315,7 @@ function FeaturesTab({ platform, categories }: { platform: PlatformEditorData; c
             <input
               value={f.featureNameAr}
               onChange={(e) => update(i, { featureNameAr: e.target.value })}
-              placeholder="اسم الميزة"
+              placeholder="Ø§Ø³Ù Ø§ÙÙÙØ²Ø©"
               dir="rtl"
               className="admin-mini-input"
             />
@@ -352,7 +352,7 @@ function FeaturesTab({ platform, categories }: { platform: PlatformEditorData; c
         disabled={isPending}
         className="btn-primary text-sm px-5 py-2.5 mt-4 disabled:opacity-50"
       >
-        <Save size={14} /> حفظ المزايا
+        <Save size={14} /> Ø­ÙØ¸ Ø§ÙÙØ²Ø§ÙØ§
       </button>
 
       <style jsx global>{`
@@ -370,7 +370,7 @@ function FeaturesTab({ platform, categories }: { platform: PlatformEditorData; c
 }
 
 /* ---------------------------------------------------------------- */
-/* Tab 4 — Pros & Cons                                                  */
+/* Tab 4 â Pros & Cons                                                  */
 /* ---------------------------------------------------------------- */
 
 function ProsConsTab({ platform }: { platform: PlatformEditorData }) {
@@ -381,15 +381,15 @@ function ProsConsTab({ platform }: { platform: PlatformEditorData }) {
   return (
     <div>
       <div className="grid md:grid-cols-2 gap-6 mb-6">
-        <ListEditor title="المميزات" items={pros} setItems={setPros} />
-        <ListEditor title="العيوب" items={cons} setItems={setCons} />
+        <ListEditor title="Ø§ÙÙÙÙØ²Ø§Øª" items={pros} setItems={setPros} />
+        <ListEditor title="Ø§ÙØ¹ÙÙØ¨" items={cons} setItems={setCons} />
       </div>
       <button
         onClick={() => startTransition(() => saveProsAndCons(platform.id, pros, cons))}
         disabled={isPending}
         className="btn-primary text-sm px-5 py-2.5 disabled:opacity-50"
       >
-        <Save size={14} /> حفظ
+        <Save size={14} /> Ø­ÙØ¸
       </button>
     </div>
   );
@@ -424,7 +424,7 @@ function ListEditor({ title, items, setItems }: { title: string; items: string[]
 }
 
 /* ---------------------------------------------------------------- */
-/* Tab 5 — Summary & recommendation                                    */
+/* Tab 5 â Summary & recommendation                                    */
 /* ---------------------------------------------------------------- */
 
 function SummaryTab({ platform }: { platform: PlatformEditorData }) {
@@ -434,8 +434,8 @@ function SummaryTab({ platform }: { platform: PlatformEditorData }) {
 
   return (
     <div className="space-y-5 max-w-2xl">
-      <LabeledTextarea label="الحكم السريع (Quick Verdict)" value={quickVerdictAr} onChange={setQuickVerdictAr} rows={5} />
-      <LabeledInput label="الأنسب لـ (مفصولة بفاصلة)" value={bestForTypes} onChange={setBestForTypes} dir="rtl" />
+      <LabeledTextarea label="Ø§ÙØ­ÙÙ Ø§ÙØ³Ø±ÙØ¹ (Quick Verdict)" value={quickVerdictAr} onChange={setQuickVerdictAr} rows={5} />
+      <LabeledInput label="Ø§ÙØ£ÙØ³Ø¨ ÙÙ (ÙÙØµÙÙØ© Ø¨ÙØ§ØµÙØ©)" value={bestForTypes} onChange={setBestForTypes} dir="rtl" />
       <button
         onClick={() =>
           startTransition(() =>
@@ -445,7 +445,7 @@ function SummaryTab({ platform }: { platform: PlatformEditorData }) {
         disabled={isPending}
         className="btn-primary text-sm px-5 py-2.5 disabled:opacity-50"
       >
-        <Save size={14} /> حفظ
+        <Save size={14} /> Ø­ÙØ¸
       </button>
     </div>
   );
