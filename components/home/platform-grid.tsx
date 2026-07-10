@@ -7,6 +7,15 @@ import type { PlatformDisplay } from '@/lib/data/platforms';
 
 interface PlatformGridProps { platforms: PlatformDisplay[]; }
 
+const LOGO_EXT: Record<string, string> = {
+  shopify: 'png',
+  zid: 'png',
+  salla: 'png',
+  woocommerce: 'svg',
+  bigcommerce: 'svg',
+  magento: 'svg',
+};
+
 export function PlatformGrid({ platforms }: PlatformGridProps) {
   if (!platforms || platforms.length === 0) return null;
   return (
@@ -21,14 +30,15 @@ export function PlatformGrid({ platforms }: PlatformGridProps) {
             <motion.div key={p.slug} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
               <Link href={`/muqaranat/${p.slug}`} className="glass glass-hover p-6 block h-full flex flex-col">
                 <div className="flex items-center justify-between mb-4">
-                  <div className="w-16 h-16 rounded-xl border border-white/10 flex items-center justify-center overflow-hidden p-2"
+                  <div className="w-16 h-16 rounded-xl border border-white/10 flex items-center justify-center overflow-hidden p-1"
                     style={{ backgroundColor: `${p.brandColor}22` }}>
                     <Image
-                      src={`/logos/${p.slug}.svg`}
+                      src={`/logos/${p.slug}.${LOGO_EXT[p.slug] || 'svg'}`}
                       alt={p.nameAr}
-                      width={52}
-                      height={52}
+                      width={56}
+                      height={56}
                       className="object-contain w-full h-full"
+                      unoptimized
                     />
                   </div>
                   <span className={`badge text-xs ${p.origin === 'GCC' ? 'badge-secondary' : 'badge-primary'}`}>
