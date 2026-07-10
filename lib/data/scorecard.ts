@@ -5,27 +5,27 @@ import type { FeatureSupportMap } from './features';
 
 /**
  * Editorial scorecard categories (SECTION 6, "SCORECARD TABLE"):
- *   Ø§ÙØ£Ø³Ø¹Ø§Ø±, Ø§ÙØ¯Ø¹Ù Ø§ÙØ¹Ø±Ø¨Ù, Ø¨ÙØ§Ø¨Ø§Øª Ø§ÙØ¯ÙØ¹, Ø§ÙØªÙØ³Ø¹ Ø§ÙØ¯ÙÙÙ, Ø§ÙØªØ®ØµÙØµ,
- *   Ø³ÙÙÙØ© Ø§ÙØ§Ø³ØªØ®Ø¯Ø§Ù, Ø§ÙØªØ³ÙÙÙ, Ø§ÙØ¯Ø¹Ù Ø§ÙÙÙÙ
+ *   ÃÂ§ÃÂÃÂ£ÃÂ³ÃÂ¹ÃÂ§ÃÂ±, ÃÂ§ÃÂÃÂ¯ÃÂ¹ÃÂ ÃÂ§ÃÂÃÂ¹ÃÂ±ÃÂ¨ÃÂ, ÃÂ¨ÃÂÃÂ§ÃÂ¨ÃÂ§ÃÂª ÃÂ§ÃÂÃÂ¯ÃÂÃÂ¹, ÃÂ§ÃÂÃÂªÃÂÃÂ³ÃÂ¹ ÃÂ§ÃÂÃÂ¯ÃÂÃÂÃÂ, ÃÂ§ÃÂÃÂªÃÂ®ÃÂµÃÂÃÂµ,
+ *   ÃÂ³ÃÂÃÂÃÂÃÂ© ÃÂ§ÃÂÃÂ§ÃÂ³ÃÂªÃÂ®ÃÂ¯ÃÂ§ÃÂ, ÃÂ§ÃÂÃÂªÃÂ³ÃÂÃÂÃÂ, ÃÂ§ÃÂÃÂ¯ÃÂ¹ÃÂ ÃÂ§ÃÂÃÂÃÂÃÂ
  *
  * Three of the eight categories are computed from real data already in the
- * database/calculator (Ø§ÙØ£Ø³Ø¹Ø§Ø±, Ø§ÙØ¯Ø¹Ù Ø§ÙØ¹Ø±Ø¨Ù, Ø¨ÙØ§Ø¨Ø§Øª Ø§ÙØ¯ÙØ¹). The remaining
- * five (Ø§ÙØªÙØ³Ø¹ Ø§ÙØ¯ÙÙÙ, Ø§ÙØªØ®ØµÙØµ, Ø³ÙÙÙØ© Ø§ÙØ§Ø³ØªØ®Ø¯Ø§Ù, Ø§ÙØªØ³ÙÙÙ, Ø§ÙØ¯Ø¹Ù Ø§ÙÙÙÙ) have
+ * database/calculator (ÃÂ§ÃÂÃÂ£ÃÂ³ÃÂ¹ÃÂ§ÃÂ±, ÃÂ§ÃÂÃÂ¯ÃÂ¹ÃÂ ÃÂ§ÃÂÃÂ¹ÃÂ±ÃÂ¨ÃÂ, ÃÂ¨ÃÂÃÂ§ÃÂ¨ÃÂ§ÃÂª ÃÂ§ÃÂÃÂ¯ÃÂÃÂ¹). The remaining
+ * five (ÃÂ§ÃÂÃÂªÃÂÃÂ³ÃÂ¹ ÃÂ§ÃÂÃÂ¯ÃÂÃÂÃÂ, ÃÂ§ÃÂÃÂªÃÂ®ÃÂµÃÂÃÂµ, ÃÂ³ÃÂÃÂÃÂÃÂ© ÃÂ§ÃÂÃÂ§ÃÂ³ÃÂªÃÂ®ÃÂ¯ÃÂ§ÃÂ, ÃÂ§ÃÂÃÂªÃÂ³ÃÂÃÂÃÂ, ÃÂ§ÃÂÃÂ¯ÃÂ¹ÃÂ ÃÂ§ÃÂÃÂÃÂÃÂ) have
  * no underlying numeric field in the schema to derive a score from, so they
- * use a fixed 1â5 editorial score per platform â written to be consistent
+ * use a fixed 1Ã¢ÂÂ5 editorial score per platform Ã¢ÂÂ written to be consistent
  * with each platform's seeded pros/cons and descriptionAr. This mirrors how
  * quickVerdictAr/pros/cons were already hand-authored in the seed data.
  */
 const EDITORIAL_SCORES: Record<string, Record<string, number>> = {
-  'Ø§ÙØªÙØ³Ø¹ Ø§ÙØ¯ÙÙÙ': { salla: 2, zid: 2, shopify: 5, woocommerce: 4, bigcommerce: 4, magento: 4 },
-  Ø§ÙØªØ®ØµÙØµ: { salla: 3, zid: 3, shopify: 4, woocommerce: 5, bigcommerce: 3, magento: 5 },
-  'Ø³ÙÙÙØ© Ø§ÙØ§Ø³ØªØ®Ø¯Ø§Ù': { salla: 5, zid: 5, shopify: 4, woocommerce: 2, bigcommerce: 3, magento: 1 },
-  Ø§ÙØªØ³ÙÙÙ: { salla: 3, zid: 4, shopify: 5, woocommerce: 4, bigcommerce: 4, magento: 3 },
-  'Ø§ÙØ¯Ø¹Ù Ø§ÙÙÙÙ': { salla: 5, zid: 5, shopify: 2, woocommerce: 1, bigcommerce: 2, magento: 1 },
+  'ÃÂ§ÃÂÃÂªÃÂÃÂ³ÃÂ¹ ÃÂ§ÃÂÃÂ¯ÃÂÃÂÃÂ': { salla: 2, zid: 2, shopify: 5, woocommerce: 4, bigcommerce: 4, magento: 4 },
+  ÃÂ§ÃÂÃÂªÃÂ®ÃÂµÃÂÃÂµ: { salla: 3, zid: 3, shopify: 4, woocommerce: 5, bigcommerce: 3, magento: 5 },
+  'ÃÂ³ÃÂÃÂÃÂÃÂ© ÃÂ§ÃÂÃÂ§ÃÂ³ÃÂªÃÂ®ÃÂ¯ÃÂ§ÃÂ': { salla: 5, zid: 5, shopify: 4, woocommerce: 2, bigcommerce: 3, magento: 1 },
+  ÃÂ§ÃÂÃÂªÃÂ³ÃÂÃÂÃÂ: { salla: 3, zid: 4, shopify: 5, woocommerce: 4, bigcommerce: 4, magento: 3 },
+  'ÃÂ§ÃÂÃÂ¯ÃÂ¹ÃÂ ÃÂ§ÃÂÃÂÃÂÃÂ': { salla: 5, zid: 5, shopify: 2, woocommerce: 1, bigcommerce: 2, magento: 1 },
 };
 
-const ARABIC_SUPPORT_FEATURES = ['ÙØ§Ø¬ÙØ© Ø¹Ø±Ø¨ÙØ© ÙØ§ÙÙØ©', 'Ø¯Ø¹Ù Ø¹Ø±Ø¨Ù 24/7'];
-const PAYMENT_GATEWAY_FEATURES = ['ÙØ¯Ù (Mada)', 'Apple Pay', 'STC Pay', 'ØªØ§Ø¨ ÙÙÙØ¯ÙÙØ¹Ø§Øª'];
+const ARABIC_SUPPORT_FEATURES = ['ÃÂÃÂ§ÃÂ¬ÃÂÃÂ© ÃÂ¹ÃÂ±ÃÂ¨ÃÂÃÂ© ÃÂÃÂ§ÃÂÃÂÃÂ©', 'ÃÂ¯ÃÂ¹ÃÂ ÃÂ¹ÃÂ±ÃÂ¨ÃÂ 24/7'];
+const PAYMENT_GATEWAY_FEATURES = ['ÃÂÃÂ¯ÃÂ (Mada)', 'Apple Pay', 'STC Pay', 'ÃÂªÃÂ§ÃÂ¨ ÃÂÃÂÃÂÃÂ¯ÃÂÃÂÃÂ¹ÃÂ§ÃÂª'];
 
 const SUPPORT_WEIGHT: Record<string, number> = { yes: 2, partial: 1, no: 0 };
 
@@ -63,7 +63,7 @@ export function buildScorecard(
 ): ScorecardResult {
   const categories: ScorecardCategory[] = [];
 
-  // 1. Pricing â computed live from the calculator engine.
+  // 1. Pricing Ã¢ÂÂ computed live from the calculator engine.
   const costOutput = calculatePlatformCosts(
     {
       ...DEFAULT_MERCHANT_INPUTS,
@@ -77,34 +77,34 @@ export function buildScorecard(
   const totalCost = costA + costB;
   categories.push({
     key: 'pricing',
-    labelAr: 'Ø§ÙØ£Ø³Ø¹Ø§Ø±',
+    labelAr: 'ÃÂ§ÃÂÃÂ£ÃÂ³ÃÂ¹ÃÂ§ÃÂ±',
     scoreA: totalCost > 0 ? Math.round((costB / totalCost) * 100) : 50,
     scoreB: totalCost > 0 ? Math.round((costA / totalCost) * 100) : 50,
     winner: costA === costB ? 'tie' : costA < costB ? 'a' : 'b',
-    noteAr: `Ø¨Ø§ÙØªØ±Ø§Ø¶ Ø¥ÙØ±Ø§Ø¯Ø§Øª ${SCORECARD_EXAMPLE_REVENUE_SAR.toLocaleString('en-US')} Ø±.Ø³ Ù${SCORECARD_EXAMPLE_ORDERS} Ø·ÙØ¨ Ø´ÙØ±ÙØ§Ù`,
+    noteAr: `ÃÂ¨ÃÂ§ÃÂÃÂªÃÂ±ÃÂ§ÃÂ¶ ÃÂ¥ÃÂÃÂ±ÃÂ§ÃÂ¯ÃÂ§ÃÂª ${SCORECARD_EXAMPLE_REVENUE_SAR.toLocaleString('en-US')} ÃÂ±.ÃÂ³ ÃÂ${SCORECARD_EXAMPLE_ORDERS} ÃÂ·ÃÂÃÂ¨ ÃÂ´ÃÂÃÂ±ÃÂÃÂ§ÃÂ`,
     isComputed: true,
   });
 
-  // 2. Arabic support â computed from seeded feature flags.
+  // 2. Arabic support Ã¢ÂÂ computed from seeded feature flags.
   const arSupportA = sumWeights(featureMap[slugA], ARABIC_SUPPORT_FEATURES);
   const arSupportB = sumWeights(featureMap[slugB], ARABIC_SUPPORT_FEATURES);
   const arMax = ARABIC_SUPPORT_FEATURES.length * 2;
   categories.push({
     key: 'arabic-support',
-    labelAr: 'Ø§ÙØ¯Ø¹Ù Ø§ÙØ¹Ø±Ø¨Ù',
+    labelAr: 'ÃÂ§ÃÂÃÂ¯ÃÂ¹ÃÂ ÃÂ§ÃÂÃÂ¹ÃÂ±ÃÂ¨ÃÂ',
     scoreA: arMax > 0 ? Math.round((arSupportA / arMax) * 100) : 0,
     scoreB: arMax > 0 ? Math.round((arSupportB / arMax) * 100) : 0,
     winner: arSupportA === arSupportB ? 'tie' : arSupportA > arSupportB ? 'a' : 'b',
     isComputed: true,
   });
 
-  // 3. Payment gateways â computed from seeded feature flags.
+  // 3. Payment gateways Ã¢ÂÂ computed from seeded feature flags.
   const payA = sumWeights(featureMap[slugA], PAYMENT_GATEWAY_FEATURES);
   const payB = sumWeights(featureMap[slugB], PAYMENT_GATEWAY_FEATURES);
   const payMax = PAYMENT_GATEWAY_FEATURES.length * 2;
   categories.push({
     key: 'payment-gateways',
-    labelAr: 'Ø¨ÙØ§Ø¨Ø§Øª Ø§ÙØ¯ÙØ¹',
+    labelAr: 'ÃÂ¨ÃÂÃÂ§ÃÂ¨ÃÂ§ÃÂª ÃÂ§ÃÂÃÂ¯ÃÂÃÂ¹',
     scoreA: payMax > 0 ? Math.round((payA / payMax) * 100) : 0,
     scoreB: payMax > 0 ? Math.round((payB / payMax) * 100) : 0,
     winner: payA === payB ? 'tie' : payA > payB ? 'a' : 'b',

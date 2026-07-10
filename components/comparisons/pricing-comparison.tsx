@@ -25,10 +25,10 @@ export function PricingComparison({ platformA, platformB, configs }: PricingComp
 
   return (
     <section id="pricing" className="mb-12">
-      <h2 className="text-2xl font-extrabold text-white mb-2">ÙÙØ§Ø±ÙØ© Ø§ÙØ£Ø³Ø¹Ø§Ø±</h2>
+      <h2 className="text-2xl font-extrabold text-white mb-2">ÃÂÃÂÃÂ§ÃÂ±ÃÂÃÂ© ÃÂ§ÃÂÃÂ£ÃÂ³ÃÂ¹ÃÂ§ÃÂ±</h2>
       <p className="text-sm text-slate-500 mb-6">
-        ÙØ«Ø§Ù Ø­Ø³Ø§Ø¨Ù Ø¨Ø§ÙØªØ±Ø§Ø¶ Ø¥ÙØ±Ø§Ø¯Ø§Øª {SCORECARD_EXAMPLE_REVENUE_SAR.toLocaleString('en-US')} Ø±.Ø³ Ù
-        {SCORECARD_EXAMPLE_ORDERS} Ø·ÙØ¨ Ø´ÙØ±ÙØ§Ù
+        ÃÂÃÂ«ÃÂ§ÃÂ ÃÂ­ÃÂ³ÃÂ§ÃÂ¨ÃÂ ÃÂ¨ÃÂ§ÃÂÃÂªÃÂ±ÃÂ§ÃÂ¶ ÃÂ¥ÃÂÃÂ±ÃÂ§ÃÂ¯ÃÂ§ÃÂª {SCORECARD_EXAMPLE_REVENUE_SAR.toLocaleString('en-US')} ÃÂ±.ÃÂ³ ÃÂ
+        {SCORECARD_EXAMPLE_ORDERS} ÃÂ·ÃÂÃÂ¨ ÃÂ´ÃÂÃÂ±ÃÂÃÂ§ÃÂ
       </p>
 
       <div className="grid md:grid-cols-2 gap-6">
@@ -44,7 +44,7 @@ export function PricingComparison({ platformA, platformB, configs }: PricingComp
                 <div key={tier.id} className="flex items-center justify-between text-sm py-1.5 border-b border-white/6 last:border-0">
                   <span className="text-slate-400">{tier.nameAr}</span>
                   <span className="figure font-semibold text-white">
-                    {tier.monthlyFeeSAR === 0 ? 'ÙØ¬Ø§ÙÙ' : `${tier.monthlyFeeSAR.toLocaleString('en-US')} Ø±.Ø³/Ø´ÙØ±`}
+                    {tier.monthlyFeeSAR === 0 ? 'ÃÂÃÂ¬ÃÂ§ÃÂÃÂ' : `${tier.monthlyFeeSAR.toLocaleString('en-US')} ÃÂ±.ÃÂ³/ÃÂ´ÃÂÃÂ±`}
                   </span>
                 </div>
               ))}
@@ -52,9 +52,9 @@ export function PricingComparison({ platformA, platformB, configs }: PricingComp
 
             {result && (
               <div className="rounded-lg bg-primary/10 border border-primary/20 p-3">
-                <div className="text-xs text-slate-400 mb-1">Ø§ÙØªÙÙÙØ© Ø§ÙØ¥Ø¬ÙØ§ÙÙØ© ÙÙ Ø§ÙÙØ«Ø§Ù Ø£Ø¹ÙØ§Ù</div>
+                <div className="text-xs text-slate-400 mb-1">ÃÂ§ÃÂÃÂªÃÂÃÂÃÂÃÂ© ÃÂ§ÃÂÃÂ¥ÃÂ¬ÃÂÃÂ§ÃÂÃÂÃÂ© ÃÂÃÂ ÃÂ§ÃÂÃÂÃÂ«ÃÂ§ÃÂ ÃÂ£ÃÂ¹ÃÂÃÂ§ÃÂ</div>
                 <div className="figure text-xl font-extrabold text-white">
-                  {formatCurrency(result.totalMonthlyCost, 'SAR')}/Ø´ÙØ±
+                  {formatCurrency(result.totalMonthlyCost, 'SAR')}/ÃÂ´ÃÂÃÂ±
                 </div>
               </div>
             )}
@@ -64,7 +64,7 @@ export function PricingComparison({ platformA, platformB, configs }: PricingComp
 
       <div className="text-center mt-6">
         <a href="#mini-calculator" className="text-sm text-primary font-semibold hover:underline">
-          Ø¬Ø±ÙØ¨ Ø§ÙØ­Ø§Ø³Ø¨Ø© Ø§ÙØªÙØ§Ø¹ÙÙØ© ÙÙØ°Ù Ø§ÙÙÙØµØªÙÙ â
+          ÃÂ¬ÃÂ±ÃÂÃÂ¨ ÃÂ§ÃÂÃÂ­ÃÂ§ÃÂ³ÃÂ¨ÃÂ© ÃÂ§ÃÂÃÂªÃÂÃÂ§ÃÂ¹ÃÂÃÂÃÂ© ÃÂÃÂÃÂ°ÃÂ ÃÂ§ÃÂÃÂÃÂÃÂµÃÂªÃÂÃÂ Ã¢ÂÂ
         </a>
       </div>
     </section>

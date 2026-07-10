@@ -18,25 +18,25 @@ export function VsHero({ platformA, platformB }: VsHeroProps) {
         <PlatformBadge platform={platformB} />
       </div>
       <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-snug max-w-2xl mx-auto">
-        ÙÙØ§Ø±ÙØ© Ø´Ø§ÙÙØ© Ø¨ÙÙ {platformA.nameAr} Ù{platformB.nameAr} ÙØ¹Ø§Ù Ù¢Ù Ù¢Ù¦
+        ÃÂÃÂÃÂ§ÃÂ±ÃÂÃÂ© ÃÂ´ÃÂ§ÃÂÃÂÃÂ© ÃÂ¨ÃÂÃÂ {platformA.nameAr} ÃÂ{platformB.nameAr} ÃÂÃÂ¹ÃÂ§ÃÂ ÃÂ¢ÃÂ ÃÂ¢ÃÂ¦
       </h1>
       <div className="flex items-center justify-center gap-4 text-xs text-slate-500 mb-8">
         <span className="flex items-center gap-1.5">
-          <Clock size={13} /> Ø¢Ø®Ø± ØªØ­Ø¯ÙØ«: ÙÙÙÙÙ Ù¢Ù Ù¢Ù¦
+          <Clock size={13} /> ÃÂ¢ÃÂ®ÃÂ± ÃÂªÃÂ­ÃÂ¯ÃÂÃÂ«: ÃÂÃÂÃÂÃÂÃÂ ÃÂ¢ÃÂ ÃÂ¢ÃÂ¦
         </span>
-        <span>Ù¨ Ø¯ÙØ§Ø¦Ù ÙÙÙØ±Ø§Ø¡Ø©</span>
+        <span>ÃÂ¨ ÃÂ¯ÃÂÃÂ§ÃÂ¦ÃÂ ÃÂÃÂÃÂÃÂ±ÃÂ§ÃÂ¡ÃÂ©</span>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-3">
         {platformA.affiliateUrl && (
           <a href={platformA.affiliateUrl} target="_blank" rel="noopener noreferrer sponsored"
             className="btn text-white text-sm px-6 py-3" style={{ backgroundColor: platformA.brandColor }}>
-            Ø§Ø¨Ø¯Ø£ ÙØ¹ {platformA.nameAr}
+            ÃÂ§ÃÂ¨ÃÂ¯ÃÂ£ ÃÂÃÂ¹ {platformA.nameAr}
           </a>
         )}
         {platformB.affiliateUrl && (
           <a href={platformB.affiliateUrl} target="_blank" rel="noopener noreferrer sponsored"
             className="btn text-white text-sm px-6 py-3" style={{ backgroundColor: platformB.brandColor }}>
-            Ø§Ø¨Ø¯Ø£ ÙØ¹ {platformB.nameAr}
+            ÃÂ§ÃÂ¨ÃÂ¯ÃÂ£ ÃÂÃÂ¹ {platformB.nameAr}
           </a>
         )}
       </div>
