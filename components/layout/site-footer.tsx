@@ -1,15 +1,15 @@
 import Link from 'next/link';
 
 const MAIN_LINKS = [
-  { href: '/muqaranat', label: 'Ø§ÙÙÙØ§Ø±ÙØ§Øª' },
-  { href: '/calculator', label: 'Ø§ÙØ­Ø§Ø³Ø¨Ø©' },
-  { href: '/adilla', label: 'Ø§ÙØ£Ø¯ÙØ©' },
-  { href: '/case-studies', label: 'Ø¯Ø±Ø§Ø³Ø§Øª Ø§ÙØ­Ø§ÙØ©' },
+  { href: '/muqaranat', label: 'المقارنات' },
+  { href: '/calculator', label: 'الحاسبة' },
+  { href: '/adilla', label: 'الأدلة' },
+  { href: '/case-studies', label: 'دراسات الحالة' },
 ];
 
 const LEGAL_LINKS = [
-  { href: '/privacy', label: 'Ø³ÙØ§Ø³Ø© Ø§ÙØ®ØµÙØµÙØ©' },
-  { href: '/affiliate-disclosure', label: 'Ø¥ÙØµØ§Ø­ Ø§ÙØ±ÙØ§Ø¨Ø· Ø§ÙØªØ§Ø¨Ø¹Ø©' },
+  { href: '/privacy', label: 'سياسة الخصوصية' },
+  { href: '/affiliate-disclosure', label: 'إفصاح الروابط التابعة' },
 ];
 
 export function SiteFooter() {
@@ -18,11 +18,11 @@ export function SiteFooter() {
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
-            <Link href="/" className="text-xl font-extrabold text-white mb-3 block">Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø±</Link>
-            <p className="text-slate-400 text-sm leading-relaxed">Ø§ÙÙØ±Ø¬Ø¹ Ø§ÙØ£ÙÙ Ø¹Ø±Ø¨ÙØ§Ù ÙÙÙØ§Ø±ÙØ© ÙÙØµØ§Øª Ø§ÙØªØ¬Ø§Ø±Ø© Ø§ÙØ¥ÙÙØªØ±ÙÙÙØ© ÙÙ Ø§ÙØ³ÙÙ Ø§ÙØ³Ø¹ÙØ¯Ù ÙØ§ÙØ®ÙÙØ¬Ù.</p>
+            <Link href="/" className="text-xl font-extrabold text-white mb-3 block">دليل المتاجر</Link>
+            <p className="text-slate-400 text-sm leading-relaxed">المرجع الأول عربياً لمقارنة منصات التجارة الإلكترونية في السوق السعودي والخليجي.</p>
           </div>
           <div>
-            <h3 className="font-bold text-white mb-4">Ø§ÙØµÙØ­Ø§Øª</h3>
+            <h3 className="font-bold text-white mb-4">الصفحات</h3>
             <ul className="space-y-2">
               {MAIN_LINKS.map(link => (
                 <li key={link.href}><Link href={link.href} className="text-slate-400 hover:text-white text-sm transition-colors">{link.label}</Link></li>
@@ -30,7 +30,7 @@ export function SiteFooter() {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-white mb-4">ÙØ§ÙÙÙÙ</h3>
+            <h3 className="font-bold text-white mb-4">قانوني</h3>
             <ul className="space-y-2">
               {LEGAL_LINKS.map(link => (
                 <li key={link.href}><Link href={link.href} className="text-slate-400 hover:text-white text-sm transition-colors">{link.label}</Link></li>
@@ -39,8 +39,8 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="border-t border-white/6 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-slate-500 text-sm">Â© {new Date().getFullYear()} Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø±. Ø¬ÙÙØ¹ Ø§ÙØ­ÙÙÙ ÙØ­ÙÙØ¸Ø©.</p>
-          <p className="text-slate-600 text-xs">ÙØ³ØªÙÙ ÙÙÙØ¶ÙØ¹Ù â ÙØ³ÙØ§ ØªØ§Ø¨Ø¹ÙÙ ÙØ£Ù ÙÙØµØ©</p>
+          <p className="text-slate-500 text-sm">© {new Date().getFullYear()} دليل المتاجر. جميع الحقوق محفوظة.</p>
+          <p className="text-slate-600 text-xs">مستقل وموضوعي — لسنا تابعين لأي منصة</p>
         </div>
       </div>
     </footer>
