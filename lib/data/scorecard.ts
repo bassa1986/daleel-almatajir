@@ -1,6 +1,9 @@
 import type { PlatformConfig } from '../calculator/types';
 import type { FeatureSupportMap } from './features';
 
+export const SCORECARD_EXAMPLE_REVENUE_SAR = 50000;
+export const SCORECARD_EXAMPLE_ORDERS = 150;
+
 export interface ScorecardRow {
   category: string;
   slugA: number;
@@ -9,6 +12,13 @@ export interface ScorecardRow {
 }
 
 export interface Scorecard {
+  rows: ScorecardRow[];
+  totalA: number;
+  totalB: number;
+  winner: 'A' | 'B' | 'tie';
+}
+
+export interface ScorecardResult {
   rows: ScorecardRow[];
   totalA: number;
   totalB: number;
