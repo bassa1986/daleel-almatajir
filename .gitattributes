@@ -1,0 +1,6 @@
+﻿* text=auto encoding=utf-8
+*.tsx text encoding=utf-8
+*.ts text encoding=utf-8
+*.css text encoding=utf-8
+*.json text encoding=utf-8
+*.md text encoding=utf-8
