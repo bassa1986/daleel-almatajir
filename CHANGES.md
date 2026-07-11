@@ -143,3 +143,4 @@ Check `SETUP.md` for detailed troubleshooting. If you get stuck, the error messa
 - Network can't reach Neon
 
 All fixable in minutes once you know what to look for.
+# Last updated: 2026-07-11 23:24:32
