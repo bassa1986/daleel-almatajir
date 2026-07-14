@@ -1,15 +1,14 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 const MAIN_LINKS = [
-  { href: '/muqaranat', label: 'المقارنات' },
-  { href: '/calculator', label: 'الحاسبة' },
-  { href: '/adilla', label: 'الأدلة' },
-  { href: '/case-studies', label: 'دراسات الحالة' },
+  { href: "/muqaranat", label: "المقارنات" },
+  { href: "/calculator", label: "الحاسبة" },
+  { href: "/adilla", label: "الأدلة" },
+  { href: "/case-studies", label: "دراسات الحالة" },
 ];
-
 const LEGAL_LINKS = [
-  { href: '/privacy', label: 'سياسة الخصوصية' },
-  { href: '/affiliate-disclosure', label: 'إفصاح الروابط التابعة' },
+  { href: "/privacy", label: "سياسة الخصوصية" },
+  { href: "/affiliate-disclosure", label: "إفصاح الروابط التابعة" },
 ];
 
 export function SiteFooter() {

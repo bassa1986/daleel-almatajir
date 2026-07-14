@@ -1,18 +1,18 @@
 'use client';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Shield, RefreshCw, BarChart2 } from 'lucide-react';
-import type { PlatformDisplay } from '@/lib/data/platforms';
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Shield, RefreshCw, BarChart2 } from "lucide-react";
+import type { PlatformDisplay } from "@/lib/data/platforms";
 
 const TRUST_ITEMS = [
-  { icon: BarChart2, text: '٦ منصات' },
-  { icon: RefreshCw, text: 'بيانات محدّثة يونيو ٢٠٢٦' },
-  { icon: Shield, text: 'مستقل وموضوعي' },
+  { icon: BarChart2, text: "٦ منصات" },
+  { icon: RefreshCw, text: "بيانات محدَّثة يونيو ٢٠٢٦" },
+  { icon: Shield, text: "مستقل وموضوعي" },
 ];
 
 const PLATFORM_COLORS: Record<string, string> = {
-  salla: '#4CAF50', zid: '#2196F3', shopify: '#96BF48',
-  woocommerce: '#7F54B3', bigcommerce: '#34313F', magento: '#F26322',
+  salla: "#4CAF50", zid: "#2196F3", shopify: "#96BF48",
+  woocommerce: "#7F54B3", bigcommerce: "#34313F", magento: "#F26322",
 };
 
 interface HeroSectionProps { platforms: PlatformDisplay[]; }
@@ -49,7 +49,7 @@ export function HeroSection({ platforms }: HeroSectionProps) {
             {platforms.map((platform, i) => (
               <motion.div key={platform.slug} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 * i }}
                 className="glass px-4 py-2 rounded-full text-sm font-bold text-white flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: PLATFORM_COLORS[platform.slug] || '#fff' }} />
+                <span className="w-2 h-2 rounded-full" style={{ backgroundColor: PLATFORM_COLORS[platform.slug] || "#fff" }} />
                 {platform.nameAr}
               </motion.div>
             ))}

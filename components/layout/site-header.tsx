@@ -1,13 +1,13 @@
 'use client';
-import Link from 'next/link';
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import Link from "next/link";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
-  { href: '/muqaranat', label: 'المقارنات' },
-  { href: '/calculator', label: 'الحاسبة' },
-  { href: '/adilla', label: 'الأدلة' },
-  { href: '/case-studies', label: 'دراسات الحالة' },
+  { href: "/muqaranat", label: "المقارنات" },
+  { href: "/calculator", label: "الحاسبة" },
+  { href: "/adilla", label: "الأدلة" },
+  { href: "/case-studies", label: "دراسات الحالة" },
 ];
 
 export function SiteHeader() {

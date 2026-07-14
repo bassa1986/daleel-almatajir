@@ -1,19 +1,17 @@
-import type { Metadata, Viewport } from 'next';
-import { cairo } from '@/lib/fonts';
-import { ThemeProvider } from '@/components/theme-provider';
-import './globals.css';
+import type { Metadata, Viewport } from "next";
+import { cairo } from "@/lib/fonts";
+import { ThemeProvider } from "@/components/theme-provider";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: 'دليل المتاجر — مقارنة منصات التجارة الإلكترونية',
-    template: '%s | دليل المتاجر',
+    default: "دليل المتاجر — مقارنة منصات التجارة الإلكترونية",
+    template: "%s | دليل المتاجر",
   },
-  description: 'المرجع الأول عربياً لمقارنة سلة، زد، شوبيفاي، ووكومرس، BigCommerce وماجنتو.',
+  description: "المرجع الأول عربياً لمقارنة سلة، زد، شوبيفاي، ووكومرس، BigCommerce وماجنتو.",
 };
 
-export const viewport: Viewport = {
-  themeColor: '#0A0F1E',
-};
+export const viewport: Viewport = { themeColor: "#0A0F1E" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
