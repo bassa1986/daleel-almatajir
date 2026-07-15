@@ -1,19 +1,19 @@
 'use client';
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { StarRating } from '@/components/ui/star-rating';
-import type { PlatformDisplay } from '@/lib/data/platforms';
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { StarRating } from "@/components/ui/star-rating";
+import type { PlatformDisplay } from "@/lib/data/platforms";
 
 interface PlatformGridProps { platforms: PlatformDisplay[]; }
 
 const LOGO_EXT: Record<string, string> = {
-  shopify: 'png',
-  zid: 'png',
-  salla: 'png',
-  woocommerce: 'svg',
-  bigcommerce: 'svg',
-  magento: 'svg',
+  shopify: "png",
+  zid: "png",
+  salla: "png",
+  woocommerce: "svg",
+  bigcommerce: "svg",
+  magento: "svg",
 };
 
 export function PlatformGrid({ platforms }: PlatformGridProps) {
@@ -22,8 +22,8 @@ export function PlatformGrid({ platforms }: PlatformGridProps) {
     <section className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Ø§ÙÙÙØµØ§Øª Ø§ÙÙÙØ§Ø±ÙØ©</h2>
-          <p className="text-slate-400">Ù¦ ÙÙØµØ§Øª Ø¨Ø£Ø³Ø¹Ø§Ø± Ø­ÙÙÙÙØ© Ø¨Ø§ÙØ±ÙØ§Ù Ø§ÙØ³Ø¹ÙØ¯Ù</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">المنصات المقارنة</h2>
+          <p className="text-slate-400">٦ منصات بأسعار حقيقية بالريال السعودي</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {platforms.map((p, i) => (
@@ -33,7 +33,7 @@ export function PlatformGrid({ platforms }: PlatformGridProps) {
                   <div className="w-16 h-16 rounded-xl border border-white/10 flex items-center justify-center overflow-hidden p-1"
                     style={{ backgroundColor: `${p.brandColor}22` }}>
                     <Image
-                      src={`/logos/${p.slug}.${LOGO_EXT[p.slug] || 'svg'}`}
+                      src={`/logos/${p.slug}.${LOGO_EXT[p.slug] || "svg"}`}
                       alt={p.nameAr}
                       width={56}
                       height={56}
@@ -41,16 +41,16 @@ export function PlatformGrid({ platforms }: PlatformGridProps) {
                       unoptimized
                     />
                   </div>
-                  <span className={`badge text-xs ${p.origin === 'GCC' ? 'badge-secondary' : 'badge-primary'}`}>
-                    {p.origin === 'GCC' ? 'Ø®ÙÙØ¬Ù' : 'Ø¹Ø§ÙÙÙ'}
+                  <span className={`badge text-xs ${p.origin === "GCC" ? "badge-secondary" : "badge-primary"}`}>
+                    {p.origin === "GCC" ? "خليجي" : "عالمي"}
                   </span>
                 </div>
                 <h3 className="text-xl font-extrabold text-white mb-1">{p.nameAr}</h3>
                 <StarRating rating={p.rating} className="mb-3" />
                 <div className="mt-auto text-lg font-bold text-white">
                   {p.startingPriceSAR === 0
-                    ? <span className="text-emerald-400">ÙØ¬Ø§ÙÙ</span>
-                    : <>{p.startingPriceSAR.toLocaleString('en-US')} <span className="text-sm text-slate-400">Ø±.Ø³/Ø´ÙØ±</span></>}
+                    ? <span className="text-emerald-400">مجاني</span>
+                    : <>{p.startingPriceSAR.toLocaleString("en-US")} <span className="text-sm text-slate-400">ر.س/شهر</span></>}
                 </div>
               </Link>
             </motion.div>
