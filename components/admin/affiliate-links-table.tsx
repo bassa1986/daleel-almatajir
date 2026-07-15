@@ -46,7 +46,7 @@ function AffiliateRowEditor({ row }: { row: AffiliateRow }) {
       u.searchParams.set('utm_medium', 'affiliate');
       u.searchParams.set('utm_campaign', 'platform-review');
       setUrl(u.toString());
-    } catch {
+      alert('رابط غير صالح');
       alert('Ø±Ø§Ø¨Ø· ØºÙØ± ØµØ§ÙØ­');
     }
   }

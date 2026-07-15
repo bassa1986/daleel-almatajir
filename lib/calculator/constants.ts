@@ -1,5 +1,5 @@
 // =============================================================
-// Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø± â Calculator constants
+// دليل المتاجر — Calculator constants
 // =============================================================
 
 import type { Currency, WooCommerceScenario } from './types';
@@ -15,17 +15,17 @@ export const EXCHANGE_RATES: Record<Currency, number> = {
 };
 
 export const CURRENCY_SYMBOLS_AR: Record<Currency, string> = {
-  SAR: 'Ø±.Ø³',
+  SAR: 'ر.س',
   USD: '$',
-  AED: 'Ø¯.Ø¥',
+  AED: 'د.إ',
 };
 
 export const DEFAULT_WOOCOMMERCE_SCENARIO: WooCommerceScenario = 'typical';
 
 export const WOOCOMMERCE_SCENARIO_LABELS_AR: Record<WooCommerceScenario, string> = {
-  minimal: 'Ø§ÙØ­Ø¯ Ø§ÙØ£Ø¯ÙÙ',
-  typical: 'Ø§ÙÙÙÙØ°Ø¬Ù',
-  managed: 'Ø§ÙÙÙØ¯Ø§Ø±',
+  minimal: 'الحد الأدنى',
+  typical: 'النموذجي',
+  managed: 'المُدار',
 };
 
 export const SHOPIFY_SLUG = 'shopify';
@@ -34,7 +34,7 @@ export const WOOCOMMERCE_SLUG = 'woocommerce';
 /** A tier is flagged for upgrade once revenue exceeds this fraction of its max. */
 export const TIER_UPGRADE_THRESHOLD_RATIO = 0.8;
 
-export const TIER_UPGRADE_WARNING_AR = 'Ø³ØªØ­ØªØ§Ø¬ Ø¥ÙÙ Ø§ÙØªØ±ÙÙØ© ÙØ±ÙØ¨Ø§Ù';
+export const TIER_UPGRADE_WARNING_AR = 'ستحتاج إلى الترقية قريباً';
 
 export const DEFAULT_MERCHANT_INPUTS = {
   monthlyRevenue: 50000,

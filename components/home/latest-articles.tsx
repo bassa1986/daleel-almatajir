@@ -15,10 +15,10 @@ interface Props {
 }
 
 const CATEGORY_COLORS: Record<string, string> = {
-  'ÙÙØ§Ø±ÙØ§Øª': 'badge-primary',
-  'ÙØ±Ø§Ø¬Ø¹Ø§Øª': 'badge-secondary',
-  'Ø£Ø¯ÙØ©': 'badge-success',
-  'Ø¯Ø±Ø§Ø³Ø§Øª Ø§ÙØ­Ø§ÙØ©': 'badge-warning',
+  'مقارنات': 'badge-primary',
+  'مراجعات': 'badge-secondary',
+  'أدلة': 'badge-success',
+  'دراسات الحالة': 'badge-warning',
 };
 
 export function LatestArticles({ articles }: Props) {
@@ -27,8 +27,8 @@ export function LatestArticles({ articles }: Props) {
     <section className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-10">
-          <h2 className="text-3xl font-extrabold text-white">Ø£Ø­Ø¯Ø« Ø§ÙÙÙØ§ÙØ§Øª</h2>
-          <Link href="/adilla" className="text-secondary hover:underline text-sm font-semibold">Ø¹Ø±Ø¶ Ø§ÙÙÙ â</Link>
+          <h2 className="text-3xl font-extrabold text-white">أحدث المقالات</h2>
+          <Link href="/adilla" className="text-secondary hover:underline text-sm font-semibold">عرض الكل ←</Link>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {articles.map((article) => (
@@ -38,7 +38,7 @@ export function LatestArticles({ articles }: Props) {
               )}
               <h3 className="text-lg font-extrabold text-white mb-2 leading-snug">{article.titleAr}</h3>
               {article.readingTimeMin && (
-                <p className="text-slate-500 text-xs">{article.readingTimeMin} Ø¯ÙØ§Ø¦Ù ÙÙÙØ±Ø§Ø¡Ø©</p>
+                <p className="text-slate-500 text-xs">{article.readingTimeMin} دقائق للقراءة</p>
               )}
             </Link>
           ))}

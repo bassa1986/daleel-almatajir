@@ -40,7 +40,6 @@ export function CalculatorApp({ platforms }: CalculatorAppProps) {
     reset,
   } = useCalculator(platforms, initialInputs);
 
-  // Sync state to URL (shallow, no scroll, no extra history entries)
   useEffect(() => {
     const url = buildCalculatorUrl(inputs, pathname);
     router.replace(url, { scroll: false });
@@ -55,7 +54,7 @@ export function CalculatorApp({ platforms }: CalculatorAppProps) {
     setExporting(true);
     try {
       await exportCalculatorReportPdf(printableRef.current, {
-        filename: 'ØªÙØ±ÙØ±-ØªÙØ§ÙÙÙ-Ø¯ÙÙÙ-Ø§ÙÙØªØ§Ø¬Ø±.pdf',
+        filename: 'تقرير-تكاليف-دليل-المتاجر.pdf',
       });
     } finally {
       setExporting(false);
@@ -66,7 +65,6 @@ export function CalculatorApp({ platforms }: CalculatorAppProps) {
 
   return (
     <div className="max-w-5xl mx-auto">
-      {/* Controls panel */}
       <motion.div
         className="glass p-6 md:p-8 mb-8"
         initial={{ opacity: 0, y: 20 }}
@@ -74,10 +72,9 @@ export function CalculatorApp({ platforms }: CalculatorAppProps) {
         transition={{ duration: 0.5 }}
       >
         <div className="grid md:grid-cols-2 gap-6 mb-6">
-          {/* Revenue */}
           <div>
             <div className="flex justify-between items-center mb-3">
-              <label className="text-sm font-semibold text-slate-300">Ø§ÙØ¥ÙØ±Ø§Ø¯Ø§Øª Ø§ÙØ´ÙØ±ÙØ©</label>
+              <label className="text-sm font-semibold text-slate-300">الإيرادات الشهرية</label>
               <span className="figure text-primary font-bold text-sm">
                 {formatCurrency(inputs.monthlyRevenue, 'SAR')}
               </span>
@@ -103,12 +100,11 @@ export function CalculatorApp({ platforms }: CalculatorAppProps) {
             />
           </div>
 
-          {/* Orders */}
           <div>
             <div className="flex justify-between items-center mb-3">
-              <label className="text-sm font-semibold text-slate-300">Ø¹Ø¯Ø¯ Ø§ÙØ·ÙØ¨Ø§Øª Ø§ÙØ´ÙØ±ÙØ©</label>
+              <label className="text-sm font-semibold text-slate-300">عدد الطلبات الشهرية</label>
               <span className="figure text-secondary font-bold text-sm">
-                {inputs.monthlyOrders.toLocaleString('en-US')} Ø·ÙØ¨
+                {inputs.monthlyOrders.toLocaleString('en-US')} طلب
               </span>
             </div>
             <input
@@ -133,9 +129,7 @@ export function CalculatorApp({ platforms }: CalculatorAppProps) {
           </div>
         </div>
 
-        {/* Secondary controls row */}
         <div className="flex flex-wrap items-center gap-3 pt-5 border-t border-white/8">
-          {/* Currency */}
           <div className="flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 p-1">
             {CURRENCIES.map((c) => (
               <button
@@ -150,36 +144,31 @@ export function CalculatorApp({ platforms }: CalculatorAppProps) {
             ))}
           </div>
 
-          {/* Annual toggle */}
-          <ToggleChip active={inputs.annualToggle} onClick={toggleAnnual} label="Ø¹Ø±Ø¶ Ø§ÙØªÙÙÙØ© Ø§ÙØ³ÙÙÙØ©" />
+          <ToggleChip active={inputs.annualToggle} onClick={toggleAnnual} label="عرض التكلفة السنوية" />
 
-          {/* Setup fee toggle */}
-          <ToggleChip active={inputs.includeSetup} onClick={toggleSetupFees} label="ØªØ¶ÙÙÙ Ø±Ø³ÙÙ Ø§ÙØ¥Ø¹Ø¯Ø§Ø¯" />
+          <ToggleChip active={inputs.includeSetup} onClick={toggleSetupFees} label="تضمين رسوم الإعداد" />
 
           <div className="flex-1" />
 
-          {/* Reset */}
           <button
             onClick={reset}
             className="flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-300 transition-colors px-3 py-2"
           >
             <RotateCcw size={13} />
-            Ø¥Ø¹Ø§Ø¯Ø© Ø¶Ø¨Ø·
+            إعادة ضبط
           </button>
 
-          {/* PDF export */}
           <button
             onClick={handleExportPdf}
             disabled={exporting}
             className="btn-glass text-xs px-4 py-2.5 disabled:opacity-50"
           >
             <FileDown size={14} />
-            {exporting ? 'Ø¬Ø§Ø±Ù Ø§ÙØªØµØ¯ÙØ±...' : 'ØªØµØ¯ÙØ± PDF'}
+            {exporting ? 'جارِ التصدير...' : 'تصدير PDF'}
           </button>
         </div>
       </motion.div>
 
-      {/* Results */}
       <div className="space-y-3">
         {output.results.map((result) => (
           <ResultCard
@@ -191,7 +180,6 @@ export function CalculatorApp({ platforms }: CalculatorAppProps) {
         ))}
       </div>
 
-      {/* Hidden printable report for PDF export */}
       <div style={{ position: 'fixed', top: 0, left: '-9999px', zIndex: -1 }} aria-hidden>
         <div ref={printableRef}>
           <PrintableReport data={pdfData} />

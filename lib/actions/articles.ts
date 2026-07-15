@@ -45,7 +45,7 @@ export async function createArticle(input: ArticleFormInput) {
     },
   });
 
-  revalidatePath('/admin/articles');
+  revalidatePath('/adilla');
   revalidatePath('/Ø£Ø¯ÙØ©');
   redirect(`/admin/articles/${article.id}`);
 }
@@ -77,14 +77,14 @@ export async function updateArticle(id: string, input: ArticleFormInput) {
     },
   });
 
-  revalidatePath('/admin/articles');
-  revalidatePath('/Ø£Ø¯ÙØ©');
+  revalidatePath('/adilla');
+  revalidatePath(`/adilla/${input.slug}`);
   revalidatePath(`/Ø£Ø¯ÙØ©/${input.slug}`);
 }
 
 export async function deleteArticle(id: string) {
   const article = await prisma.article.delete({ where: { id } });
-  revalidatePath('/admin/articles');
+  revalidatePath('/adilla');
   revalidatePath('/Ø£Ø¯ÙØ©');
   return article;
 }

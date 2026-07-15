@@ -1,5 +1,5 @@
 // =============================================================
-// Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø± â Design tokens (JS/TS access)
+// دليل المتاجر — Design tokens (JS/TS access)
 //
 // Mirrors the CSS custom properties defined in app/globals.css `@theme`.
 // Use this where Tailwind classes can't reach â Recharts series colors,

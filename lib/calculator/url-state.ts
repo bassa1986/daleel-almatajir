@@ -1,7 +1,7 @@
 // =============================================================
-// Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø± â Calculator URL state encoding
+// دليل المتاجر — Calculator URL state encoding
 //
-// SECTION 3: /Ø­Ø§Ø³Ø¨Ø©-Ø§ÙØªÙØ§ÙÙÙ?r=120000&o=250&c=SAR&s=0
+// SECTION 3: /calculator?r=120000&o=250&c=SAR&s=0
 //   r = monthlyRevenue, o = monthlyOrders, c = currency, s = includeSetup (0/1)
 //
 // Two extra (optional) params are supported beyond the spec so the full
@@ -13,7 +13,7 @@ import { DEFAULT_MERCHANT_INPUTS, DEFAULT_WOOCOMMERCE_SCENARIO } from './constan
 import { nonNegative } from './utils';
 import type { Currency, MerchantInputs, WooCommerceScenario } from './types';
 
-export const CALCULATOR_PATH = '/Ø­Ø§Ø³Ø¨Ø©-Ø§ÙØªÙØ§ÙÙÙ';
+export const CALCULATOR_PATH = '/calculator';
 
 const CURRENCIES: readonly Currency[] = ['SAR', 'USD', 'AED'];
 const WOOCOMMERCE_SCENARIOS: readonly WooCommerceScenario[] = ['minimal', 'typical', 'managed'];

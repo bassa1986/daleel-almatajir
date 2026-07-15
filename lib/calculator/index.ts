@@ -1,5 +1,5 @@
 // =============================================================
-// Ø¯ÙÙÙ Ø§ÙÙØªØ§Ø¬Ø± â Calculator module entry point
+// دليل المتاجر — Calculator module entry point
 //
 // Usage: import { calculatePlatformCosts, useCalculator, ... } from '@/lib/calculator'
 // =============================================================

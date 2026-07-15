@@ -149,8 +149,8 @@ export async function saveSummary(platformId: string, quickVerdictAr: string, be
 }
 
 function revalidateAll() {
-  revalidatePath('/admin/platforms');
+  revalidatePath('/muqaranat');
   revalidatePath('/ÙÙØ§Ø±ÙØ§Øª');
-  revalidatePath('/');
+  revalidatePath('/calculator');
   revalidatePath('/Ø­Ø§Ø³Ø¨Ø©-Ø§ÙØªÙØ§ÙÙÙ');
 }
