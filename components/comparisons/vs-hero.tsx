@@ -18,25 +18,25 @@ export function VsHero({ platformA, platformB }: VsHeroProps) {
         <PlatformBadge platform={platformB} />
       </div>
       <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-snug max-w-2xl mx-auto">
-        ÃÂÃÂÃÂ§ÃÂ±ÃÂÃÂ© ÃÂ´ÃÂ§ÃÂÃÂÃÂ© ÃÂ¨ÃÂÃÂ {platformA.nameAr} ÃÂ{platformB.nameAr} ÃÂÃÂ¹ÃÂ§ÃÂ ÃÂ¢ÃÂ ÃÂ¢ÃÂ¦
+        مقارنة شاملة بين {platformA.nameAr} و{platformB.nameAr} لعام ٢٠٢٦
       </h1>
       <div className="flex items-center justify-center gap-4 text-xs text-slate-500 mb-8">
         <span className="flex items-center gap-1.5">
-          <Clock size={13} /> ÃÂ¢ÃÂ®ÃÂ± ÃÂªÃÂ­ÃÂ¯ÃÂÃÂ«: ÃÂÃÂÃÂÃÂÃÂ ÃÂ¢ÃÂ ÃÂ¢ÃÂ¦
+          <Clock size={13} /> آخر تحديث: يونيو ٢٠٢٦
         </span>
-        <span>ÃÂ¨ ÃÂ¯ÃÂÃÂ§ÃÂ¦ÃÂ ÃÂÃÂÃÂÃÂ±ÃÂ§ÃÂ¡ÃÂ©</span>
+        <span>٨ دقائق للقراءة</span>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-3">
         {platformA.affiliateUrl && (
           <a href={platformA.affiliateUrl} target="_blank" rel="noopener noreferrer sponsored"
             className="btn text-white text-sm px-6 py-3" style={{ backgroundColor: platformA.brandColor }}>
-            ÃÂ§ÃÂ¨ÃÂ¯ÃÂ£ ÃÂÃÂ¹ {platformA.nameAr}
+            ابدأ مع {platformA.nameAr}
           </a>
         )}
         {platformB.affiliateUrl && (
           <a href={platformB.affiliateUrl} target="_blank" rel="noopener noreferrer sponsored"
             className="btn text-white text-sm px-6 py-3" style={{ backgroundColor: platformB.brandColor }}>
-            ÃÂ§ÃÂ¨ÃÂ¯ÃÂ£ ÃÂÃÂ¹ {platformB.nameAr}
+            ابدأ مع {platformB.nameAr}
           </a>
         )}
       </div>

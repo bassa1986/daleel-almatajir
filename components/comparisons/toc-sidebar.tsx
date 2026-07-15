@@ -3,15 +3,15 @@
 import { useEffect, useState } from 'react';
 
 const SECTIONS = [
-  { id: 'quick-verdict', labelAr: 'ÃÂ§ÃÂÃÂ­ÃÂÃÂ ÃÂ§ÃÂÃÂ³ÃÂ±ÃÂÃÂ¹' },
-  { id: 'scorecard', labelAr: 'ÃÂ¨ÃÂ·ÃÂ§ÃÂÃÂ© ÃÂ§ÃÂÃÂÃÂÃÂ§ÃÂ·' },
-  { id: 'pricing', labelAr: 'ÃÂ§ÃÂÃÂ£ÃÂ³ÃÂ¹ÃÂ§ÃÂ±' },
-  { id: 'features', labelAr: 'ÃÂ§ÃÂÃÂÃÂ²ÃÂ§ÃÂÃÂ§' },
-  { id: 'mini-calculator', labelAr: 'ÃÂ§ÃÂÃÂ­ÃÂ§ÃÂ³ÃÂ¨ÃÂ©' },
-  { id: 'deep-dives', labelAr: 'ÃÂ§ÃÂÃÂªÃÂÃÂµÃÂÃÂ' },
-  { id: 'quiz', labelAr: 'ÃÂ£ÃÂÃÂ ÃÂÃÂÃÂµÃÂ© ÃÂªÃÂÃÂ§ÃÂ³ÃÂ¨ÃÂÃÂ' },
-  { id: 'final-verdict', labelAr: 'ÃÂ§ÃÂÃÂ­ÃÂÃÂ ÃÂ§ÃÂÃÂÃÂÃÂ§ÃÂ¦ÃÂ' },
-  { id: 'related', labelAr: 'ÃÂÃÂÃÂ§ÃÂ±ÃÂÃÂ§ÃÂª ÃÂ°ÃÂ§ÃÂª ÃÂµÃÂÃÂ©' },
+  { id: 'quick-verdict', labelAr: 'الحكم السريع' },
+  { id: 'scorecard', labelAr: 'بطاقة النقاط' },
+  { id: 'pricing', labelAr: 'الأسعار' },
+  { id: 'features', labelAr: 'المزايا' },
+  { id: 'mini-calculator', labelAr: 'الحاسبة' },
+  { id: 'deep-dives', labelAr: 'التفصيل' },
+  { id: 'quiz', labelAr: 'أي منصة تناسبك؟' },
+  { id: 'final-verdict', labelAr: 'الحكم النهائي' },
+  { id: 'related', labelAr: 'مقارنات ذات صلة' },
 ];
 
 export function TocSidebar() {
@@ -37,7 +37,7 @@ export function TocSidebar() {
 
   return (
     <nav className="hidden lg:block sticky top-28 w-48 flex-shrink-0 self-start">
-      <div className="text-xs font-bold text-slate-500 mb-3 px-3">ÃÂÃÂ ÃÂÃÂ°ÃÂ ÃÂ§ÃÂÃÂµÃÂÃÂ­ÃÂ©</div>
+      <div className="text-xs font-bold text-slate-500 mb-3 px-3">في هذه الصفحة</div>
       <ul className="space-y-0.5">
         {SECTIONS.map((s) => (
           <li key={s.id}>

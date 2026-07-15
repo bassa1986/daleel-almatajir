@@ -41,23 +41,23 @@ export async function ComparisonView({ slugA, slugB }: ComparisonViewProps) {
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: `ÃÂÃÂÃÂ§ÃÂ±ÃÂÃÂ© ${platformA.nameAr} ÃÂ${platformB.nameAr}`,
+      name: `مقارنة ${platformA.nameAr} و${platformB.nameAr}`,
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: platformA.nameAr, url: `https://daleel-almatajir.com/ÃÂÃÂÃÂ§ÃÂ±ÃÂÃÂ§ÃÂª/${slugA}` },
-        { '@type': 'ListItem', position: 2, name: platformB.nameAr, url: `https://daleel-almatajir.com/ÃÂÃÂÃÂ§ÃÂ±ÃÂÃÂ§ÃÂª/${slugB}` },
+        { '@type': 'ListItem', position: 1, name: platformA.nameAr, url: `https://daleel-almatajir.com/muqaranat/${slugA}` },
+        { '@type': 'ListItem', position: 2, name: platformB.nameAr, url: `https://daleel-almatajir.com/muqaranat/${slugB}` },
       ],
     },
     {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'ÃÂ§ÃÂÃÂ±ÃÂ¦ÃÂÃÂ³ÃÂÃÂ©', item: 'https://daleel-almatajir.com' },
-        { '@type': 'ListItem', position: 2, name: 'ÃÂ§ÃÂÃÂÃÂÃÂ§ÃÂ±ÃÂÃÂ§ÃÂª', item: 'https://daleel-almatajir.com/ÃÂÃÂÃÂ§ÃÂ±ÃÂÃÂ§ÃÂª' },
+        { '@type': 'ListItem', position: 1, name: 'الرئيسية', item: 'https://daleel-almatajir.com' },
+        { '@type': 'ListItem', position: 2, name: 'المقارنات', item: 'https://daleel-almatajir.com/muqaranat' },
         {
           '@type': 'ListItem',
           position: 3,
           name: `${platformA.nameAr} vs ${platformB.nameAr}`,
-          item: `https://daleel-almatajir.com/ÃÂÃÂÃÂ§ÃÂ±ÃÂÃÂ§ÃÂª/${slugA}-vs-${slugB}`,
+          item: `https://daleel-almatajir.com/muqaranat/${slugA}-vs-${slugB}`,
         },
       ],
     },

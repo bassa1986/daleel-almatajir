@@ -44,11 +44,10 @@ export function FeatureMatrix({ rows, nameA, nameB }: FeatureMatrixProps) {
 
   return (
     <section id="features" className="mb-12">
-      <h2 className="text-2xl font-extrabold text-white mb-6">ÃÂÃÂµÃÂÃÂÃÂÃÂ© ÃÂ§ÃÂÃÂÃÂ²ÃÂ§ÃÂÃÂ§</h2>
+      <h2 className="text-2xl font-extrabold text-white mb-6">مصفوفة المزايا</h2>
 
-      {/* Filter bar */}
       <div className="flex flex-wrap gap-2 mb-6">
-        <FilterChip label="ÃÂ§ÃÂÃÂÃÂ" active={activeCategory === 'all'} onClick={() => setActiveCategory('all')} />
+        <FilterChip label="الكل" active={activeCategory === 'all'} onClick={() => setActiveCategory('all')} />
         {categories.map((cat) => (
           <FilterChip
             key={cat.slug}
@@ -80,7 +79,6 @@ export function FeatureMatrix({ rows, nameA, nameB }: FeatureMatrixProps) {
 
                 {isOpen && (
                   <div className="px-5 pb-4">
-                    {/* Column headers */}
                     <div className="grid grid-cols-[1fr_auto_auto] gap-4 text-xs text-slate-500 mb-2 px-1">
                       <span />
                       <span className="w-16 text-center">{nameA}</span>

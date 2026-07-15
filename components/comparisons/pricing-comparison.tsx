@@ -25,10 +25,10 @@ export function PricingComparison({ platformA, platformB, configs }: PricingComp
 
   return (
     <section id="pricing" className="mb-12">
-      <h2 className="text-2xl font-extrabold text-white mb-2">ÃÂÃÂÃÂ§ÃÂ±ÃÂÃÂ© ÃÂ§ÃÂÃÂ£ÃÂ³ÃÂ¹ÃÂ§ÃÂ±</h2>
+      <h2 className="text-2xl font-extrabold text-white mb-2">مقارنة الأسعار</h2>
       <p className="text-sm text-slate-500 mb-6">
-        ÃÂÃÂ«ÃÂ§ÃÂ ÃÂ­ÃÂ³ÃÂ§ÃÂ¨ÃÂ ÃÂ¨ÃÂ§ÃÂÃÂªÃÂ±ÃÂ§ÃÂ¶ ÃÂ¥ÃÂÃÂ±ÃÂ§ÃÂ¯ÃÂ§ÃÂª {SCORECARD_EXAMPLE_REVENUE_SAR.toLocaleString('en-US')} ÃÂ±.ÃÂ³ ÃÂ
-        {SCORECARD_EXAMPLE_ORDERS} ÃÂ·ÃÂÃÂ¨ ÃÂ´ÃÂÃÂ±ÃÂÃÂ§ÃÂ
+        مثال حساب بافتراض إيرادات {SCORECARD_EXAMPLE_REVENUE_SAR.toLocaleString('en-US')} ر.س و
+        {SCORECARD_EXAMPLE_ORDERS} طلب شهرياً
       </p>
 
       <div className="grid md:grid-cols-2 gap-6">
@@ -44,7 +44,7 @@ export function PricingComparison({ platformA, platformB, configs }: PricingComp
                 <div key={tier.id} className="flex items-center justify-between text-sm py-1.5 border-b border-white/6 last:border-0">
                   <span className="text-slate-400">{tier.nameAr}</span>
                   <span className="figure font-semibold text-white">
-                    {tier.monthlyFeeSAR === 0 ? 'ÃÂÃÂ¬ÃÂ§ÃÂÃÂ' : `${tier.monthlyFeeSAR.toLocaleString('en-US')} ÃÂ±.ÃÂ³/ÃÂ´ÃÂÃÂ±`}
+                    {tier.monthlyFeeSAR === 0 ? 'مجاني' : `${tier.monthlyFeeSAR.toLocaleString('en-US')} ر.س/شهر`}
                   </span>
                 </div>
               ))}
@@ -52,9 +52,9 @@ export function PricingComparison({ platformA, platformB, configs }: PricingComp
 
             {result && (
               <div className="rounded-lg bg-primary/10 border border-primary/20 p-3">
-                <div className="text-xs text-slate-400 mb-1">ÃÂ§ÃÂÃÂªÃÂÃÂÃÂÃÂ© ÃÂ§ÃÂÃÂ¥ÃÂ¬ÃÂÃÂ§ÃÂÃÂÃÂ© ÃÂÃÂ ÃÂ§ÃÂÃÂÃÂ«ÃÂ§ÃÂ ÃÂ£ÃÂ¹ÃÂÃÂ§ÃÂ</div>
+                <div className="text-xs text-slate-400 mb-1">التكلفة الإجمالية في المثال أعلاه</div>
                 <div className="figure text-xl font-extrabold text-white">
-                  {formatCurrency(result.totalMonthlyCost, 'SAR')}/ÃÂ´ÃÂÃÂ±
+                  {formatCurrency(result.totalMonthlyCost, 'SAR')}/شهر
                 </div>
               </div>
             )}
@@ -64,7 +64,7 @@ export function PricingComparison({ platformA, platformB, configs }: PricingComp
 
       <div className="text-center mt-6">
         <a href="#mini-calculator" className="text-sm text-primary font-semibold hover:underline">
-          ÃÂ¬ÃÂ±ÃÂÃÂ¨ ÃÂ§ÃÂÃÂ­ÃÂ§ÃÂ³ÃÂ¨ÃÂ© ÃÂ§ÃÂÃÂªÃÂÃÂ§ÃÂ¹ÃÂÃÂÃÂ© ÃÂÃÂÃÂ°ÃÂ ÃÂ§ÃÂÃÂÃÂÃÂµÃÂªÃÂÃÂ Ã¢ÂÂ
+          جرّب الحاسبة التفاعلية لهذا الاختيار ←
         </a>
       </div>
     </section>
