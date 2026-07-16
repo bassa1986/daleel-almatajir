@@ -2,13 +2,13 @@
 
 import { useState, useTransition } from 'react';
 import { Check, X, Pencil } from 'lucide-react';
-import { updateAffiliateLink } from '@/lib/actions/platforms';
+import { saveBasicInfo } from '@/lib/actions/platforms';
 
 interface AffiliateLinkRow {
   id: string;
   nameAr: string;
   affiliateUrl: string;
-  updatedAt: Date;
+  cookieDurationDays: number;
 }
 
 interface AffiliateLinksTableProps {
@@ -23,7 +23,7 @@ export function AffiliateLinksTable({ rows }: AffiliateLinksTableProps) {
           <tr className="border-b border-white/8 text-right text-xs text-slate-500">
             <th className="px-5 py-3 font-medium">المنصة</th>
             <th className="px-5 py-3 font-medium">رابط الأفلييت</th>
-            <th className="px-5 py-3 font-medium">آخر تحديث</th>
+            <th className="px-5 py-3 font-medium">مدة الكوكيز (يوم)</th>
             <th className="px-5 py-3 font-medium"></th>
           </tr>
         </thead>
@@ -54,7 +54,9 @@ function Row({ row }: { row: AffiliateLinkRow }) {
 
   function save() {
     if (!validate(url)) return;
-    startTransition(() => updateAffiliateLink(row.id, url));
+    startTransition(() => {
+      saveBasicInfo(row.id, { affiliateUrl: url } as any);
+    });
     setEditing(false);
   }
 
@@ -73,8 +75,8 @@ function Row({ row }: { row: AffiliateLinkRow }) {
           <span dir="ltr" className="text-slate-400 text-xs truncate block max-w-xs">{row.affiliateUrl}</span>
         )}
       </td>
-      <td className="px-5 py-3 text-xs text-slate-500">
-        {new Date(row.updatedAt).toLocaleDateString('ar-SA')}
+      <td className="px-5 py-3 text-xs text-slate-500 figure">
+        {row.cookieDurationDays}
       </td>
       <td className="px-5 py-3 text-left">
         {editing ? (

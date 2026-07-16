@@ -2,12 +2,12 @@
 
 import { prisma } from '@/lib/db';
 
-interface SubscribeResult {
+export interface SubscribeResult {
   success: boolean;
   messageAr: string;
 }
 
-export async function subscribe(email: string, source?: string): Promise<SubscribeResult> {
+export async function subscribeEmail(email: string, source?: string): Promise<SubscribeResult> {
   const trimmed = email.trim();
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
