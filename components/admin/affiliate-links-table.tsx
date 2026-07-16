@@ -1,32 +1,35 @@
 'use client';
 
 import { useState, useTransition } from 'react';
-import { Save, Sparkles } from 'lucide-react';
-import { updateAffiliateLink } from '@/lib/actions/affiliate';
+import { Check, X, Pencil } from 'lucide-react';
+import { updateAffiliateLink } from '@/lib/actions/platforms';
 
-export interface AffiliateRow {
+interface AffiliateLinkRow {
   id: string;
   nameAr: string;
   affiliateUrl: string;
-  cookieDurationDays: number;
+  updatedAt: Date;
 }
 
-export function AffiliateLinksTable({ rows }: { rows: AffiliateRow[] }) {
+interface AffiliateLinksTableProps {
+  rows: AffiliateLinkRow[];
+}
+
+export function AffiliateLinksTable({ rows }: AffiliateLinksTableProps) {
   return (
     <div className="glass overflow-hidden">
       <table className="w-full text-sm">
         <thead>
-          <tr className="text-right text-xs text-slate-500 border-b border-white/8">
-            <th className="p-3 font-medium">Platform</th>
-            <th className="p-3 font-medium">Affiliate URL</th>
-            <th className="p-3 font-medium">Cookie (days)</th>
-            <th className="p-3 font-medium">Status</th>
-            <th className="p-3" />
+          <tr className="border-b border-white/8 text-right text-xs text-slate-500">
+            <th className="px-5 py-3 font-medium">المنصة</th>
+            <th className="px-5 py-3 font-medium">رابط الأفلييت</th>
+            <th className="px-5 py-3 font-medium">آخر تحديث</th>
+            <th className="px-5 py-3 font-medium"></th>
           </tr>
         </thead>
         <tbody>
           {rows.map((row) => (
-            <AffiliateRowEditor key={row.id} row={row} />
+            <Row key={row.id} row={row} />
           ))}
         </tbody>
       </table>
@@ -34,58 +37,60 @@ export function AffiliateLinksTable({ rows }: { rows: AffiliateRow[] }) {
   );
 }
 
-function AffiliateRowEditor({ row }: { row: AffiliateRow }) {
+function Row({ row }: { row: AffiliateLinkRow }) {
+  const [editing, setEditing] = useState(false);
   const [url, setUrl] = useState(row.affiliateUrl);
-  const [days, setDays] = useState(row.cookieDurationDays);
   const [isPending, startTransition] = useTransition();
 
-  function appendUtm() {
+  function validate(value: string) {
     try {
-      const u = new URL(url);
-      u.searchParams.set('utm_source', 'daleel-almatajir');
-      u.searchParams.set('utm_medium', 'affiliate');
-      u.searchParams.set('utm_campaign', 'platform-review');
-      setUrl(u.toString());
+      new URL(value);
+      return true;
+    } catch {
       alert('رابط غير صالح');
-      alert('Ø±Ø§Ø¨Ø· ØºÙØ± ØµØ§ÙØ­');
+      return false;
     }
   }
 
   function save() {
-    startTransition(() => updateAffiliateLink(row.id, url, days));
+    if (!validate(url)) return;
+    startTransition(() => updateAffiliateLink(row.id, url));
+    setEditing(false);
   }
 
   return (
     <tr className="border-b border-white/6 last:border-0">
-      <td className="p-3 text-white font-semibold whitespace-nowrap">{row.nameAr}</td>
-      <td className="p-3">
-        <div className="flex items-center gap-1.5">
+      <td className="px-5 py-3 font-semibold text-white">{row.nameAr}</td>
+      <td className="px-5 py-3">
+        {editing ? (
           <input
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             dir="ltr"
-            className="flex-1 min-w-[220px] rounded-lg border border-white/10 bg-white/5 px-2.5 py-1.5 text-xs text-white"
+            className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-xs text-white focus:outline-none focus:border-primary/50"
           />
-          <button onClick={appendUtm} title="Append UTM params" className="text-slate-400 hover:text-secondary flex-shrink-0">
-            <Sparkles size={14} />
+        ) : (
+          <span dir="ltr" className="text-slate-400 text-xs truncate block max-w-xs">{row.affiliateUrl}</span>
+        )}
+      </td>
+      <td className="px-5 py-3 text-xs text-slate-500">
+        {new Date(row.updatedAt).toLocaleDateString('ar-SA')}
+      </td>
+      <td className="px-5 py-3 text-left">
+        {editing ? (
+          <div className="flex items-center gap-2 justify-end">
+            <button onClick={save} disabled={isPending} className="text-emerald-400 hover:text-emerald-300">
+              <Check size={16} />
+            </button>
+            <button onClick={() => { setUrl(row.affiliateUrl); setEditing(false); }} className="text-slate-500 hover:text-slate-300">
+              <X size={16} />
+            </button>
+          </div>
+        ) : (
+          <button onClick={() => setEditing(true)} className="text-slate-500 hover:text-slate-300">
+            <Pencil size={14} />
           </button>
-        </div>
-      </td>
-      <td className="p-3">
-        <input
-          type="number"
-          value={days}
-          onChange={(e) => setDays(Number(e.target.value))}
-          className="w-16 rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-xs text-white figure"
-        />
-      </td>
-      <td className="p-3">
-        <span className={`badge text-xs ${url ? 'badge-success' : 'badge-danger'}`}>{url ? 'Active' : 'Missing'}</span>
-      </td>
-      <td className="p-3">
-        <button onClick={save} disabled={isPending} className="btn-glass text-xs px-2.5 py-1.5 disabled:opacity-50">
-          <Save size={12} />
-        </button>
+        )}
       </td>
     </tr>
   );

@@ -1,27 +1,28 @@
 'use server';
 
-import { prisma } from '../db';
+import { prisma } from '@/lib/db';
 
-export interface SubscribeResult {
+interface SubscribeResult {
   success: boolean;
   messageAr: string;
 }
 
-export async function subscribeEmail(
-  email: string,
-  source: 'footer' | 'calculator' | 'article' | 'comparison'
-): Promise<SubscribeResult> {
+export async function subscribe(email: string, source?: string): Promise<SubscribeResult> {
+  const trimmed = email.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRegex.test(trimmed)) {
     return { success: false, messageAr: 'يرجى إدخال بريد إلكتروني صحيح.' };
-    return { success: false, messageAr: 'ÙØ±Ø¬Ù Ø¥Ø¯Ø®Ø§Ù Ø¨Ø±ÙØ¯ Ø¥ÙÙØªØ±ÙÙÙ ØµØ­ÙØ­.' };
   }
 
   try {
     await prisma.subscriber.upsert({
-      where: { email },
+      where: { email: trimmed },
       update: {},
-      create: { email, source },
+      create: { email: trimmed, source: source ?? 'website' },
+    });
     return { success: true, messageAr: 'تم الاشتراك بنجاح! شكراً لك.' };
-    return { success: true, messageAr: 'ØªÙ Ø§ÙØ§Ø´ØªØ±Ø§Ù Ø¨ÙØ¬Ø§Ø­! Ø´ÙØ±Ø§Ù ÙÙ.' };
-    return { success: false, messageAr: 'حدث خطأ. يرجى المحاولة مرة أخرى.'     return { success: false, messageAr: 'Ø­Ø¯Ø« Ø®Ø·Ø£. ÙØ±Ø¬Ù Ø§ÙÙØ­Ø§ÙÙØ© ÙØ±Ø© Ø£Ø®Ø±Ù.' };
+  } catch {
+    return { success: false, messageAr: 'حدث خطأ. يرجى المحاولة مرة أخرى.' };
   }
 }
