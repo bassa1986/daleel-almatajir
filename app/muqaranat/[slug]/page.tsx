@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { SiteHeader } from '@/components/layout/site-header';
@@ -41,11 +41,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       prisma.platform.findUnique({ where: { slug: b }, select: { nameAr: true } }),
     ]);
     if (!pa || !pb) return {};
-    return { title: `${pa.nameAr} vs ${pb.nameAr}: مقارنة شاملة ٢٠٢٦` };
+    return { title: `${pa.nameAr} vs ${pb.nameAr}: Ù…Ù‚Ø§Ø±Ù†Ø© Ø´Ø§Ù…Ù„Ø© Ù¢Ù Ù¢Ù¦` };
   }
   const p = await prisma.platform.findUnique({ where: { slug } });
   if (!p) return {};
-  return { title: `مراجعة ${p.nameAr} ٢٠٢٦` };
+  return { title: `Ù…Ø±Ø§Ø¬Ø¹Ø© ${p.nameAr} Ù¢Ù Ù¢Ù¦` };
 }
 
 export default async function PlatformOrComparisonPage({ params }: Props) {
@@ -79,16 +79,16 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
   const entryTier = platform.pricingTiers[0];
   const faqs = [
     {
-      q: `كم تكلفة استخدام ${platform.nameAr} شهرياً؟`,
-      a: entryTier ? (entryTier.monthlyFeeSAR === 0 ? `تبدأ باقات ${platform.nameAr} مجانية.` : `تبدأ من ${entryTier.monthlyFeeSAR} ر.س شهرياً.`) : `تختلف حسب الباقة.`,
+      q: `ÙƒÙ… ØªÙƒÙ„ÙØ© Ø§Ø³ØªØ®Ø¯Ø§Ù… ${platform.nameAr} Ø´Ù‡Ø±ÙŠØ§Ù‹ØŸ`,
+      a: entryTier ? (entryTier.monthlyFeeSAR === 0 ? `ØªØ¨Ø¯Ø£ Ø¨Ø§Ù‚Ø§Øª ${platform.nameAr} Ù…Ø¬Ø§Ù†ÙŠØ©.` : `ØªØ¨Ø¯Ø£ Ù…Ù† ${entryTier.monthlyFeeSAR} Ø±.Ø³ Ø´Ù‡Ø±ÙŠØ§Ù‹.`) : `ØªØ®ØªÙ„Ù Ø­Ø³Ø¨ Ø§Ù„Ø¨Ø§Ù‚Ø©.`,
     },
     {
-      q: `هل ${platform.nameAr} مناسب للمبتدئين؟`,
-      a: platform.isEnterprise ? `${platform.nameAr} مصمم للمؤسسات الكبرى.` : `${platform.nameAr} مناسب نسبياً للمبتدئين.`,
+      q: `Ù‡Ù„ ${platform.nameAr} Ù…Ù†Ø§Ø³Ø¨ Ù„Ù„Ù…Ø¨ØªØ¯Ø¦ÙŠÙ†ØŸ`,
+      a: platform.isEnterprise ? `${platform.nameAr} Ù…ØµÙ…Ù… Ù„Ù„Ù…Ø¤Ø³Ø³Ø§Øª Ø§Ù„ÙƒØ¨Ø±Ù‰.` : `${platform.nameAr} Ù…Ù†Ø§Ø³Ø¨ Ù†Ø³Ø¨ÙŠØ§Ù‹ Ù„Ù„Ù…Ø¨ØªØ¯Ø¦ÙŠÙ†.`,
     },
     {
-      q: `هل يدعم ${platform.nameAr} السوق السعودي؟`,
-      a: platform.origin === 'GCC' ? `نعم، ${platform.nameAr} مصمم خصيصاً للسوق السعودي والخليجي.` : `${platform.nameAr} منصة عالمية.`,
+      q: `Ù‡Ù„ ÙŠØ¯Ø¹Ù… ${platform.nameAr} Ø§Ù„Ø³ÙˆÙ‚ Ø§Ù„Ø³Ø¹ÙˆØ¯ÙŠØŸ`,
+      a: platform.origin === 'GCC' ? `Ù†Ø¹Ù…ØŒ ${platform.nameAr} Ù…ØµÙ…Ù… Ø®ØµÙŠØµØ§Ù‹ Ù„Ù„Ø³ÙˆÙ‚ Ø§Ù„Ø³Ø¹ÙˆØ¯ÙŠ ÙˆØ§Ù„Ø®Ù„ÙŠØ¬ÙŠ.` : `${platform.nameAr} Ù…Ù†ØµØ© Ø¹Ø§Ù„Ù…ÙŠØ©.`,
     },
   ];
 
@@ -98,9 +98,9 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
       <main className="min-h-screen pt-28 pb-20 px-4">
         <div className="max-w-4xl mx-auto">
           <nav className="text-sm text-slate-500 mb-8 flex items-center gap-2">
-            <Link href="/" className="hover:text-white">الرئيسية</Link>
+            <Link href="/" className="hover:text-white">Ø§Ù„Ø±Ø¦ÙŠØ³ÙŠØ©</Link>
             <span>/</span>
-            <Link href="/muqaranat" className="hover:text-white">المقارنات</Link>
+            <Link href="/muqaranat" className="hover:text-white">Ø§Ù„Ù…Ù‚Ø§Ø±Ù†Ø§Øª</Link>
             <span>/</span>
             <span className="text-white">{platform.nameAr}</span>
           </nav>
@@ -108,16 +108,16 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
             <div className="flex items-start gap-6 flex-wrap">
               <div className="w-20 h-20 rounded-2xl border border-white/10 flex items-center justify-center p-2 flex-shrink-0"
                 style={{ backgroundColor: `${platform.brandColor}22` }}>
-                <img src={`/logos/${platform.slug}.png`} alt={platform.nameAr}
+                <img src={`/logos/${platform.slug}.svg`} alt={platform.nameAr}
                   className="w-full h-full object-contain" />
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-3 flex-wrap mb-2">
                   <h1 className="text-4xl font-extrabold text-white">{platform.nameAr}</h1>
                   <span className={`badge text-sm ${platform.origin === 'GCC' ? 'badge-secondary' : 'badge-primary'}`}>
-                    {platform.origin === 'GCC' ? 'خليجي' : 'عالمي'}
+                    {platform.origin === 'GCC' ? 'Ø®Ù„ÙŠØ¬ÙŠ' : 'Ø¹Ø§Ù„Ù…ÙŠ'}
                   </span>
-                  {platform.isEnterprise && <span className="badge badge-warning text-sm">مؤسسي</span>}
+                  {platform.isEnterprise && <span className="badge badge-warning text-sm">Ù…Ø¤Ø³Ø³ÙŠ</span>}
                 </div>
                 <StarRating rating={platform.rating} size="md" className="mb-3" />
                 <p className="text-slate-300 leading-relaxed">{platform.descriptionAr}</p>
@@ -126,7 +126,7 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
           </div>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-extrabold text-white mb-4">الباقات والأسعار</h2>
+            <h2 className="text-2xl font-extrabold text-white mb-4">Ø§Ù„Ø¨Ø§Ù‚Ø§Øª ÙˆØ§Ù„Ø£Ø³Ø¹Ø§Ø±</h2>
             <div className="grid gap-4">
               {platform.pricingTiers.map((tier) => (
                 <div key={tier.id} className="glass p-5 flex items-center gap-4 flex-wrap">
@@ -136,11 +136,11 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
                   <div className="text-right">
                     <div className="text-2xl font-extrabold text-white">
                       {tier.monthlyFeeSAR === 0
-                        ? <span className="text-emerald-400">مجاني</span>
-                        : <>{tier.monthlyFeeSAR.toLocaleString('en-US')} <span className="text-sm text-slate-400">ر.س/شهر</span></>}
+                        ? <span className="text-emerald-400">Ù…Ø¬Ø§Ù†ÙŠ</span>
+                        : <>{tier.monthlyFeeSAR.toLocaleString('en-US')} <span className="text-sm text-slate-400">Ø±.Ø³/Ø´Ù‡Ø±</span></>}
                     </div>
                     {tier.transactionFeePct > 0 && (
-                      <div className="text-xs text-amber-400">+ {tier.transactionFeePct}% رسوم معاملات</div>
+                      <div className="text-xs text-amber-400">+ {tier.transactionFeePct}% Ø±Ø³ÙˆÙ… Ù…Ø¹Ø§Ù…Ù„Ø§Øª</div>
                     )}
                   </div>
                 </div>
@@ -150,22 +150,22 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             <section>
-              <h2 className="text-xl font-extrabold text-white mb-4">المميزات</h2>
+              <h2 className="text-xl font-extrabold text-white mb-4">Ø§Ù„Ù…Ù…ÙŠØ²Ø§Øª</h2>
               <ul className="space-y-3">
                 {platform.pros.map((pro) => (
                   <li key={pro.id} className="flex items-start gap-3 text-sm text-slate-300">
-                    <span className="text-emerald-400 mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-emerald-400 mt-0.5 flex-shrink-0">âœ“</span>
                     {pro.textAr}
                   </li>
                 ))}
               </ul>
             </section>
             <section>
-              <h2 className="text-xl font-extrabold text-white mb-4">العيوب</h2>
+              <h2 className="text-xl font-extrabold text-white mb-4">Ø§Ù„Ø¹ÙŠÙˆØ¨</h2>
               <ul className="space-y-3">
                 {platform.cons.map((con) => (
                   <li key={con.id} className="flex items-start gap-3 text-sm text-slate-300">
-                    <span className="text-red-400 mt-0.5 flex-shrink-0">✗</span>
+                    <span className="text-red-400 mt-0.5 flex-shrink-0">âœ—</span>
                     {con.textAr}
                   </li>
                 ))}
@@ -175,20 +175,20 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
 
           {platform.quickVerdictAr && (
             <div className="glass p-6 border-r-4 border-secondary mb-8">
-              <h3 className="text-lg font-extrabold text-white mb-2">الحكم السريع</h3>
+              <h3 className="text-lg font-extrabold text-white mb-2">Ø§Ù„Ø­ÙƒÙ… Ø§Ù„Ø³Ø±ÙŠØ¹</h3>
               <p className="text-slate-300 leading-relaxed">{platform.quickVerdictAr}</p>
             </div>
           )}
 
           {platform.commissionInfo && (
             <div className="glass p-6 mb-8">
-              <h3 className="text-lg font-extrabold text-white mb-2">العمولات والرسوم</h3>
+              <h3 className="text-lg font-extrabold text-white mb-2">Ø§Ù„Ø¹Ù…ÙˆÙ„Ø§Øª ÙˆØ§Ù„Ø±Ø³ÙˆÙ…</h3>
               <p className="text-slate-300 leading-relaxed">{platform.commissionInfo}</p>
             </div>
           )}
 
           <section>
-            <h2 className="text-2xl font-extrabold text-white mb-4">الأسئلة الشائعة</h2>
+            <h2 className="text-2xl font-extrabold text-white mb-4">Ø§Ù„Ø£Ø³Ø¦Ù„Ø© Ø§Ù„Ø´Ø§Ø¦Ø¹Ø©</h2>
             <div className="glass overflow-hidden">
               {faqs.map((faq, i) => (
                 <div key={i} className={`p-5 ${i < faqs.length - 1 ? 'border-b border-white/6' : ''}`}>
@@ -204,3 +204,4 @@ export default async function PlatformOrComparisonPage({ params }: Props) {
     </>
   );
 }
+
