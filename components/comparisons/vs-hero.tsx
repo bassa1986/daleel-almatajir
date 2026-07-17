@@ -1,4 +1,4 @@
-import { Clock } from 'lucide-react';
+﻿import { Clock } from 'lucide-react';
 import { StarRating } from '@/components/ui/star-rating';
 import type { PlatformFullRelations } from '@/lib/data/platforms';
 
@@ -18,25 +18,25 @@ export function VsHero({ platformA, platformB }: VsHeroProps) {
         <PlatformBadge platform={platformB} />
       </div>
       <h1 className="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-snug max-w-2xl mx-auto">
-        مقارنة شاملة بين {platformA.nameAr} و{platformB.nameAr} لعام ٢٠٢٦
+        Ù…Ù‚Ø§Ø±Ù†Ø© Ø´Ø§Ù…Ù„Ø© Ø¨ÙŠÙ† {platformA.nameAr} Ùˆ{platformB.nameAr} Ù„Ø¹Ø§Ù… Ù¢Ù Ù¢Ù¦
       </h1>
       <div className="flex items-center justify-center gap-4 text-xs text-slate-500 mb-8">
         <span className="flex items-center gap-1.5">
-          <Clock size={13} /> آخر تحديث: يونيو ٢٠٢٦
+          <Clock size={13} /> Ø¢Ø®Ø± ØªØ­Ø¯ÙŠØ«: ÙŠÙˆÙ†ÙŠÙˆ Ù¢Ù Ù¢Ù¦
         </span>
-        <span>٨ دقائق للقراءة</span>
+        <span>Ù¨ Ø¯Ù‚Ø§Ø¦Ù‚ Ù„Ù„Ù‚Ø±Ø§Ø¡Ø©</span>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-3">
         {platformA.affiliateUrl && (
           <a href={platformA.affiliateUrl} target="_blank" rel="noopener noreferrer sponsored"
             className="btn text-white text-sm px-6 py-3" style={{ backgroundColor: platformA.brandColor }}>
-            ابدأ مع {platformA.nameAr}
+            Ø§Ø¨Ø¯Ø£ Ù…Ø¹ {platformA.nameAr}
           </a>
         )}
         {platformB.affiliateUrl && (
           <a href={platformB.affiliateUrl} target="_blank" rel="noopener noreferrer sponsored"
             className="btn text-white text-sm px-6 py-3" style={{ backgroundColor: platformB.brandColor }}>
-            ابدأ مع {platformB.nameAr}
+            Ø§Ø¨Ø¯Ø£ Ù…Ø¹ {platformB.nameAr}
           </a>
         )}
       </div>
@@ -50,7 +50,7 @@ function PlatformBadge({ platform }: { platform: PlatformFullRelations }) {
       <div className="w-16 h-16 rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden p-1"
         style={{ backgroundColor: `${platform.brandColor}22` }}>
         <img
-          src={`/logos/${platform.slug}.png`}
+          src={`/logos/${platform.slug}.svg`}
           alt={platform.nameAr}
           className="w-full h-full object-contain"
         />
@@ -60,3 +60,4 @@ function PlatformBadge({ platform }: { platform: PlatformFullRelations }) {
     </div>
   );
 }
+
