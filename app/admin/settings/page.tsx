@@ -11,7 +11,7 @@ export default async function AdminSettingsPage() {
       <SettingsForm
         id={settings?.id ?? null}
         initial={{
-          siteNameAr: settings?.siteNameAr ?? 'Ø¯Ù„ÙŠÙ„ Ø§Ù„Ù…ØªØ§Ø¬Ø±',
+          siteNameAr: settings?.siteNameAr ?? 'دليل المتاجر',
           taglineAr: settings?.taglineAr ?? '',
           contactEmail: settings?.contactEmail ?? '',
           twitterUrl: settings?.twitterUrl ?? '',

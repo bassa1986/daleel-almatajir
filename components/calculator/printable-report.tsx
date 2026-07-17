@@ -31,7 +31,7 @@ export function PrintableReport({ data }: PrintableReportProps) {
 
       {/* Inputs summary */}
       <div style={{ marginBottom: '28px' }}>
-        <div style={{ fontSize: '14px', fontWeight: 700, color: '#fff', marginBottom: '10px' }}>ÙÙØ®Øµ Ø§ÙÙØ¯Ø®ÙØ§Øª</div>
+        <div style={{ fontSize: '14px', fontWeight: 700, color: '#fff', marginBottom: '10px' }}>ملخص المدخلات</div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
           {data.inputsSummary.map((row, i) => (
             <div
@@ -69,9 +69,9 @@ export function PrintableReport({ data }: PrintableReportProps) {
               <span style={{ fontSize: '15px', fontWeight: 800, color: '#fff' }}>
                 #{platform.rank} {platform.nameAr}
               </span>
-              <span style={{ fontSize: '11px', color: '#94A3B8', marginRight: '8px' }}>Ø¨Ø§ÙØ© {platform.tierNameAr}</span>
+              <span style={{ fontSize: '11px', color: '#94A3B8', marginRight: '8px' }}>باقة {platform.tierNameAr}</span>
             </div>
-            <span style={{ fontSize: '16px', fontWeight: 800, color: '#fff' }}>{platform.totalMonthlyCostAr}/Ø´ÙØ±</span>
+            <span style={{ fontSize: '16px', fontWeight: 800, color: '#fff' }}>{platform.totalMonthlyCostAr}/شهر</span>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '6px', marginBottom: '8px' }}>
@@ -83,7 +83,7 @@ export function PrintableReport({ data }: PrintableReportProps) {
             ))}
           </div>
 
-          <div style={{ fontSize: '11px', color: '#94A3B8' }}>Ø§ÙØªÙÙÙØ© Ø§ÙØ³ÙÙÙØ©: {platform.totalAnnualCostAr}</div>
+          <div style={{ fontSize: '11px', color: '#94A3B8' }}>التكلفة السنوية: {platform.totalAnnualCostAr}</div>
 
           {platform.warningsAr.map((w, i) => (
             <div key={i} style={{ fontSize: '10px', color: '#FCD34D', marginTop: '6px' }}>

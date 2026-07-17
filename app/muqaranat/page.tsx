@@ -1,17 +1,23 @@
-﻿import type { Metadata } from "next";
-import Link from "next/link";
-import { SiteHeader } from "@/components/layout/site-header";
-import { SiteFooter } from "@/components/layout/site-footer";
-import { getPlatformsForDisplay } from "@/lib/data/platforms";
-import { StarRating } from "@/components/ui/star-rating";
-export const metadata: Metadata = { title: "Ù…Ù‚Ø§Ø±Ù†Ø© Ø§Ù„Ù…Ù†ØµØ§Øª Ù¢Ù Ù¢Ù¦" };
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { SiteHeader } from '@/components/layout/site-header';
+import { SiteFooter } from '@/components/layout/site-footer';
+import { getPlatformsForDisplay } from '@/lib/data/platforms';
+import { StarRating } from '@/components/ui/star-rating';
+
+export const metadata: Metadata = {
+  title: 'مقارنة منصات التجارة الإلكترونية ٢٠٢٦',
+  description: 'مقارنة شاملة بين سلة، زد، شوبيفاي، ووكومرس، بيغ كومرس وماجنتو.',
+};
 export const revalidate = 3600;
+
 const VS_PAIRS = [
-  ["salla","zid"],["salla","shopify"],["salla","woocommerce"],["zid","shopify"],["zid","woocommerce"],
-  ["shopify","woocommerce"],["salla","bigcommerce"],["zid","bigcommerce"],["shopify","bigcommerce"],
-  ["woocommerce","bigcommerce"],["salla","magento"],["zid","magento"],["shopify","magento"],
-  ["woocommerce","magento"],["bigcommerce","magento"],
+  ['salla','zid'],['salla','shopify'],['salla','woocommerce'],['zid','shopify'],['zid','woocommerce'],
+  ['shopify','woocommerce'],['salla','bigcommerce'],['zid','bigcommerce'],['shopify','bigcommerce'],
+  ['woocommerce','bigcommerce'],['salla','magento'],['zid','magento'],['shopify','magento'],
+  ['woocommerce','magento'],['bigcommerce','magento'],
 ] as const;
+
 export default async function ComparisonsPage() {
   const platforms = await getPlatformsForDisplay();
   return (
@@ -20,10 +26,10 @@ export default async function ComparisonsPage() {
       <main className="min-h-screen pt-28 pb-20 px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
-            <h1 className="text-5xl font-extrabold text-white mb-4">Ù…Ù‚Ø§Ø±Ù†Ø© Ø§Ù„Ù…Ù†ØµØ§Øª</h1>
-            <p className="text-slate-400 text-xl">Ø§Ø®ØªØ± Ù…Ù†ØµØ© Ù„Ù„Ù…Ø±Ø§Ø¬Ø¹Ø© Ø§Ù„ÙƒØ§Ù…Ù„Ø© Ø£Ùˆ Ù‚Ø§Ø±Ù† Ø¨ÙŠÙ† Ù…Ù†ØµØªÙŠÙ†</p>
+            <h1 className="text-5xl font-extrabold text-white mb-4">مقارنة المنصات</h1>
+            <p className="text-slate-400 text-xl">اختر منصة للمراجعة الكاملة أو قارن بين منصتين</p>
           </div>
-          <h2 className="text-2xl font-extrabold text-white mb-6">Ù…Ø±Ø§Ø¬Ø¹Ø§Øª Ø§Ù„Ù…Ù†ØµØ§Øª</h2>
+          <h2 className="text-2xl font-extrabold text-white mb-6">مراجعات المنصات</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
             {platforms.map((p) => (
               <Link key={p.slug} href={`/muqaranat/${p.slug}`} className="glass glass-hover p-6 block">
@@ -31,17 +37,17 @@ export default async function ComparisonsPage() {
                   <div className="w-12 h-12 rounded-xl border border-white/10 flex items-center justify-center overflow-hidden p-1" style={{ backgroundColor: `${p.brandColor}22` }}>
                     <img src={`/logos/${p.slug}.svg`} alt={p.nameAr} className="w-full h-full object-contain" />
                   </div>
-                  <span className={`badge text-xs ${p.origin==="GCC"?"badge-secondary":"badge-primary"}`}>{p.origin==="GCC"?"Ø®Ù„ÙŠØ¬ÙŠ":"Ø¹Ø§Ù„Ù…ÙŠ"}</span>
+                  <span className={`badge text-xs ${p.origin==='GCC'?'badge-secondary':'badge-primary'}`}>{p.origin==='GCC'?'خليجي':'عالمي'}</span>
                 </div>
                 <h3 className="text-xl font-extrabold text-white mb-1">{p.nameAr}</h3>
                 <StarRating rating={p.rating} className="mb-3" />
                 <div className="text-lg font-bold text-white">
-                  {p.startingPriceSAR===0?<span className="text-emerald-400">Ù…Ø¬Ø§Ù†ÙŠ</span>:<>{p.startingPriceSAR.toLocaleString("en-US")} <span className="text-sm text-slate-400">Ø±.Ø³/Ø´Ù‡Ø±</span></>}
+                  {p.startingPriceSAR===0?<span className="text-emerald-400">مجاني</span>:<>{p.startingPriceSAR.toLocaleString('en-US')} <span className="text-sm text-slate-400">ر.س/شهر</span></>}
                 </div>
               </Link>
             ))}
           </div>
-          <h2 className="text-2xl font-extrabold text-white mb-6">Ù…Ù‚Ø§Ø±Ù†Ø§Øª Ù…Ø¨Ø§Ø´Ø±Ø© (VS)</h2>
+          <h2 className="text-2xl font-extrabold text-white mb-6">مقارنات مباشرة (VS)</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {VS_PAIRS.map(([a,b])=>{
               const pa=platforms.find(p=>p.slug===a);
