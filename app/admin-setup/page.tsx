@@ -11,11 +11,12 @@ async function createFirstUser(formData: FormData) {
   if (count > 0) { redirect('/admin-login'); return; }
   const bcrypt = await import('bcryptjs');
   const hash = await bcrypt.hash(password, 12);
-  const token = Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2);
+  const crypto = await import('crypto');
+  const token = crypto.randomBytes(32).toString('hex');
   await prisma.adminUser.create({ data: { email, passwordHash: hash, token } });
   const { cookies } = await import('next/headers');
   const cookieStore = await cookies();
-  cookieStore.set('admin_token', token, { httpOnly: true, secure: false, maxAge: 60 * 60 * 24 * 7, path: '/' });
+  cookieStore.set('admin_token', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production', maxAge: 60 * 60 * 24 * 7, path: '/' });
   redirect('/admin');
 }
 
@@ -38,7 +39,7 @@ export default async function SetupPage() {
             </div>
             <div>
               <label className="text-sm text-slate-300 mb-1 block">Password (min 8 characters)</label>
-              <input name="password" type="password" required minLength={8} placeholder="••••••••"
+              <input name="password" type="password" required minLength={8} placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-white/30" />
             </div>
             <button type="submit"

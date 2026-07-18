@@ -12,11 +12,12 @@ async function login(formData: FormData) {
   const bcrypt = await import('bcryptjs');
   const valid = await bcrypt.compare(password, user.passwordHash);
   if (!valid) return;
-  const token = Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2);
+  const crypto = await import('crypto');
+  const token = crypto.randomBytes(32).toString('hex');
   await prisma.adminUser.update({ where: { email }, data: { token } });
   const { cookies } = await import('next/headers');
   const cookieStore = await cookies();
-  cookieStore.set('admin_token', token, { httpOnly: true, secure: false, maxAge: 60 * 60 * 24 * 7, path: '/' });
+  cookieStore.set('admin_token', token, { httpOnly: true, secure: process.env.NODE_ENV === 'production', maxAge: 60 * 60 * 24 * 7, path: '/' });
   redirect('/admin');
 }
 
@@ -37,7 +38,7 @@ export default async function LoginPage() {
             </div>
             <div>
               <label className="text-sm text-slate-300 mb-1 block">Password</label>
-              <input name="password" type="password" required placeholder="••••••••"
+              <input name="password" type="password" required placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
                 className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-white/30" />
             </div>
             <button type="submit"
