@@ -4,18 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { StarRating } from "@/components/ui/star-rating";
 import type { PlatformDisplay } from "@/lib/data/platforms";
-
 interface PlatformGridProps { platforms: PlatformDisplay[]; }
-
-const LOGO_EXT: Record<string, string> = {
-  shopify: "png",
-  zid: "png",
-  salla: "png",
-  woocommerce: "svg",
-  bigcommerce: "svg",
-  magento: "svg",
-};
-
 export function PlatformGrid({ platforms }: PlatformGridProps) {
   if (!platforms || platforms.length === 0) return null;
   return (
@@ -33,7 +22,7 @@ export function PlatformGrid({ platforms }: PlatformGridProps) {
                   <div className="w-16 h-16 rounded-xl border border-white/10 flex items-center justify-center overflow-hidden p-1"
                     style={{ backgroundColor: `${p.brandColor}22` }}>
                     <Image
-                      src={`/logos/${p.slug}.${LOGO_EXT[p.slug] || "svg"}`}
+                      src={`/logos/${p.slug}.svg`}
                       alt={p.nameAr}
                       width={56}
                       height={56}
