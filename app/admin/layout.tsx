@@ -18,13 +18,12 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   return (
     <div className="min-h-screen bg-[#0A0F1E] flex" dir="ltr">
       <aside className="w-56 border-r border-white/6 flex flex-col py-8 px-4 fixed inset-y-0">
-        <Link href="/admin" className="text-lg font-extrabold text-white mb-8 block">⚙ Admin</Link>
+        <Link href="/admin" className="text-lg font-extrabold text-white mb-8 block">âš™ Admin</Link>
         <nav className="flex flex-col gap-1 flex-1">
           {[
             { href: '/admin', label: 'Dashboard' },
             { href: '/admin/platforms', label: 'Platforms' },
             { href: '/admin/articles', label: 'Articles' },
-            { href: '/admin/subscribers', label: 'Subscribers' },
             { href: '/admin/calculator', label: 'Calculator' },
             { href: '/admin/affiliate-links', label: 'Affiliate Links' },
             { href: '/admin/settings', label: 'Settings' },

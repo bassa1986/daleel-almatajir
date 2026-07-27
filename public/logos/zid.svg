@@ -1,1 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="#00857C"/><rect x="25" y="30" width="50" height="40" rx="16" fill="none" stroke="#fff" stroke-width="6"/><path d="M32 58 Q50 76 68 58" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 150">
+  <!-- Flower mark: four rounded loop petals around a center -->
+  <g fill="none" stroke="#7C3AED" stroke-width="9" stroke-linecap="round">
+    <!-- top petal -->
+    <path d="M165 44 C165 44 157 34 157 22 C157 13 163 8 169 8 C175 8 180 14 180 22 C180 34 165 44 165 44 Z"/>
+    <!-- right petal -->
+    <path d="M165 44 C165 44 175 38 187 38 C196 38 201 44 201 50 C201 56 195 61 187 61 C175 61 165 44 165 44 Z"/>
+    <!-- bottom petal -->
+    <path d="M165 44 C165 44 173 54 173 66 C173 75 167 80 161 80 C155 80 150 74 150 66 C150 54 165 44 165 44 Z"/>
+    <!-- left petal -->
+    <path d="M165 44 C165 44 155 50 143 50 C134 50 129 44 129 38 C129 32 135 27 143 27 C155 27 165 44 165 44 Z"/>
+  </g>
+  <circle cx="165" cy="44" r="5" fill="#7C3AED"/>
+
+  <!-- Abstract wordmark: two separate letterforms with clear gap -->
+  <circle cx="110" cy="52" r="7" fill="#7C3AED"/>
+  <path d="M106 68 v40 c0 9 -7 14 -15 14 c-5 0 -9 -1 -12 -4"
+        fill="none" stroke="#7C3AED" stroke-width="13" stroke-linecap="round"/>
+  <path d="M25 96 c0 -13 9 -22 21 -22 c12 0 21 9 21 22 v20 h-42"
+        fill="none" stroke="#7C3AED" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

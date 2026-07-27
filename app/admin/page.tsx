@@ -6,10 +6,9 @@ import { prisma } from '@/lib/db';
 const STALE_THRESHOLD_DAYS = 30;
 
 export default async function AdminDashboard() {
-  const [articleCount, publishedCount, subscriberCount, platforms] = await Promise.all([
+  const [articleCount, publishedCount, platforms] = await Promise.all([
     prisma.article.count(),
     prisma.article.count({ where: { status: 'published' } }),
-    prisma.subscriber.count(),
     prisma.platform.findMany({ select: { nameAr: true, slug: true, updatedAt: true } }),
   ]);
 
@@ -21,7 +20,6 @@ export default async function AdminDashboard() {
   const stats = [
     { label: 'Total Articles', value: articleCount, color: '#3B82F6' },
     { label: 'Published', value: publishedCount, color: '#22C55E' },
-    { label: 'Subscribers', value: subscriberCount, color: '#06B6D4' },
     { label: 'Platforms', value: platforms.length, color: '#F59E0B' },
   ];
 
@@ -63,7 +61,6 @@ export default async function AdminDashboard() {
           <Link href="/admin/articles/new" className="btn-primary text-sm px-4 py-2">+ New Article</Link>
           <Link href="/admin/platforms" className="btn-glass text-sm px-4 py-2">Manage Platforms</Link>
           <Link href="/admin/calculator" className="btn-glass text-sm px-4 py-2">Calculator Config</Link>
-          <Link href="/admin/subscribers" className="btn-glass text-sm px-4 py-2">View Subscribers</Link>
         </div>
       </div>
     </div>
